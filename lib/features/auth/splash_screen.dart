@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/login/ui/login_ui.dart';
+import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class SplashUi extends StatefulWidget {
   const SplashUi({super.key});
@@ -15,10 +16,11 @@ class _SplashUiState extends State<SplashUi> {
   void initState() {
     super.initState();
     Timer(
-        const Duration(seconds: 3),
-        (() => Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const LoginUi(),
-            ))));
+      const Duration(seconds: 3),
+      () {
+        Navigator.of(context).pushNamed(RoutesName.login);
+      },
+    );
   }
 
   @override
