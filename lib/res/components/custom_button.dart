@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lotto_grazer/res/colors.dart';
 
 class CustomButton extends StatelessWidget {
   String title;
@@ -13,6 +15,7 @@ class CustomButton extends StatelessWidget {
   double topRightRadius;
   double? btnwidth;
   double? btnheight;
+  double? fontsize;
   CustomButton({
     super.key,
     required this.title,
@@ -26,6 +29,7 @@ class CustomButton extends StatelessWidget {
     this.topRightRadius = 0.0,
     this.btnheight,
     this.btnwidth,
+    this.fontsize,
     this.loading = false,
   });
 
@@ -51,9 +55,13 @@ class CustomButton extends StatelessWidget {
       minWidth: btnwidth,
       child: Text(
         title.toString(),
-        style: const TextStyle(
-          fontSize: 20.0,
-        ),
+        style: GoogleFonts.montserrat(
+            fontWeight: FontWeight.w600,
+            color: fgColor,
+            fontSize: fontsize,
+            wordSpacing: 0,
+            textBaseline: TextBaseline.alphabetic,
+            textStyle: Theme.of(context).textTheme.headline4),
       ),
     );
   }

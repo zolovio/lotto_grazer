@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:lotto_grazer/res/components/custom_appbar.dart';
+import 'package:lotto_grazer/utils/utils.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({super.key});
@@ -12,6 +12,12 @@ class LoginUi extends StatefulWidget {
 class _LoginUiState extends State<LoginUi> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: PreferredSize(
+        child: CutomAppBar(),
+        preferredSize:
+            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+      ),
+    );
   }
 }
