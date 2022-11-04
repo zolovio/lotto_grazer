@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
+import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -14,63 +17,87 @@ class LanguageUi extends StatefulWidget {
 }
 
 class _LanguageUiState extends State<LanguageUi> {
+  final ValueListenable<List<bool>> _isSelected =
+      ValueNotifier([false, false, false]);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              height: Utils.height(context) * 0.25,
-              width: Utils.width(context) * 0.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(150.0),
-                color: Colors.grey.shade300,
-                border: Border.all(
-                  color: AppColors.blueColor,
-                  width: 3.0,
+    return WillPopScope(
+      onWillPop: () => Utils.onWillPop(context),
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                height: Utils.height(context) * 0.25,
+                width: Utils.width(context) * 0.5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(150.0),
+                  color: Colors.grey.shade300,
+                  border: Border.all(
+                    color: AppColors.blueColor,
+                    width: 3.0,
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    "CHOOSE LANGUAGE",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.blackColor,
+                        fontSize: 20.0,
+                        wordSpacing: 0,
+                        textBaseline: TextBaseline.alphabetic,
+                        textStyle: Theme.of(context).textTheme.headline4),
+                  ),
                 ),
               ),
-              child: const Center(
-                child: Text(
-                  "CHOOSE LANGUAGE",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black, fontSize: 25),
-                ),
-              ),
-            ),
-            CustomButton(
-                title: 'ENGLISH',
-                onpress: () {},
-                bgColor: AppColors.blueColor,
-                fgColor: AppColors.whiteColor,
-                bdColor: AppColors.lightBlueColor,
-                btnwidth: Utils.width(context) * 0.6,
-                btnheight: Utils.height(context) * 0.06,
-                bottomRightRadius: 10.0,
-                topLeftRadius: 10.0,
-                fontsize: 18.0),
-            // SizedBox(
-            //   // width: Utils.width(context) * 0.6,
-            //   height: Utils.height(context) * 0.02,
-            // ),
-            CustomButton(
-                title: 'FRENCH',
-                onpress: () {},
-                bgColor: AppColors.blueColor,
-                fgColor: AppColors.whiteColor,
-                bdColor: AppColors.lightBlueColor,
-                btnwidth: Utils.width(context) * 0.6,
-                btnheight: Utils.height(context) * 0.06,
-                bottomRightRadius: 10.0,
-                topLeftRadius: 10.0,
-                fontsize: 18.0),
-            // SizedBox(
-            //   // width: Utils.width(context) * 0.6,
-            //   height: Utils.height(context) * 0.02,
-            // ),
-            CustomButton(
+              ValueListenableBuilder(
+                  valueListenable: _isSelected,
+                  builder: (context, val, _) {
+                    return ToggleButtons(
+                      onPressed: ((index) {
+                        _isSelected.value[index] = !_isSelected.value[index];
+                        print(val);
+                      }),
+                      isSelected: val,
+                      verticalDirection: VerticalDirection.down,
+                      direction: Axis.vertical,
+                      selectedColor: AppColors.darkBlueColor,
+                      children: [
+                        CustomContainer(
+                            title: 'ENGLISH',
+                            bgColor: val[0]
+                                ? AppColors.darkBlueColor
+                                : AppColors.blueColor,
+                            fgColor: AppColors.whiteColor,
+                            bdColor: AppColors.lightBlueColor,
+                            width: Utils.width(context) * 0.6,
+                            height: Utils.height(context) * 0.06,
+                            bottomRightRadius: 10.0,
+                            topLeftRadius: 10.0,
+                            fontsize: 18.0),
+                        SizedBox(
+                          height: Utils.height(context) * 0.05,
+                          // width: Utils.width(context) * 0.2,
+                        ),
+                        CustomContainer(
+                            title: 'FRENCH',
+                            bgColor: val[2]
+                                ? AppColors.darkBlueColor
+                                : AppColors.blueColor,
+                            fgColor: AppColors.whiteColor,
+                            bdColor: AppColors.lightBlueColor,
+                            width: Utils.width(context) * 0.6,
+                            height: Utils.height(context) * 0.06,
+                            bottomRightRadius: 10.0,
+                            topLeftRadius: 10.0,
+                            fontsize: 18.0),
+                      ],
+                    );
+                  }),
+              CustomButton(
                 title: 'ENTER',
                 onpress: () {
                   Navigator.of(context).pushNamed(RoutesName.login);
@@ -82,8 +109,11 @@ class _LanguageUiState extends State<LanguageUi> {
                 btnheight: Utils.height(context) * 0.06,
                 bottomRightRadius: 10.0,
                 topLeftRadius: 10.0,
-                fontsize: 18.0),
-          ],
+                fontsize: 18.0,
+                bdwidth: 3.0,
+              ),
+            ],
+          ),
         ),
       ),
     );

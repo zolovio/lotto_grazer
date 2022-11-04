@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lotto_grazer/res/colors.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomContainer extends StatelessWidget {
   String title;
-  bool loading;
-  final VoidCallback onpress;
   Color bgColor;
   Color fgColor;
   Color bdColor;
@@ -13,14 +10,13 @@ class CustomButton extends StatelessWidget {
   double topLeftRadius;
   double bottomRightRadius;
   double topRightRadius;
-  double? btnwidth;
-  double? btnheight;
+  double? width;
+  double? height;
   double? fontsize;
   double bdwidth;
-  CustomButton({
+  CustomContainer({
     super.key,
     required this.title,
-    required this.onpress,
     required this.bgColor,
     required this.fgColor,
     required this.bdColor,
@@ -28,20 +24,18 @@ class CustomButton extends StatelessWidget {
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
     this.topRightRadius = 0.0,
-    this.btnheight,
-    this.btnwidth,
+    this.height,
+    this.width,
     this.fontsize,
     this.bdwidth = 2.0,
-    this.loading = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      color: bgColor,
-      textColor: fgColor,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
+    return Container(
+      decoration: BoxDecoration(
+        color: bgColor,
+        border: Border.all(
           color: bdColor,
           width: bdwidth,
         ),
@@ -52,18 +46,19 @@ class CustomButton extends StatelessWidget {
           topLeft: Radius.circular(topLeftRadius),
         ),
       ),
-      onPressed: onpress,
-      height: btnheight,
-      minWidth: btnwidth,
-      child: Text(
-        title.toString(),
-        style: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w600,
-            color: fgColor,
-            fontSize: fontsize,
-            wordSpacing: 0,
-            textBaseline: TextBaseline.alphabetic,
-            textStyle: Theme.of(context).textTheme.headline4),
+      height: height,
+      width: width,
+      child: Center(
+        child: Text(
+          title.toString(),
+          style: GoogleFonts.montserrat(
+              fontWeight: FontWeight.w600,
+              color: fgColor,
+              fontSize: fontsize,
+              wordSpacing: 0,
+              textBaseline: TextBaseline.alphabetic,
+              textStyle: Theme.of(context).textTheme.headline4),
+        ),
       ),
     );
   }
