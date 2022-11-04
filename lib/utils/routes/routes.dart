@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/login/ui/login_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
+import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class Routes {
@@ -16,6 +17,9 @@ class Routes {
       //             args: settings.arguments as Map,
       //           ));
 
+      case RoutesName.language:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const LanguageUi());
       case RoutesName.login:
         return MaterialPageRoute(
             builder: (BuildContext context) => const LoginUi());

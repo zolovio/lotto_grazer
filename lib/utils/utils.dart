@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Utils {
+  static double height(context) {
+    return MediaQuery.of(context).size.height;
+  }
+
+  static double width(context) {
+    return MediaQuery.of(context).size.width;
+  }
+
   static Future<bool> onWillPop(context) async {
     return (await showDialog(
           context: context,

@@ -18,7 +18,7 @@ class _SplashUiState extends State<SplashUi> {
     Timer(
       const Duration(seconds: 3),
       () {
-        Navigator.of(context).pushNamed(RoutesName.login);
+        Navigator.of(context).pushNamed(RoutesName.language);
       },
     );
   }
