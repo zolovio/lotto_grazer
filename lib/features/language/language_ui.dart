@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
@@ -17,10 +14,11 @@ class LanguageUi extends StatefulWidget {
 }
 
 class _LanguageUiState extends State<LanguageUi> {
-  final ValueListenable<List<bool>> _isSelected =
-      ValueNotifier([false, false, false]);
+  final ValueNotifier<List<bool>> _isSelected =
+      ValueNotifier<List<bool>>([false, false, false]);
   @override
   Widget build(BuildContext context) {
+    print('build');
     return WillPopScope(
       onWillPop: () => Utils.onWillPop(context),
       child: Scaffold(
@@ -58,8 +56,11 @@ class _LanguageUiState extends State<LanguageUi> {
                   builder: (context, val, _) {
                     return ToggleButtons(
                       onPressed: ((index) {
+                        _isSelected.value.setAll(0, [false, false, false]);
                         _isSelected.value[index] = !_isSelected.value[index];
                         print(val);
+                        _isSelected.notifyListeners();
+                        // setState(() {});
                       }),
                       isSelected: val,
                       verticalDirection: VerticalDirection.down,

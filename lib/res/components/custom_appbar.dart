@@ -18,7 +18,6 @@ class CutomAppBar extends StatelessWidget {
           'assets/images/appbarlogo.png',
           fit: BoxFit.fill,
           width: Utils.width(context) * 0.5,
-          // height: Utils.height(context) * 0.3,
         ),
       ),
     );
