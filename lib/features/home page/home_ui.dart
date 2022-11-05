@@ -16,6 +16,31 @@ class HomePageUi extends StatefulWidget {
 }
 
 class _HomePageUiState extends State<HomePageUi> {
+  List features = [
+    'LOTTO FORECAST TODAY',
+    'THE RADICAL LOTTO KEYBOOK',
+    'LOTTO RESULT',
+    'OVERDUE NUMBERS',
+    'GRENCO KEY CHART',
+    'SAVED PLANS',
+    'FIND & COMPARE EVENTS',
+    'CLASSIFICATION CHART',
+    'GROUP NUMBER CHART',
+    'COLUMN NUMBER CHART',
+    'ENDING NUMBER CHART',
+  ];
+
+  List timingkeys = [
+    'LAPPING NUMER KEYS',
+    'POLAR ADDITION KEYS',
+    'EVENT SUMMATION KEYS',
+    'PIVOTED NUMBER KEYS',
+    'BALL SPACING KEYS',
+    'CONSTANT POSITION KEYS',
+    'SEQUENTIAL NUMBER KEYS',
+    'PROGRESSIVE NUMBER KEYS',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,28 +65,28 @@ class _HomePageUiState extends State<HomePageUi> {
                 mainAxisSpacing: 10.0,
                 // childAspectRatio: 0.7,
               ),
-              itemCount: 11,
+              itemCount: features.length,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     // Navigator.of(context).pushNamed(RoutesName.products);
                   },
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       const Icon(
                         Icons.flare_sharp,
-                        size: 70.0,
+                        size: 60.0,
                         color: AppColors.blueColor,
                       ),
                       Text(
-                        'cat',
+                        features[index].toString(),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             color: AppColors.blackColor,
-                            fontSize: 14.0,
+                            fontSize: 11.0,
                             wordSpacing: 0,
                             textStyle: Theme.of(context).textTheme.headline4),
                       ),
@@ -93,18 +118,18 @@ class _HomePageUiState extends State<HomePageUi> {
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-                // childAspectRatio: 0.7,
+                crossAxisSpacing: 5.0,
+                mainAxisSpacing: 5.0,
+                childAspectRatio: 0.7,
               ),
-              itemCount: 8,
+              itemCount: timingkeys.length,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     // Navigator.of(context).pushNamed(RoutesName.products);
                   },
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       const Icon(
                         Icons.flare_sharp,
@@ -112,13 +137,13 @@ class _HomePageUiState extends State<HomePageUi> {
                         color: AppColors.blueColor,
                       ),
                       Text(
-                        'cat',
+                        timingkeys[index].toString(),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             color: AppColors.blackColor,
-                            fontSize: 14.0,
+                            fontSize: 11.0,
                             wordSpacing: 0,
                             textStyle: Theme.of(context).textTheme.headline4),
                       ),
