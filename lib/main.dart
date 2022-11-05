@@ -8,6 +8,8 @@ void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
+            navigatorKey: navigatorKey,
             initialRoute: RoutesName.splash,
             onGenerateRoute: Routes.generateRoute,
           );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lotto_grazer/main.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
@@ -26,28 +27,32 @@ class _LanguageUiState extends State<LanguageUi> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                height: Utils.height(context) * 0.25,
-                width: Utils.width(context) * 0.5,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(150.0),
-                  color: Colors.grey.shade300,
-                  border: Border.all(
-                    color: AppColors.blueColor,
-                    width: 3.0,
+              InkWell(
+                onTap: () => navigatorKey.currentState
+                    ?.pushNamed(RoutesName.findCompare),
+                child: Container(
+                  height: Utils.height(context) * 0.25,
+                  width: Utils.width(context) * 0.5,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(150.0),
+                    color: Colors.grey.shade300,
+                    border: Border.all(
+                      color: AppColors.blueColor,
+                      width: 3.0,
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: Text(
-                    "CHOOSE LANGUAGE",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.blackColor,
-                        fontSize: 20.0,
-                        wordSpacing: 0,
-                        textBaseline: TextBaseline.alphabetic,
-                        textStyle: Theme.of(context).textTheme.headline4),
+                  child: Center(
+                    child: Text(
+                      "CHOOSE LANGUAGE",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.blackColor,
+                          fontSize: 20.0,
+                          wordSpacing: 0,
+                          textBaseline: TextBaseline.alphabetic,
+                          textStyle: Theme.of(context).textTheme.headline4),
+                    ),
                   ),
                 ),
               ),

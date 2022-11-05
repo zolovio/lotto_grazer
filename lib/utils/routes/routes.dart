@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/login/ui/login_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
+import 'package:lotto_grazer/features/find_compare/ui/find_compare.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
@@ -10,6 +11,9 @@ class Routes {
       case RoutesName.splash:
         return MaterialPageRoute(
             builder: (BuildContext context) => const SplashUi());
+      case RoutesName.findCompare:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const FindCompareScreen());
 
       // case RoutesName.productdetails:
       //   return MaterialPageRoute(
