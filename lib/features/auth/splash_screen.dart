@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lotto_grazer/features/auth/login/ui/login_ui.dart';
+import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class SplashUi extends StatefulWidget {

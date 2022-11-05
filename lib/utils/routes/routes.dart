@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lotto_grazer/features/auth/login/ui/login_ui.dart';
+import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';

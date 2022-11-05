@@ -6,6 +6,7 @@ import 'package:lotto_grazer/res/components/gradient_outline_input_border.dart';
 class CustomFormField extends StatelessWidget {
   String title;
   TextEditingController fieldcontroller;
+  final FocusNode focusnode;
   final List<Color> gradientcolors;
   final bool isgradientborder;
   final bool ispassword;
@@ -30,6 +31,7 @@ class CustomFormField extends StatelessWidget {
     this.ispassword = false,
     this.onchange,
     this.onsaved,
+    required this.focusnode,
     this.keyboardtype = TextInputType.text,
     this.gradientcolors = const [Colors.red, Colors.blue],
     this.bgColor = AppColors.whiteColor,
@@ -51,7 +53,8 @@ class CustomFormField extends StatelessWidget {
     return TextFormField(
       controller: fieldcontroller,
       onChanged: onchange,
-      onSaved: onsaved as Function(String?)?,
+      focusNode: focusnode,
+      onFieldSubmitted: onsaved as Function(String?)?,
       textAlign: TextAlign.center,
       obscureText: ispassword,
       keyboardType: keyboardtype,

@@ -10,6 +10,12 @@ class Utils {
     return MediaQuery.of(context).size.width;
   }
 
+  static void fieldFocusChange(
+      BuildContext context, FocusNode current, FocusNode nextFocus) {
+    current.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
+
   static Future<bool> onWillPop(context) async {
     return (await showDialog(
           context: context,
