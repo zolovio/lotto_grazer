@@ -13,6 +13,7 @@ class CustomContainer extends StatelessWidget {
   double? width;
   double? height;
   double? fontsize;
+  FontWeight fontweight;
   double bdwidth;
   CustomContainer({
     super.key,
@@ -27,6 +28,7 @@ class CustomContainer extends StatelessWidget {
     this.height,
     this.width,
     this.fontsize,
+    this.fontweight = FontWeight.w600,
     this.bdwidth = 2.0,
   });
 
@@ -52,7 +54,7 @@ class CustomContainer extends StatelessWidget {
         child: Text(
           title.toString(),
           style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w600,
+              fontWeight: fontweight,
               color: fgColor,
               fontSize: fontsize,
               wordSpacing: 0,

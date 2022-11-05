@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
+import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
@@ -23,8 +24,9 @@ class Routes {
       case RoutesName.login:
         return MaterialPageRoute(
             builder: (BuildContext context) => const LoginUi());
-      // case RoutesName.signUp:
-      //   return MaterialPageRoute(builder: (BuildContext context) => const SignUpView());
+      case RoutesName.home:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const HomePageUi());
 
       default:
         return MaterialPageRoute(builder: (_) {

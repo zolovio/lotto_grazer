@@ -4,6 +4,7 @@ import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_formfield.dart';
+import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class LoginUi extends StatefulWidget {
@@ -307,8 +308,7 @@ class _LoginUiState extends State<LoginUi> {
                       ? CustomButton(
                           title: 'CLICK HERE',
                           onpress: () {
-                            // islogin.value = !islogin.value;
-                            // Navigator.of(context).pushNamed(RoutesName.login);
+                            Navigator.of(context).pushNamed(RoutesName.home);
                           },
                           bgColor: AppColors.whiteColor,
                           fgColor: AppColors.blackColor,
@@ -326,8 +326,7 @@ class _LoginUiState extends State<LoginUi> {
                       : CustomButton(
                           title: 'SIGNUP',
                           onpress: () {
-                            // islogin.value = !islogin.value;
-                            // Navigator.of(context).pushNamed(RoutesName.login);
+                            Navigator.of(context).pushNamed(RoutesName.home);
                           },
                           bgColor: AppColors.greyColor.withOpacity(0.1),
                           fgColor: AppColors.blackColor,
