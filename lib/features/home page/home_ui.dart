@@ -63,7 +63,7 @@ class _HomePageUiState extends State<HomePageUi> {
                 crossAxisCount: 3,
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 10.0,
-                // childAspectRatio: 0.7,
+                childAspectRatio: 0.9,
               ),
               itemCount: features.length,
               itemBuilder: (context, index) {

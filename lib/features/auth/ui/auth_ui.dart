@@ -268,7 +268,7 @@ class _LoginUiState extends State<LoginUi> {
                               },
                               elevation: 0.0,
                               underline: true,
-                              bgColor: AppColors.whiteColor,
+                              bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
                               bdColor: AppColors.whiteColor,
                               btnwidth: Utils.width(context) * 0.2,

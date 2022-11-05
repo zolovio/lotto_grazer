@@ -30,7 +30,7 @@ class _LanguageUiState extends State<LanguageUi> {
                 height: Utils.height(context) * 0.25,
                 width: Utils.width(context) * 0.5,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(150.0),
+                  shape: BoxShape.circle,
                   color: Colors.grey.shade300,
                   border: Border.all(
                     color: AppColors.blueColor,
@@ -55,6 +55,9 @@ class _LanguageUiState extends State<LanguageUi> {
                   valueListenable: _isSelected,
                   builder: (context, val, _) {
                     return ToggleButtons(
+                      // borderColor: AppColors.whiteColor.withOpacity(0.1),
+                      fillColor: AppColors.whiteColor.withOpacity(0.1),
+                      renderBorder: false,
                       onPressed: ((index) {
                         _isSelected.value.setAll(0, [false, false, false]);
                         _isSelected.value[index] = !_isSelected.value[index];
