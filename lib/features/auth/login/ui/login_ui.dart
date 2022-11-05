@@ -36,7 +36,7 @@ class _LoginUiState extends State<LoginUi> {
               children: [
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 30.0, vertical: 15.0),
+                      horizontal: 30.0, vertical: 25.0),
                   leading: CustomButton(
                     title: 'LOGIN',
                     onpress: () {
@@ -244,16 +244,18 @@ class _LoginUiState extends State<LoginUi> {
                     : SizedBox(
                         height: Utils.height(context) * 0.15,
                       ),
-                Text(
-                  'CONTINUE FREE WITH ADS',
-                  style: GoogleFonts.montserrat(
-                      fontWeight: FontWeight.w800,
-                      color: AppColors.blackColor,
-                      fontSize: 20.0,
-                      wordSpacing: 0,
-                      textBaseline: TextBaseline.alphabetic,
-                      textStyle: Theme.of(context).textTheme.headline4),
-                ),
+                islogin.value
+                    ? const Center()
+                    : Text(
+                        'CONTINUE FREE WITH ADS',
+                        style: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.w800,
+                            color: AppColors.blackColor,
+                            fontSize: 20.0,
+                            wordSpacing: 0,
+                            textBaseline: TextBaseline.alphabetic,
+                            textStyle: Theme.of(context).textTheme.headline4),
+                      ),
               ],
             );
           }),
