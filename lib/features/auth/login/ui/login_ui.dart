@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
+import 'package:lotto_grazer/res/components/custom_formfield.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -14,6 +16,10 @@ class LoginUi extends StatefulWidget {
 
 class _LoginUiState extends State<LoginUi> {
   final ValueNotifier<bool> islogin = ValueNotifier(true);
+  final TextEditingController _name = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +32,11 @@ class _LoginUiState extends State<LoginUi> {
           valueListenable: islogin,
           builder: (context, val, _) {
             return Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 10.0),
+                      horizontal: 30.0, vertical: 15.0),
                   leading: CustomButton(
                     title: 'LOGIN',
                     onpress: () {
@@ -66,6 +73,186 @@ class _LoginUiState extends State<LoginUi> {
                     fontsize: 16.0,
                     bdwidth: 3.0,
                   ),
+                ),
+                islogin.value
+                    ? const Center()
+                    : SizedBox(
+                        height: Utils.height(context) * 0.1,
+                      ),
+                !islogin.value
+                    ? const Center()
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30.0,
+                          vertical: 20.0,
+                        ),
+                        child: CustomFormField(
+                          title: 'ENTER YOUR NAME',
+                          fieldcontroller: _name,
+                          onchange: (val) {
+                            islogin.value = !islogin.value;
+                            // Navigator.of(context).pushNamed(RoutesName.login);
+                          },
+                          onsaved: (String? val) {},
+                          bgColor: !islogin.value
+                              ? AppColors.whiteColor
+                              : const Color(0xFFbdd7ee),
+                          fgColor: AppColors.blackColor,
+                          // bdColor: AppColors.blueColor,
+                          width: Utils.width(context) * 0.8,
+                          height: Utils.height(context) * 0.065,
+                          bottomRightRadius: 0.0,
+                          bottomLeftRadius: 15.0,
+                          topLeftRadius: 0.0,
+                          topRightRadius: 15.0,
+                          fontsize: 13.0,
+                          bdwidth: 2.5,
+                          gradientcolors: const [
+                            Color(0xFF41719c),
+                            Color(0xFF7296b6),
+                          ],
+                        ),
+                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30.0,
+                    vertical: 20.0,
+                  ),
+                  child: CustomFormField(
+                    title: islogin.value
+                        ? 'ENTER YOUR EMAIL/PHONE NUMBER'
+                        : 'EMAIL/PHONE NUMBER',
+                    fieldcontroller: _email,
+                    onchange: (val) {
+                      // islogin.value = !islogin.value;
+                      // Navigator.of(context).pushNamed(RoutesName.login);
+                    },
+                    onsaved: (String? val) {},
+                    bgColor: !islogin.value
+                        ? AppColors.whiteColor
+                        : const Color(0xFFbdd7ee),
+                    fgColor: AppColors.blackColor,
+                    // bdColor: AppColors.blueColor,
+                    width: Utils.width(context) * 0.8,
+                    height: islogin.value
+                        ? Utils.height(context) * 0.07
+                        : Utils.height(context) * 0.075,
+                    bottomRightRadius: islogin.value ? 0.0 : 10.0,
+                    bottomLeftRadius: islogin.value ? 15.0 : 30.0,
+                    topLeftRadius: islogin.value ? 0.0 : 10.0,
+                    topRightRadius: islogin.value ? 15.0 : 30.0,
+                    fontsize: islogin.value ? 13.0 : 16.0,
+                    bdwidth: 2.5,
+                    gradientcolors: const [
+                      Color(0xFF41719c),
+                      Color(0xFF7296b6),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30.0,
+                    vertical: 20.0,
+                  ),
+                  child: CustomFormField(
+                    title: islogin.value ? 'ENTER A PASSWORD' : 'PASSWORD',
+                    fieldcontroller: _password,
+                    onchange: (val) {},
+                    onsaved: (String? val) {},
+                    bgColor: !islogin.value
+                        ? AppColors.whiteColor
+                        : const Color(0xFFbdd7ee),
+                    fgColor: AppColors.blackColor,
+                    // bdColor: AppColors.blueColor,
+                    width: Utils.width(context) * 0.8,
+                    height: islogin.value
+                        ? Utils.height(context) * 0.07
+                        : Utils.height(context) * 0.075,
+                    bottomRightRadius: islogin.value ? 0.0 : 10.0,
+                    bottomLeftRadius: islogin.value ? 15.0 : 30.0,
+                    topLeftRadius: islogin.value ? 0.0 : 10.0,
+                    topRightRadius: islogin.value ? 15.0 : 30.0,
+                    fontsize: islogin.value ? 13.0 : 16.0,
+                    bdwidth: 2.5,
+                    gradientcolors: const [
+                      Color(0xFF41719c),
+                      Color(0xFF7296b6),
+                    ],
+                  ),
+                ),
+                !islogin.value
+                    ? const Center()
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30.0,
+                          vertical: 20.0,
+                        ),
+                        child: CustomFormField(
+                          title: 'RE-TYPE PASSWORD',
+                          fieldcontroller: _confirmpassword,
+                          onchange: (val) {},
+                          onsaved: (String? val) {},
+                          bgColor: !islogin.value
+                              ? AppColors.whiteColor
+                              : const Color(0xFFbdd7ee),
+                          fgColor: AppColors.blackColor,
+                          // bdColor: AppColors.blueColor,
+                          width: Utils.width(context) * 0.8,
+                          height: Utils.height(context) * 0.065,
+                          bottomRightRadius: 0.0,
+                          bottomLeftRadius: 15.0,
+                          topLeftRadius: 0.0,
+                          topRightRadius: 15.0,
+                          fontsize: 13.0,
+                          bdwidth: 2.5,
+                          gradientcolors: const [
+                            Color(0xFF41719c),
+                            Color(0xFF7296b6),
+                          ],
+                        ),
+                      ),
+                islogin.value
+                    ? const Center()
+                    : Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 25.0,
+                            vertical: 0.0,
+                          ),
+                          child: CustomButton(
+                            title: 'FORGOT -PASSWORD ?',
+                            onpress: () {
+                              // islogin.value = !islogin.value;
+                              // Navigator.of(context).pushNamed(RoutesName.login);
+                            },
+                            elevation: 0.0,
+                            bgColor: AppColors.whiteColor,
+                            fgColor: AppColors.blackColor,
+                            bdColor: AppColors.whiteColor,
+                            btnwidth: Utils.width(context) * 0.2,
+                            btnheight: Utils.height(context) * 0.06,
+                            bottomRightRadius: 0.0,
+                            topLeftRadius: 0.0,
+                            fontsize: 13.0,
+                            bdwidth: 0.0,
+                          ),
+                        ),
+                      ),
+                islogin.value
+                    ? const Center()
+                    : SizedBox(
+                        height: Utils.height(context) * 0.15,
+                      ),
+                Text(
+                  'CONTINUE FREE WITH ADS',
+                  style: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.blackColor,
+                      fontSize: 20.0,
+                      wordSpacing: 0,
+                      textBaseline: TextBaseline.alphabetic,
+                      textStyle: Theme.of(context).textTheme.headline4),
                 ),
               ],
             );

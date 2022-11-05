@@ -39,6 +39,7 @@ dependencies:
   google_fonts: any
   provider: any
   get: any
+  flutter_screenutil: any
 
 dev_dependencies:
   flutter_test:
