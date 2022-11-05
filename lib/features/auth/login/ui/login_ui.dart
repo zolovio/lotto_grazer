@@ -75,7 +75,9 @@ class _LoginUiState extends State<LoginUi> {
                   ),
                 ),
                 islogin.value
-                    ? const Center()
+                    ? SizedBox(
+                        height: Utils.height(context) * 0.025,
+                      )
                     : SizedBox(
                         height: Utils.height(context) * 0.1,
                       ),
@@ -227,6 +229,7 @@ class _LoginUiState extends State<LoginUi> {
                               // Navigator.of(context).pushNamed(RoutesName.login);
                             },
                             elevation: 0.0,
+                            underline: true,
                             bgColor: AppColors.whiteColor,
                             fgColor: AppColors.blackColor,
                             bdColor: AppColors.whiteColor,
@@ -255,6 +258,52 @@ class _LoginUiState extends State<LoginUi> {
                             wordSpacing: 0,
                             textBaseline: TextBaseline.alphabetic,
                             textStyle: Theme.of(context).textTheme.headline4),
+                      ),
+                !islogin.value
+                    ? SizedBox(
+                        height: Utils.height(context) * 0.02,
+                      )
+                    : SizedBox(
+                        height: Utils.height(context) * 0.06,
+                      ),
+                !islogin.value
+                    ? CustomButton(
+                        title: 'CLICK HERE',
+                        onpress: () {
+                          // islogin.value = !islogin.value;
+                          // Navigator.of(context).pushNamed(RoutesName.login);
+                        },
+                        bgColor: AppColors.whiteColor,
+                        fgColor: AppColors.blackColor,
+                        bdColor: AppColors.blueColor,
+                        btnwidth: Utils.width(context) * 0.25,
+                        btnheight: Utils.height(context) * 0.06,
+                        bottomRightRadius: 30.0,
+                        bottomLeftRadius: 30.0,
+                        topLeftRadius: 30.0,
+                        topRightRadius: 30.0,
+                        fontsize: 17.0,
+                        fontweight: FontWeight.w700,
+                        bdwidth: 3.0,
+                      )
+                    : CustomButton(
+                        title: 'SIGNUP',
+                        onpress: () {
+                          // islogin.value = !islogin.value;
+                          // Navigator.of(context).pushNamed(RoutesName.login);
+                        },
+                        bgColor: AppColors.greyColor.withOpacity(0.1),
+                        fgColor: AppColors.blackColor,
+                        bdColor: AppColors.blackColor,
+                        btnwidth: Utils.width(context) * 0.25,
+                        btnheight: Utils.height(context) * 0.06,
+                        bottomRightRadius: 5.0,
+                        bottomLeftRadius: 5.0,
+                        topLeftRadius: 5.0,
+                        topRightRadius: 5.0,
+                        fontsize: 17.0,
+                        fontweight: FontWeight.w700,
+                        bdwidth: 3.0,
                       ),
               ],
             );

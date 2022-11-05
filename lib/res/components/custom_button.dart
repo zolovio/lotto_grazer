@@ -17,6 +17,7 @@ class CustomButton extends StatelessWidget {
   double? btnwidth;
   double? btnheight;
   double? fontsize;
+  FontWeight fontweight;
   double bdwidth;
   double? elevation;
   CustomButton({
@@ -34,6 +35,7 @@ class CustomButton extends StatelessWidget {
     this.btnheight,
     this.btnwidth,
     this.fontsize,
+    this.fontweight = FontWeight.w600,
     this.bdwidth = 2.0,
     this.loading = false,
     this.underline = false,
@@ -63,7 +65,7 @@ class CustomButton extends StatelessWidget {
       child: Text(
         title.toString(),
         style: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w600,
+            fontWeight: fontweight,
             color: fgColor,
             fontSize: fontsize,
             wordSpacing: 0,
