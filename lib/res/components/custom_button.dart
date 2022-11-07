@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
+import 'package:lotto_grazer/res/components/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
   String title;
@@ -62,19 +63,25 @@ class CustomButton extends StatelessWidget {
       onPressed: onpress,
       height: btnheight,
       minWidth: btnwidth,
-      child: Text(
-        title.toString(),
-        style: GoogleFonts.montserrat(
-            fontWeight: fontweight,
-            color: fgColor,
-            fontSize: fontsize,
-            wordSpacing: 0,
-            textBaseline: TextBaseline.alphabetic,
-            textStyle: Theme.of(context).textTheme.headline4!.copyWith(
-                decoration: underline
-                    ? TextDecoration.underline
-                    : TextDecoration.none)),
-      ),
+      child: CustomText(
+          title: title.toString(),
+          fontcolor: fgColor,
+          fontweight: fontweight,
+          fontsize: fontsize as double,
+          underline: underline),
+      // Text(
+      //   title.toString(),
+      //   style: GoogleFonts.montserrat(
+      //       fontWeight: fontweight,
+      //       color: fgColor,
+      //       fontSize: fontsize,
+      //       wordSpacing: 0,
+      //       textBaseline: TextBaseline.alphabetic,
+      //       textStyle: Theme.of(context).textTheme.headline4!.copyWith(
+      //           decoration: underline
+      //               ? TextDecoration.underline
+      //               : TextDecoration.none)),
+      // ),
     );
   }
 }

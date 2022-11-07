@@ -76,7 +76,10 @@ class _LanguageUiState extends State<LanguageUi> {
                                 ? AppColors.darkBlueColor
                                 : AppColors.blueColor,
                             fgColor: AppColors.whiteColor,
-                            bdColor: AppColors.lightBlueColor,
+                            border: Border.all(
+                              width: 2.0,
+                              color: AppColors.lightBlueColor,
+                            ),
                             width: Utils.width(context) * 0.6,
                             height: Utils.height(context) * 0.06,
                             bottomRightRadius: 10.0,
@@ -92,7 +95,10 @@ class _LanguageUiState extends State<LanguageUi> {
                                 ? AppColors.darkBlueColor
                                 : AppColors.blueColor,
                             fgColor: AppColors.whiteColor,
-                            bdColor: AppColors.lightBlueColor,
+                            border: Border.all(
+                              width: 2.0,
+                              color: AppColors.lightBlueColor,
+                            ),
                             width: Utils.width(context) * 0.6,
                             height: Utils.height(context) * 0.06,
                             bottomRightRadius: 10.0,

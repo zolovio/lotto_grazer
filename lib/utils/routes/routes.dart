@@ -3,6 +3,7 @@ import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
 import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
+import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/lotto_forecast_today_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class Routes {
@@ -27,6 +28,9 @@ class Routes {
       case RoutesName.home:
         return MaterialPageRoute(
             builder: (BuildContext context) => const HomePageUi());
+      case RoutesName.lottoForecastToday:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const LottoForecastTodayUi());
 
       default:
         return MaterialPageRoute(builder: (_) {

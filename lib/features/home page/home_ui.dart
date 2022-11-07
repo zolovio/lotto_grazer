@@ -69,7 +69,8 @@ class _HomePageUiState extends State<HomePageUi> {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    // Navigator.of(context).pushNamed(RoutesName.products);
+                    Navigator.of(context)
+                        .pushNamed(RoutesName.lottoForecastToday);
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -102,14 +103,16 @@ class _HomePageUiState extends State<HomePageUi> {
             title: 'LOTTO TIMING KEYS',
             bgColor: AppColors.greyColor,
             fgColor: AppColors.blackColor,
-            bdColor: AppColors.lightBlueColor,
             bottomRightRadius: 0.0,
             bottomLeftRadius: 0.0,
             topLeftRadius: 0.0,
             topRightRadius: 0.0,
             fontsize: 19.0,
             fontweight: FontWeight.w700,
-            bdwidth: 3.0,
+            border: Border.all(
+              width: 3.0,
+              color: AppColors.lightBlueColor,
+            ),
           ),
           Expanded(
             child: GridView.builder(
