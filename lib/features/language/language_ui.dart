@@ -28,8 +28,8 @@ class _LanguageUiState extends State<LanguageUi> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: () => navigatorKey.currentState
-                    ?.pushNamed(RoutesName.findCompare),
+                onTap: () =>
+                    navigatorKey.currentState?.pushNamed(RoutesName.tempRoute),
                 child: Container(
                   height: Utils.height(context) * 0.25,
                   width: Utils.width(context) * 0.5,

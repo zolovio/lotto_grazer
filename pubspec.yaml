@@ -41,6 +41,7 @@ dependencies:
   get: any
   flutter_screenutil: ^5.6.0
   flutter_riverpod: ^2.1.1
+  json_table: ^2.0.1
 
 dev_dependencies:
   flutter_test:
