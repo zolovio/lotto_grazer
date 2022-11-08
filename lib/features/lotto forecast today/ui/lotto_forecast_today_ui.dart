@@ -8,6 +8,7 @@ import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
+import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class LottoForecastTodayUi extends StatefulWidget {
@@ -204,7 +205,10 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
                             child: Center(
                               child: CustomButton(
                                 title: 'VIEW FORECAST',
-                                onpress: () {},
+                                onpress: () {
+                                  Navigator.of(context)
+                                      .pushNamed(RoutesName.forecastDetails);
+                                },
                                 bottomLeftRadius: 5.0,
                                 bottomRightRadius: 5.0,
                                 topRightRadius: 5.0,

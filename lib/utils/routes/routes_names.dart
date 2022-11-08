@@ -9,4 +9,5 @@ class RoutesName {
   //home screen routes name
   static const String home = 'home_ui';
   static const String lottoForecastToday = 'lotto_forecast_today_ui';
+  static const String forecastDetails = 'forecast_details_ui';
 }

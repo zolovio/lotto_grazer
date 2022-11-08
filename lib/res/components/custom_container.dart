@@ -22,6 +22,7 @@ class CustomContainer extends StatelessWidget {
   bool underline;
   TextAlign align;
   EdgeInsetsGeometry padding;
+  EdgeInsetsGeometry margin;
   CustomContainer({
     super.key,
     required this.title,
@@ -39,6 +40,7 @@ class CustomContainer extends StatelessWidget {
     this.underline = false,
     this.align = TextAlign.left,
     this.padding = const EdgeInsets.all(0.0),
+    this.margin = const EdgeInsets.all(0.0),
   });
 
   @override
@@ -55,6 +57,7 @@ class CustomContainer extends StatelessWidget {
       )),
       child: Container(
         padding: padding,
+        margin: margin,
         decoration: BoxDecoration(
           color: bgColor,
           border: border,
