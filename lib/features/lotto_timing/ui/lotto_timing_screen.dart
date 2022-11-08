@@ -3,8 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/lotto_timing/ui/lotto_timing_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
+import 'package:lotto_grazer/res/components/analysis_card.dart';
 import 'package:lotto_grazer/res/components/common_drop_down.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
+import 'package:lotto_grazer/res/components/custom_radio_button.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -84,10 +86,11 @@ class _LottoTimingScreenState extends State<LottoTimingScreen> {
                           onSelect: (value) {
                             print(value);
                           },
-                          title: 'COUNTING WEEK',
+                          title: 'COUNTING WEEKS',
                         ),
                       ],
                     ),
+                    SizedBox(height: 10.h),
                     SizedBox(
                       height: size.height * 0.08,
                       width: size.width,
@@ -99,100 +102,175 @@ class _LottoTimingScreenState extends State<LottoTimingScreen> {
                         },
                       ),
                     ),
+
+                    ///
+                    /// This should be work on condition based
+                    ///
+                    CustomText(
+                      text: 'Select a lapping pattern',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14.sp,
+                      textColor: AppColors.blackColor,
+                    ),
+                    SizedBox(
+                      height: size.height * 0.08,
+                      width: size.width * 0.8,
+                      child: CustomRadioButton(
+                        fontSize: 12.sp,
+                        isDecorated: false,
+                        radioSize: 15.0,
+                        list: _vm.lappingList,
+                        selectedIndex: _vm.selectedLappingIndex,
+                        onSelect: (index) {
+                          _vm.onSelectLapping(index);
+                        },
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(5.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border:
+                            Border.all(color: AppColors.blackColor, width: 3.0),
+                      ),
+                      child: Column(
+                        children: [
+                          CustomText(
+                            text: 'Input an event winning numbers',
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          SizedBox(height: 5.h),
+                          Table(border: TableBorder.all(), children: [
+                            TableRow(children: [
+                              CustomText(text: ''),
+                              CustomText(
+                                text: 'W1',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W2',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W3',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W4',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W5',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ]),
+                            TableRow(children: [
+                              CustomText(
+                                text: 'EVENT 1 ',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W1',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W2',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W3',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W4',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              CustomText(
+                                text: 'W5',
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ]),
+                          ]),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 120.w),
+                      child: InkWell(
+                        onTap: () {
+                          _vm.onSearchTap(context);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.blackColor,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                                color: AppColors.blueColor, width: 2.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0, vertical: 8.0),
+                            child: CustomText(
+                              text: 'SEARCH',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12.sp,
+                              textColor: AppColors.whiteColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    ///
+                    ///
                   ],
                 ),
               ),
             ),
-            // const EventCard(),
             SizedBox(height: 10.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 120.w),
-              child: InkWell(
-                onTap: () {
-                  _vm.onSearchTap(context);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.blueColor,
-                    borderRadius: BorderRadius.circular(8.0),
-                    border: Border.all(color: AppColors.blackColor, width: 2.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 8.0),
-                    child: CustomText(
-                      text: 'SEARCH',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12.sp,
-                      textColor: AppColors.whiteColor,
-                    ),
-                  ),
-                ),
+            Container(
+              decoration: BoxDecoration(
+                  color: AppColors.greyColor.withOpacity(0.2),
+                  border: Border.all(color: AppColors.blackColor, width: 3.0)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomText(
+                    text: 'KEY ANALYSIS', fontWeight: FontWeight.w700),
               ),
             ),
+            SizedBox(height: 2.h),
+            const Padding(
+              padding: EdgeInsets.all(2.0),
+              child: AnalysisCard(),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(2.0),
+              child: AnalysisCard(),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(2.0),
+              child: AnalysisCard(),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(2.0),
+              child: AnalysisCard(),
+            ),
+            SizedBox(height: 100.h),
           ],
         );
       }),
-    );
-  }
-}
-
-class CustomRadioButton extends StatelessWidget {
-  final List<String> list;
-  final int selectedIndex;
-  final Function onSelect;
-  const CustomRadioButton(
-      {Key? key,
-      required this.list,
-      required this.selectedIndex,
-      required this.onSelect})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
-      itemCount: list.length,
-      itemBuilder: (context, index) => Row(
-        children: [
-          Container(
-            height: 30.0,
-            width: 30.0,
-            decoration: BoxDecoration(
-              color: selectedIndex == index
-                  ? AppColors.blueColor
-                  : AppColors.whiteColor,
-              shape: BoxShape.circle,
-              border: Border.all(color: AppColors.appbarColor, width: 2.5),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: InkWell(
-              onTap: () {
-                onSelect(index);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.whiteColor,
-                  borderRadius: BorderRadius.circular(8.0),
-                  border: Border.all(color: AppColors.blueColor, width: 2.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: CustomText(
-                      text: list[index],
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

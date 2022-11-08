@@ -11,7 +11,9 @@ final lottoTimingProvider =
 
 class LottoTimingVm extends ChangeNotifier {
   List<String> keyList = ['VIEW KEYS', 'KEY SEARCH'];
+  List<String> lappingList = ['Horizontal', 'Vertical', 'Diagonal'];
   int selectedIndex = 0;
+  int selectedLappingIndex = 0;
 
   void onSearchTap(BuildContext context) {
     navigatorKey.currentState?.pushNamed(RoutesName.midFortuneLotto);
@@ -20,6 +22,11 @@ class LottoTimingVm extends ChangeNotifier {
   void onSelect(index) {
     selectedIndex = index;
     print(keyList[index]);
+    notifyListeners();
+  }
+
+  void onSelectLapping(index) {
+    selectedLappingIndex = index;
     notifyListeners();
   }
 }
