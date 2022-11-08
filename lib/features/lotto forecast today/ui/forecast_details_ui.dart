@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class ForecastDetails extends StatefulWidget {
@@ -329,8 +326,209 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             c1text: 'NL FORTUNE',
             c2text: '995 - 996',
           ),
+          CustomContainer(
+            width: Utils.width(context) * 1,
+            height: Utils.height(context) * 0.06,
+            // padding: const EdgeInsets.all(15.0),
+            title: 'KEY FORECAST',
+            bgColor: AppColors.greyColor.withOpacity(0.5),
+            fgColor: AppColors.blackColor,
+            fontsize: 16.0,
+            fontweight: FontWeight.w700,
+            align: TextAlign.center,
+            border: const Border(
+              bottom: BorderSide(
+                color: Colors.black,
+                width: 3.0,
+              ),
+            ),
+          ),
+          CustomContainer(
+            width: Utils.width(context) * 1,
+            height: Utils.height(context) * 0.15,
+            padding:
+                const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+            title:
+                'Counting 3 weeks up from the plan, the five(5) winning numbers of the event will counter and drop as a banker,8 weeks down',
+            bgColor: AppColors.whiteColor.withOpacity(0.1),
+            fgColor: AppColors.blackColor,
+            fontsize: 15.0,
+            fontweight: FontWeight.w600,
+            align: TextAlign.left,
+            border: const Border(
+              bottom: BorderSide(
+                color: Colors.black,
+                width: 3.0,
+              ),
+            ),
+          ),
+          CustomContainer(
+            width: Utils.width(context) * 1,
+            height: Utils.height(context) * 0.04,
+            // padding: const EdgeInsets.all(15.0),
+            title: 'PROJECTED BANKERS',
+            bgColor: AppColors.greyColor.withOpacity(0.5),
+            fgColor: AppColors.blackColor,
+            fontsize: 16.0,
+            fontweight: FontWeight.w700,
+            align: TextAlign.center,
+          ),
+          CustomChildContainer(
+            width: Utils.width(context) * 0.7,
+            height: Utils.height(context) * 0.08,
+            margin: const EdgeInsets.only(bottom: 4.0),
+            bgColor: AppColors.whiteColor.withOpacity(0.1),
+            border: const Border(
+              bottom: BorderSide(
+                width: 3.0,
+                color: AppColors.lightBlueColor,
+              ),
+              top: BorderSide(
+                width: 3.0,
+                color: AppColors.lightBlueColor,
+              ),
+            ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: List.generate(
+                  5,
+                  (index) => CustomContainer(
+                    width: Utils.width(context) * 0.2,
+                    height: Utils.height(context) * 0.08,
+                    padding: const EdgeInsets.all(5.0),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      width: 3.0,
+                      color: AppColors.lightBlueColor,
+                    ),
+                    title: '1',
+                    bgColor: AppColors.whiteColor.withOpacity(0.1),
+                    fgColor: AppColors.blackColor,
+                    fontsize: 15.0,
+                    align: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: CustomButton(
+              btnwidth: Utils.width(context) * 0.05,
+              // btnheight: Utils.height(context) * 0.1,
+              bottomLeftRadius: 3.0,
+              topLeftRadius: 3.0,
+              bottomRightRadius: 3.0,
+              topRightRadius: 3.0,
+              bgColor: AppColors.blackColor.withOpacity(0.8),
+              title: 'STAKE',
+              fontsize: 16.0,
+              fontweight: FontWeight.w700,
+              onpress: () {},
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomContainer(
+                width: Utils.width(context) * 0.2,
+                height: Utils.height(context) * 0.08,
+                padding: const EdgeInsets.all(5.0),
+                // margin: const EdgeInsets.all(5.0),
+                border: Border.all(
+                  width: 0.0,
+                  color: AppColors.whiteColor.withOpacity(0.1),
+                ),
+                title: 'BEST 3 :',
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                fgColor: AppColors.blackColor,
+                fontsize: 16.0,
+                fontweight: FontWeight.w700,
+                align: TextAlign.center,
+              ),
+              SizedBox(
+                width: Utils.width(context) * 0.15,
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomContainer(
+                width: Utils.width(context) * 0.2,
+                height: Utils.height(context) * 0.08,
+                padding: const EdgeInsets.all(5.0),
+                border: Border.all(
+                  width: 0.0,
+                  color: AppColors.whiteColor.withOpacity(0.1),
+                ),
+                title: 'BEST 5 :',
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                fgColor: AppColors.blackColor,
+                fontsize: 16.0,
+                fontweight: FontWeight.w700,
+                align: TextAlign.center,
+              ),
+              // SizedBox(
+              //   width: Utils.width(context) * 0.1,
+              // ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+            ],
+          ),
         ],
       ),
+    );
+  }
+}
+
+class CustomNumberContainer extends StatelessWidget {
+  final String title;
+  const CustomNumberContainer({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomContainer(
+      width: Utils.width(context) * 0.11,
+      height: Utils.height(context) * 0.055,
+      // padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      border: Border.all(
+        width: 2.0,
+        color: AppColors.blueColor,
+      ),
+      title: title,
+      bgColor: AppColors.whiteColor.withOpacity(0.1),
+      fgColor: AppColors.blackColor,
+      fontsize: 16.0,
+      fontweight: FontWeight.w700,
+      align: TextAlign.center,
     );
   }
 }

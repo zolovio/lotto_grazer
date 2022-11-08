@@ -15,6 +15,7 @@ class CustomContainer extends StatelessWidget {
   double? height;
   double? fontsize;
   FontWeight fontweight;
+  BoxShape shape;
   BoxBorder? border = Border.all(
     width: 2.0,
     color: AppColors.blackColor,
@@ -26,8 +27,8 @@ class CustomContainer extends StatelessWidget {
   CustomContainer({
     super.key,
     required this.title,
-    required this.bgColor,
-    required this.fgColor,
+    this.bgColor = AppColors.whiteColor,
+    this.fgColor = AppColors.blackColor,
     this.bottomLeftRadius = 0.0,
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
@@ -39,6 +40,7 @@ class CustomContainer extends StatelessWidget {
     this.border,
     this.underline = false,
     this.align = TextAlign.left,
+    this.shape = BoxShape.rectangle,
     this.padding = const EdgeInsets.all(0.0),
     this.margin = const EdgeInsets.all(0.0),
   });
@@ -59,6 +61,7 @@ class CustomContainer extends StatelessWidget {
         padding: padding,
         margin: margin,
         decoration: BoxDecoration(
+          shape: shape,
           color: bgColor,
           border: border,
         ),
@@ -72,16 +75,6 @@ class CustomContainer extends StatelessWidget {
               fontweight: fontweight,
               fontsize: fontsize as double,
               underline: underline),
-          // Text(
-          //   title.toString(),
-          //   style: GoogleFonts.montserrat(
-          //       fontWeight: fontweight,
-          //       color: fgColor,
-          //       fontSize: fontsize,
-          //       wordSpacing: 0,
-          //       textBaseline: TextBaseline.alphabetic,
-          //       textStyle: Theme.of(context).textTheme.headline4),
-          // ),
         ),
       ),
     );
