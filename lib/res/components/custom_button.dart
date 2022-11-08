@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
   double topRightRadius;
   double? btnwidth;
   double? btnheight;
-  double? fontsize;
+  double fontsize;
   FontWeight fontweight;
   double bdwidth;
   double? elevation;
@@ -25,9 +25,9 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onpress,
-    required this.bgColor,
-    required this.fgColor,
-    required this.bdColor,
+    this.bgColor = AppColors.blackColor,
+    this.fgColor = AppColors.whiteColor,
+    this.bdColor = AppColors.blackColor,
     this.bottomLeftRadius = 0.0,
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
@@ -35,7 +35,7 @@ class CustomButton extends StatelessWidget {
     this.elevation = 2.0,
     this.btnheight,
     this.btnwidth,
-    this.fontsize,
+    this.fontsize = 14.0,
     this.fontweight = FontWeight.w600,
     this.bdwidth = 2.0,
     this.loading = false,
@@ -67,7 +67,7 @@ class CustomButton extends StatelessWidget {
           title: title.toString(),
           fontcolor: fgColor,
           fontweight: fontweight,
-          fontsize: fontsize as double,
+          fontsize: fontsize,
           underline: underline),
       // Text(
       //   title.toString(),
