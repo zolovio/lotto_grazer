@@ -5,6 +5,7 @@ import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/forecast_details_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/lotto_forecast_today_ui.dart';
+import 'package:lotto_grazer/features/lotto%20key%20book/lotto_key_book.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class Routes {
@@ -35,6 +36,9 @@ class Routes {
       case RoutesName.forecastDetails:
         return MaterialPageRoute(
             builder: (BuildContext context) => const ForecastDetails());
+      case RoutesName.lottoKeyBook:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const LottoKeyBook());
 
       default:
         return MaterialPageRoute(builder: (_) {
