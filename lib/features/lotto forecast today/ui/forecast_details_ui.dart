@@ -3,7 +3,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
+import 'package:lotto_grazer/res/components/custom_button.dart';
+import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class ForecastDetails extends StatefulWidget {
@@ -159,8 +162,235 @@ class _ForecastDetailsState extends State<ForecastDetails> {
               ),
             ],
           ),
+          Row(
+            children: [
+              CustomContainer(
+                width: Utils.width(context) * 0.4,
+                height: Utils.height(context) * 0.07,
+                // padding: const EdgeInsets.all(15.0),
+                title: 'PLAN',
+                bgColor: AppColors.greyColor.withOpacity(0.5),
+                fgColor: AppColors.blackColor,
+                fontsize: 16.0,
+                fontweight: FontWeight.w700,
+                align: TextAlign.center,
+                border: const Border(
+                  bottom: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
+                  ),
+                  right: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
+                  ),
+                ),
+              ),
+              CustomContainer(
+                width: Utils.width(context) * 0.6,
+                height: Utils.height(context) * 0.07,
+                // padding: const EdgeInsets.all(15.0),
+                title: 'LAPPING NUMBER',
+                bgColor: AppColors.greyColor.withOpacity(0.5),
+                fgColor: AppColors.blackColor,
+                fontsize: 16.0,
+                fontweight: FontWeight.w700,
+                align: TextAlign.center,
+                border: const Border(
+                  bottom: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomChildContainer(
+                width: Utils.width(context) * 0.4,
+                height: Utils.height(context) * 0.15,
+                // margin: const EdgeInsets.only(bottom: 4.0),
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                border: const Border(
+                  bottom: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
+                  ),
+                  // top: BorderSide(
+                  //   color: Colors.black,
+                  //   width: 3.0,
+                  // ),
+                  right: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CustomButton(
+                      title: 'W3',
+                      onpress: () {
+                        // Navigator.of(context)
+                        //     .pushNamed(RoutesName.forecastDetails);
+                      },
+                      bottomLeftRadius: 5.0,
+                      bottomRightRadius: 5.0,
+                      topRightRadius: 5.0,
+                      topLeftRadius: 5.0,
+                      fontsize: 11.0,
+                      btnwidth: Utils.width(context) * 0.05,
+                      btnheight: Utils.height(context) * 0.04,
+                    ),
+                    CustomContainer(
+                      width: Utils.width(context) * 0.15,
+                      height: Utils.height(context) * 0.04,
+                      margin: const EdgeInsets.only(top: 1.0),
+                      title: '18',
+                      bgColor: AppColors.whiteColor.withOpacity(0.1),
+                      fgColor: AppColors.blackColor,
+                      fontsize: 16.0,
+                      fontweight: FontWeight.w700,
+                      align: TextAlign.center,
+                      border: Border.all(
+                        color: AppColors.blueColor,
+                        width: 3.0,
+                      ),
+                    ),
+                    CustomContainer(
+                      width: Utils.width(context) * 0.15,
+                      height: Utils.height(context) * 0.04,
+                      // margin: const EdgeInsets.all(0.0),
+                      title: '51',
+                      bgColor: AppColors.whiteColor.withOpacity(0.1),
+                      fgColor: AppColors.blackColor,
+                      fontsize: 16.0,
+                      fontweight: FontWeight.w700,
+                      align: TextAlign.center,
+                      border: Border.all(
+                        color: AppColors.blueColor,
+                        width: 3.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              CustomContainer(
+                width: Utils.width(context) * 0.6,
+                height: Utils.height(context) * 0.15,
+                padding: const EdgeInsets.all(10.0),
+                title:
+                    'In any two given event the number 18 Laps 51 on the 3rd box winning.',
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                fgColor: AppColors.blackColor,
+                fontsize: 15.0,
+                fontweight: FontWeight.w600,
+                align: TextAlign.left,
+                border: const Border(
+                  bottom: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          CustomContainer(
+            width: Utils.width(context) * 1,
+            height: Utils.height(context) * 0.06,
+            // padding: const EdgeInsets.all(15.0),
+            title: 'REFERENCE EVENTS',
+            bgColor: AppColors.greyColor.withOpacity(0.5),
+            fgColor: AppColors.blackColor,
+            fontsize: 16.0,
+            fontweight: FontWeight.w700,
+            align: TextAlign.center,
+            border: const Border(
+              bottom: BorderSide(
+                color: Colors.black,
+                width: 3.0,
+              ),
+            ),
+          ),
+          const CustomRowWidget(
+            c1text: 'PM METRO',
+            c2text: '433 - 434',
+          ),
+          const CustomRowWidget(
+            c1text: 'PM DIAMOND',
+            c2text: '623 - 625',
+          ),
+          const CustomRowWidget(
+            c1text: 'PM PEOPLE',
+            c2text: '1423 - 1425',
+          ),
+          const CustomRowWidget(
+            c1text: 'NL FORTUNE',
+            c2text: '995 - 996',
+          ),
         ],
       ),
+    );
+  }
+}
+
+class CustomRowWidget extends StatelessWidget {
+  final String c1text;
+  final String c2text;
+  const CustomRowWidget({
+    super.key,
+    required this.c1text,
+    required this.c2text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        CustomContainer(
+          width: Utils.width(context) * 0.6,
+          // height: Utils.height(context) * 0.04,
+          padding: const EdgeInsets.all(10.0),
+          title: c1text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 16.0,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: const Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3.0,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.0,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils.width(context) * 0.4,
+          // height: Utils.height(context) * 0.04,
+          padding: const EdgeInsets.all(10.0),
+          title: c2text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 16.0,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: const Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0.0,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.0,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
