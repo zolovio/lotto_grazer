@@ -11,4 +11,5 @@ class RoutesName {
   static const String lottoForecastToday = 'lotto_forecast_today_ui';
   static const String forecastDetails = 'forecast_details_ui';
   static const String lottoKeyBook = 'lotto_key_book';
+  static const String lottoResult = 'lotto_result_ui';
 }

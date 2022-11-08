@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -27,7 +25,7 @@ class _HomePageUiState extends State<HomePageUi> {
     },
     {
       'name': 'LOTTO RESULT',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.lottoResult,
     },
     {
       'name': 'OVERDUE NUMBERS',
