@@ -17,28 +17,89 @@ class HomePageUi extends StatefulWidget {
 
 class _HomePageUiState extends State<HomePageUi> {
   List features = [
-    'LOTTO FORECAST TODAY',
-    'THE RADICAL LOTTO KEYBOOK',
-    'LOTTO RESULT',
-    'OVERDUE NUMBERS',
-    'GRENCO KEY CHART',
-    'SAVED PLANS',
-    'FIND & COMPARE EVENTS',
-    'CLASSIFICATION CHART',
-    'GROUP NUMBER CHART',
-    'COLUMN NUMBER CHART',
-    'ENDING NUMBER CHART',
+    {
+      'name': 'LOTTO FORECAST TODAY',
+      'navigation': RoutesName.lottoForecastToday,
+    },
+    {
+      'name': 'THE RADICAL LOTTO KEYBOOK',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'LOTTO RESULT',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'OVERDUE NUMBERS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'GRENCO KEY CHART',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'SAVED PLANS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'FIND & COMPARE EVENTS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'CLASSIFICATION CHART',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'GROUP NUMBER CHART',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'COLUMN NUMBER CHART',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'ENDING NUMBER CHART',
+      'navigation': RoutesName.lottoKeyBook,
+    },
   ];
 
   List timingkeys = [
-    'LAPPING NUMER KEYS',
-    'POLAR ADDITION KEYS',
-    'EVENT SUMMATION KEYS',
-    'PIVOTED NUMBER KEYS',
-    'BALL SPACING KEYS',
-    'CONSTANT POSITION KEYS',
-    'SEQUENTIAL NUMBER KEYS',
-    'PROGRESSIVE NUMBER KEYS',
+    {
+      'name': 'ENDING NUMBER CHART',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'LAPPING NUMER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'POLAR ADDITION KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'EVENT SUMMATION KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'PIVOTED NUMBER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'BALL SPACING KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'CONSTANT POSITION KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'SEQUENTIAL NUMBER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'PROGRESSIVE NUMBER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
   ];
 
   @override
@@ -70,7 +131,7 @@ class _HomePageUiState extends State<HomePageUi> {
                 return InkWell(
                   onTap: () {
                     Navigator.of(context)
-                        .pushNamed(RoutesName.lottoForecastToday);
+                        .pushNamed(features[index]['navigation']);
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -81,7 +142,7 @@ class _HomePageUiState extends State<HomePageUi> {
                         color: AppColors.blueColor,
                       ),
                       Text(
-                        features[index].toString(),
+                        features[index]['name'].toString(),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: GoogleFonts.montserrat(
@@ -140,7 +201,7 @@ class _HomePageUiState extends State<HomePageUi> {
                         color: AppColors.blueColor,
                       ),
                       Text(
-                        timingkeys[index].toString(),
+                        timingkeys[index]['name'].toString(),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: GoogleFonts.montserrat(

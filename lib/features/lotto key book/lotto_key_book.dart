@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/utils/utils.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class LottoKeyBook extends StatefulWidget {
   const LottoKeyBook({super.key});
@@ -20,6 +21,7 @@ class _LottoKeyBookState extends State<LottoKeyBook> {
             Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
         child: const CutomAppBar(),
       ),
+      body: SfPdfViewer.asset('assets/files/book.pdf'),
     );
   }
 }
