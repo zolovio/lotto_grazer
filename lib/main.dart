@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lotto_grazer/features/auth/splash_screen.dart';
 import 'package:lotto_grazer/utils/routes/routes.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
