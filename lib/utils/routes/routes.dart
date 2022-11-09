@@ -6,7 +6,7 @@ import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/forecast_details_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/lotto_forecast_today_ui.dart';
 import 'package:lotto_grazer/features/lotto%20key%20book/lotto_key_book.dart';
-import 'package:lotto_grazer/features/lotto%20result/lotto_result_ui.dart';
+import 'package:lotto_grazer/features/lotto%20result/lotto_today_result_ui.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class Routes {

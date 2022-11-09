@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lotto_grazer/features/lotto%20result/lotto_last20_days_result_ui.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
@@ -23,25 +24,25 @@ class _LottoResultUiState extends State<LottoResultUi> {
             Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
         child: const CutomAppBar(),
       ),
-      body: ListView(
-        children: [
-          CustomContainer(
-            width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.08,
-            title: 'LOTTO RESULT',
-            bgColor: AppColors.blackColor,
-            fgColor: AppColors.whiteColor,
-            fontsize: 18.0,
-            fontweight: FontWeight.w800,
-            border: Border.all(
-              width: 0.0,
-              color: AppColors.whiteColor.withOpacity(0.1),
-            ),
-          ),
-          ValueListenableBuilder(
-              valueListenable: val,
-              builder: (context, thisval, _) {
-                return Row(
+      body: ValueListenableBuilder(
+          valueListenable: val,
+          builder: (context, thisval, _) {
+            return ListView(
+              children: [
+                CustomContainer(
+                  width: Utils.width(context) * 1,
+                  height: Utils.height(context) * 0.08,
+                  title: 'LOTTO RESULT',
+                  bgColor: AppColors.blackColor,
+                  fgColor: AppColors.whiteColor,
+                  fontsize: 18.0,
+                  fontweight: FontWeight.w800,
+                  border: Border.all(
+                    width: 0.0,
+                    color: AppColors.whiteColor.withOpacity(0.1),
+                  ),
+                ),
+                Row(
                   children: [
                     SizedBox(
                       width: Utils.width(context) * 0.5,
@@ -104,17 +105,36 @@ class _LottoResultUiState extends State<LottoResultUi> {
                       ),
                     ),
                   ],
-                );
-              }),
-          SizedBox(
-            height: Utils.height(context) * 0.03,
-          ),
-          const CatContainer(
-            thistitle: 'NL NATIONAL',
-          ),
-          CustomDrawContainer(),
-        ],
-      ),
+                ),
+                SizedBox(
+                  height: Utils.height(context) * 0.03,
+                ),
+                val.value == 1
+                    ? const CustomSearchContainer()
+                    : const CatContainer(
+                        thistitle: 'NL NATIONAL',
+                      ),
+                const CustomDrawContainer(
+                  date: '13/06/2022',
+                  draw: '743',
+                ),
+                const CatContainer(
+                  thistitle: 'PM GOLD',
+                ),
+                const CustomDrawContainer(
+                  date: '13/06/2022',
+                  draw: '921',
+                ),
+                const CatContainer(
+                  thistitle: 'GC JET',
+                ),
+                const CustomDrawContainer(
+                  date: '13/06/2022',
+                  draw: '643',
+                ),
+              ],
+            );
+          }),
     );
   }
 }
@@ -152,17 +172,23 @@ class CatContainer extends StatelessWidget {
 }
 
 class CustomDrawContainer extends StatelessWidget {
-  const CustomDrawContainer({super.key});
+  final String draw;
+  final String date;
+  const CustomDrawContainer({
+    super.key,
+    required this.draw,
+    required this.date,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CustomChildContainer(
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       border: const Border(
-        // top: BorderSide(
-        //   width: 3.0,
-        //   color: AppColors.blackColor,
-        // ),
+        top: BorderSide(
+          width: 3.0,
+          color: AppColors.blackColor,
+        ),
         bottom: BorderSide(
           width: 3.0,
           color: AppColors.blackColor,
@@ -173,13 +199,13 @@ class CustomDrawContainer extends StatelessWidget {
           ListTile(
             dense: false,
             title: CustomText(
-                title: 'DRAW: 743',
+                title: 'DRAW: $draw',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
                 fontsize: 14.0,
                 underline: false),
             trailing: CustomText(
-                title: '13/06/2022',
+                title: date.toString(),
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
                 fontsize: 14.0,
