@@ -114,10 +114,31 @@ class _LottoResultUiState extends State<LottoResultUi> {
                     : const CatContainer(
                         thistitle: 'NL NATIONAL',
                       ),
-                const CustomDrawContainer(
-                  date: '13/06/2022',
-                  draw: '743',
-                ),
+                val.value == 1
+                    ? CustomContainer(
+                        width: Utils.width(context) * 1,
+                        height: Utils.height(context) * 0.07,
+                        padding: const EdgeInsets.all(15.0),
+                        title: 'LAST 2O DRAWS',
+                        bgColor: AppColors.greyColor.withOpacity(0.5),
+                        fgColor: AppColors.blackColor,
+                        fontsize: 18.0,
+                        fontweight: FontWeight.w800,
+                        border: const Border(
+                          top: BorderSide(
+                            width: 3.0,
+                            color: AppColors.blackColor,
+                          ),
+                          bottom: BorderSide(
+                            width: 3.0,
+                            color: AppColors.blackColor,
+                          ),
+                        ),
+                      )
+                    : const CustomDrawContainer(
+                        date: '13/06/2022',
+                        draw: '743',
+                      ),
                 const CatContainer(
                   thistitle: 'PM GOLD',
                 ),
