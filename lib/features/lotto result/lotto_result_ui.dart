@@ -111,7 +111,8 @@ class _LottoResultUiState extends State<LottoResultUi> {
           ),
           const CatContainer(
             thistitle: 'NL NATIONAL',
-          )
+          ),
+          CustomDrawContainer(),
         ],
       ),
     );
@@ -158,10 +159,10 @@ class CustomDrawContainer extends StatelessWidget {
     return CustomChildContainer(
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       border: const Border(
-        top: BorderSide(
-          width: 3.0,
-          color: AppColors.blackColor,
-        ),
+        // top: BorderSide(
+        //   width: 3.0,
+        //   color: AppColors.blackColor,
+        // ),
         bottom: BorderSide(
           width: 3.0,
           color: AppColors.blackColor,
@@ -170,20 +171,92 @@ class CustomDrawContainer extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
+            dense: false,
             title: CustomText(
                 title: 'DRAW: 743',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 15.0,
+                fontsize: 14.0,
                 underline: false),
             trailing: CustomText(
                 title: '13/06/2022',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 15.0,
+                fontsize: 14.0,
                 underline: false),
           ),
+          Center(
+            child: CustomText(
+                title: 'WINNING NUMBERS',
+                fontcolor: AppColors.blackColor,
+                fontweight: FontWeight.w700,
+                fontsize: 16.0,
+                underline: false),
+          ),
+          Row(
+            children: const [
+              CustomCircle(),
+              CustomCircle(),
+              CustomCircle(),
+              CustomCircle(),
+              CustomCircle(),
+            ],
+          ),
+          Center(
+            child: CustomText(
+                title: 'MACHINE NUMBERS',
+                fontcolor: AppColors.blackColor,
+                fontweight: FontWeight.w700,
+                fontsize: 16.0,
+                underline: false),
+          ),
+          Row(
+            children: const [
+              CustomCircle(
+                clr: AppColors.redColor,
+              ),
+              CustomCircle(
+                clr: AppColors.redColor,
+              ),
+              CustomCircle(
+                clr: AppColors.redColor,
+              ),
+              CustomCircle(
+                clr: AppColors.redColor,
+              ),
+              CustomCircle(
+                clr: AppColors.redColor,
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomCircle extends StatelessWidget {
+  final Color clr;
+  const CustomCircle({
+    super.key,
+    this.clr = AppColors.greenColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomContainer(
+      width: Utils.width(context) * 0.2,
+      height: Utils.height(context) * 0.07,
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
+      title: '',
+      bgColor: AppColors.whiteColor.withOpacity(0.1),
+      fgColor: AppColors.blackColor,
+      fontsize: 18.0,
+      fontweight: FontWeight.w800,
+      shape: BoxShape.circle,
+      border: Border.all(
+        width: 4.0,
+        color: clr,
       ),
     );
   }
