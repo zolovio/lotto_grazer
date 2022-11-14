@@ -29,7 +29,7 @@ class _HomePageUiState extends State<HomePageUi> {
     },
     {
       'name': 'OVERDUE NUMBERS',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.overdueNumbers,
     },
     {
       'name': 'GRENCO KEY CHART',
