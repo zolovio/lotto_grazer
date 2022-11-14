@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/overdue%20number/overdue_numbers_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
+import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
@@ -110,6 +111,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
             );
           }),
           const CustomcatContainer(title: 'NL BONANZA'),
+          const CustomViewContainer(),
         ],
       ),
     );
@@ -155,7 +157,8 @@ class CustomViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomChildContainer(
-      width: Utils.width(context) * 0.15,
+      width: Utils.width(context) * 1.0,
+      height: Utils.height(context) * 0.12,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       border: const Border(
         // top: BorderSide(
@@ -186,30 +189,48 @@ class CustomViewContainer extends StatelessWidget {
                     fontsize: 15.0,
                     underline: false),
               ),
-              Expanded(
-                child: CustomContainer(
-                  width: Utils.width(context) * 0.1,
-                  // height: Utils.height(context) * 0.07,
-                  padding: const EdgeInsets.all(15.0),
-                  title: '',
-                  bgColor: AppColors.whiteColor.withOpacity(0.1),
-                  fgColor: AppColors.blackColor,
-                  fontsize: 18.0,
-                  fontweight: FontWeight.w700,
-                  align: TextAlign.center,
-                  border: const Border(
-                    bottom: BorderSide(
-                      color: Colors.black,
-                      width: 3.0,
-                    ),
-                    top: BorderSide(
-                      color: Colors.black,
-                      width: 3.0,
-                    ),
+              CustomContainer(
+                width: Utils.width(context) * 1.0,
+                // height: Utils.height(context) * 0.07,
+                padding: const EdgeInsets.all(5.0),
+                title: '',
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                fgColor: AppColors.blackColor,
+                fontsize: 18.0,
+                fontweight: FontWeight.w700,
+                align: TextAlign.center,
+                border: const Border(
+                  // bottom: BorderSide(
+                  //   color: Colors.black,
+                  //   width: 3.0,
+                  // ),
+                  top: BorderSide(
+                    color: Colors.black,
+                    width: 3.0,
                   ),
                 ),
               ),
             ],
+          ),
+          Positioned(
+            top: 25.0,
+            left: Utils.width(context) * 0.35,
+            child: CustomButton(
+              btnwidth: Utils.width(context) * 0.2,
+              btnheight: Utils.height(context) * 0.05,
+              bottomLeftRadius: 5.0,
+              topLeftRadius: 5.0,
+              bottomRightRadius: 5.0,
+              topRightRadius: 5.0,
+              bdwidth: 2.0,
+              bdColor: AppColors.blueColor,
+              bgColor: const Color(0XFFf2f2f2),
+              fgColor: AppColors.blackColor,
+              title: '  View  ',
+              fontsize: 16.0,
+              fontweight: FontWeight.w700,
+              onpress: () {},
+            ),
           ),
         ],
       ),
