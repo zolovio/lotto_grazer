@@ -111,7 +111,20 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
             );
           }),
           const CustomcatContainer(title: 'NL BONANZA'),
-          const CustomViewContainer(),
+          const CustomViewContainer(
+            draw: 973,
+            date: '13/06/2022',
+          ),
+          const CustomcatContainer(title: 'AL PRIME'),
+          const CustomViewContainer(
+            draw: 346,
+            date: '13/06/2022',
+          ),
+          const CustomcatContainer(title: 'GC WAZOBIA'),
+          const CustomViewContainer(
+            draw: 748,
+            date: '13/06/2022',
+          ),
         ],
       ),
     );
@@ -144,7 +157,7 @@ class CustomcatContainer extends StatelessWidget {
         ),
         top: BorderSide(
           color: Colors.black,
-          width: 3.0,
+          width: 2.0,
         ),
       ),
     );
@@ -152,7 +165,13 @@ class CustomcatContainer extends StatelessWidget {
 }
 
 class CustomViewContainer extends StatelessWidget {
-  const CustomViewContainer({super.key});
+  final int draw;
+  final String date;
+  const CustomViewContainer({
+    super.key,
+    required this.draw,
+    required this.date,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -177,13 +196,13 @@ class CustomViewContainer extends StatelessWidget {
               ListTile(
                 dense: true,
                 title: CustomText(
-                    title: 'DRAW: 343',
+                    title: 'DRAW: $draw',
                     fontcolor: AppColors.blackColor,
                     fontweight: FontWeight.w700,
                     fontsize: 15.0,
                     underline: false),
                 trailing: CustomText(
-                    title: '13/06/2022',
+                    title: date.toString(),
                     fontcolor: AppColors.blackColor,
                     fontweight: FontWeight.w700,
                     fontsize: 15.0,
