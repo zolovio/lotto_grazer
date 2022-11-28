@@ -17,6 +17,94 @@ class OverdueNumbersUi extends StatefulWidget {
 }
 
 class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
+  final TableRow tableheader = TableRow(
+      decoration: BoxDecoration(
+        color: AppColors.whiteColor.withOpacity(0.1),
+        border: Border.all(
+          width: 1.0,
+          color: AppColors.blackColor,
+        ),
+      ),
+      children: [
+        CustomContainer(
+            title: '\t',
+            align: TextAlign.center,
+            // padding: const EdgeInsets.all(5.0),
+            bgColor: AppColors.whiteColor.withOpacity(0.1),
+            fgColor: AppColors.blackColor,
+            fontweight: FontWeight.w700,
+            fontsize: 13.0,
+            underline: false),
+        CustomContainer(
+            title: 'NUMBER',
+            align: TextAlign.start,
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+            bgColor: const Color(0XFFa9d18e),
+            fgColor: AppColors.blackColor,
+            fontweight: FontWeight.w800,
+            fontsize: 14.0,
+            underline: false),
+        CustomContainer(
+            title: 'DRAW DELAY FREQUENCY',
+            align: TextAlign.center,
+            padding: const EdgeInsets.only(
+                top: 15.0, bottom: 15.0, right: 12.0, left: 12.0),
+            bgColor: const Color(0XFFfff2cc),
+            fgColor: AppColors.blackColor,
+            fontweight: FontWeight.w700,
+            fontsize: 13.0,
+            underline: false),
+      ]);
+  // final tablerow =
+  TableRow rowgenerator({
+    required String titleCol1,
+    required String titleCol2,
+    required String titleCol3,
+  }) {
+    return TableRow(children: [
+      CustomContainer(
+        title: titleCol1.toString(),
+        align: TextAlign.center,
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+        bgColor: AppColors.greyColor.withOpacity(0.25),
+        fgColor: AppColors.blackColor,
+        fontweight: FontWeight.w700,
+        fontsize: 13.0,
+        underline: false,
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 2.5, bottom: 2.5),
+        child: CustomContainer(
+          shape: BoxShape.circle,
+          border: Border.all(
+            width: 2.5,
+            color: AppColors.blueColor,
+          ),
+          title: titleCol2.toString(),
+          align: TextAlign.center,
+          padding: const EdgeInsets.all(5.5),
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontweight: FontWeight.w700,
+          fontsize: 13.0,
+          underline: false,
+        ),
+      ),
+      CustomContainer(
+        title: titleCol3.toString(),
+        align: TextAlign.center,
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+        bgColor: AppColors.whiteColor.withOpacity(0.1),
+        fgColor: AppColors.blackColor,
+        fontweight: FontWeight.w700,
+        fontsize: 13.0,
+        underline: false,
+      ),
+    ]);
+  }
+
+  List<TableRow> tablerows = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +130,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.13,
+            height: Utils.height(context) * 0.145,
             padding: const EdgeInsets.all(10.0),
             title:
                 'Overdue Numbers is a showcase of the ten(10) numbers which have not been drawn for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
@@ -88,10 +176,10 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           ),
           Consumer(builder: (context, ref, _) {
             final vm = ref.watch(overduenumbersVmProvider);
-            vm.tablerows.clear();
-            vm.tablerows.add(vm.tableheader);
+            tablerows.clear();
+            tablerows.add(tableheader);
             for (var i = 0; i < vm.numbers.length; i++) {
-              vm.tablerows.add(vm.rowgenerator(
+              tablerows.add(rowgenerator(
                   titleCol1: '${i + 1}',
                   titleCol2: vm.numbers[i].toString(),
                   titleCol3: vm.drawDelayFrequency[i].toString()));
@@ -107,7 +195,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
                 // style: BorderStyle.solid,
                 width: 2,
               ),
-              children: vm.tablerows,
+              children: tablerows,
             );
           }),
           const CustomcatContainer(title: 'NL BONANZA'),
