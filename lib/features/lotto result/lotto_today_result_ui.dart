@@ -68,8 +68,7 @@ class _LottoResultUiState extends State<LottoResultUi> {
                     value: 0,
                     groupValue: vm.val,
                     onChanged: (int? newvalue) {
-                      vm.val = newvalue;
-                      vm.notifyListeners();
+                      vm.setVal(newvalue);
                       // print(thisval);
                     },
                   ),
@@ -98,8 +97,7 @@ class _LottoResultUiState extends State<LottoResultUi> {
                     value: 1,
                     groupValue: vm.val,
                     onChanged: (int? newvalue) {
-                      vm.val = newvalue;
-                      vm.notifyListeners();
+                      vm.setVal(newvalue);
                       // print(thisval);
                     },
                   ),

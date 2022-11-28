@@ -206,7 +206,7 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomChildContainer(
                 width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.15,
+                height: Utils.height(context) * 0.16,
                 // margin: const EdgeInsets.only(bottom: 4.0),
                 bgColor: AppColors.whiteColor.withOpacity(0.1),
                 border: const Border(
@@ -275,7 +275,7 @@ class _ForecastDetailsState extends State<ForecastDetails> {
               ),
               CustomContainer(
                 width: Utils.width(context) * 0.6,
-                height: Utils.height(context) * 0.15,
+                height: Utils.height(context) * 0.16,
                 padding: const EdgeInsets.all(10.0),
                 title:
                     'In any two given event the number 18 Laps 51 on the 3rd box winning.',
