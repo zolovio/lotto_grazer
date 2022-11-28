@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_result_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
+import 'package:lotto_grazer/res/components/common_drop_down.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
+import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
@@ -15,7 +17,7 @@ class CustomSearchContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomChildContainer(
       width: Utils.width(context) * 1,
-      height: Utils.height(context) * 0.2,
+      height: Utils.height(context) * 0.25,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       border: const Border(
         top: BorderSide(
@@ -30,85 +32,21 @@ class CustomSearchContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomContainer(
-                width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.05,
-                padding: const EdgeInsets.all(10.0),
-                title: 'LOTTERY TYPE',
-                bgColor: AppColors.whiteColor.withOpacity(0.1),
-                fgColor: AppColors.blackColor,
-                fontsize: 15.0,
-                fontweight: FontWeight.w600,
-                topLeftRadius: 15.0,
-                topRightRadius: 15.0,
-                bottomLeftRadius: 15.0,
-                bottomRightRadius: 15.0,
-                border: Border.all(
-                  width: 2.0,
-                  color: AppColors.blueColor,
-                ),
-              ),
-              CustomChildContainer(
-                width: Utils.width(context) * 0.1,
-                height: Utils.height(context) * 0.05,
-                bgColor: AppColors.whiteColor.withOpacity(0.1),
-                padding: const EdgeInsets.all(5.0),
-                border: Border.all(
-                  width: 2.0,
-                  color: AppColors.blueColor,
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.arrow_downward,
-                    size: 25.0,
-                  ),
-                ),
-              ),
-            ],
+          CommonDropDown(
+            initialValue: 'LOTTERY TYPE',
+            list: ['LOTTERY TYPE', 'X', 'Y', 'Z'],
+            onSelect: (value) {
+              print(value);
+            },
+            title: '',
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomContainer(
-                width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.05,
-                padding: const EdgeInsets.all(10.0),
-                title: 'LOTTERY GAME',
-                bgColor: AppColors.whiteColor.withOpacity(0.1),
-                fgColor: AppColors.blackColor,
-                fontsize: 15.0,
-                fontweight: FontWeight.w600,
-                topLeftRadius: 15.0,
-                topRightRadius: 15.0,
-                bottomLeftRadius: 15.0,
-                bottomRightRadius: 15.0,
-                border: Border.all(
-                  width: 2.0,
-                  color: AppColors.blueColor,
-                ),
-              ),
-              CustomChildContainer(
-                width: Utils.width(context) * 0.1,
-                height: Utils.height(context) * 0.05,
-                bgColor: AppColors.whiteColor.withOpacity(0.1),
-                padding: const EdgeInsets.all(5.0),
-                border: Border.all(
-                  width: 2.0,
-                  color: AppColors.blueColor,
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.arrow_downward,
-                    size: 25.0,
-                  ),
-                ),
-              ),
-            ],
+          CommonDropDown(
+            initialValue: 'LOTTERY GAME',
+            list: ['LOTTERY GAME', 'A', 'B', 'C'],
+            onSelect: (value) {
+              print(value);
+            },
+            title: '',
           ),
           CustomButton(
             btnwidth: Utils.width(context) * 0.2,

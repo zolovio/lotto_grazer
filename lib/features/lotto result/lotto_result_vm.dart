@@ -9,10 +9,12 @@ final lottoLast20DrawsVmProvider =
 });
 
 class LottoLast20DrawsVm extends ChangeNotifier {
-  int _val = 0;
-  int get val => _val;
-  void setVal(value) {
-    _val = value;
+  List<String> keyList = ['TODAY RESULTS', 'LAST 20 DRAWS'];
+
+  int _selectedIndex = 0;
+  int get selectedIndex => _selectedIndex;
+  void setIndex(value) {
+    _selectedIndex = value;
     notifyListeners();
   }
 

@@ -4,6 +4,7 @@ import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';

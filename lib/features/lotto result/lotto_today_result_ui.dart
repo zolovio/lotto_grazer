@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_last20_draws_result_ui.dart';
@@ -6,6 +8,7 @@ import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_radio_button.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -42,77 +45,26 @@ class _LottoResultUiState extends State<LottoResultUi> {
                 color: AppColors.whiteColor.withOpacity(0.1),
               ),
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: Utils.width(context) * 0.5,
-                  height: Utils.height(context) * 0.055,
-                  child: RadioListTile<int>(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 0.0),
-                    activeColor: AppColors.blueColor,
-                    title: CustomContainer(
-                      title: 'TODAY RESULTS',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
-                      fontsize: 14.0,
-                      topLeftRadius: 10.0,
-                      topRightRadius: 10.0,
-                      bottomLeftRadius: 10.0,
-                      bottomRightRadius: 10.0,
-                      fontweight: FontWeight.w800,
-                      border: Border.all(
-                        width: 2.0,
-                        color: AppColors.blueColor,
-                      ),
-                    ),
-                    value: 0,
-                    groupValue: vm.val,
-                    onChanged: (int? newvalue) {
-                      vm.setVal(newvalue);
-                      // print(thisval);
-                    },
-                  ),
-                ),
-                SizedBox(
-                  width: Utils.width(context) * 0.5,
-                  height: Utils.height(context) * 0.055,
-                  child: RadioListTile<int>(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 0.0),
-                    activeColor: AppColors.blueColor,
-                    title: CustomContainer(
-                      title: 'LAST 20 DRAWS',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
-                      fontsize: 14.0,
-                      topLeftRadius: 10.0,
-                      topRightRadius: 10.0,
-                      bottomLeftRadius: 10.0,
-                      bottomRightRadius: 10.0,
-                      fontweight: FontWeight.w800,
-                      border: Border.all(
-                        width: 2.0,
-                        color: AppColors.blueColor,
-                      ),
-                    ),
-                    value: 1,
-                    groupValue: vm.val,
-                    onChanged: (int? newvalue) {
-                      vm.setVal(newvalue);
-                      // print(thisval);
-                    },
-                  ),
-                ),
-              ],
+            SizedBox(
+              height: Utils.height(context) * 0.08,
+              width: Utils.width(context),
+              child: CustomRadioButton(
+                list: vm.keyList,
+                selectedIndex: vm.selectedIndex,
+                onSelect: (index) {
+                  vm.setIndex(index);
+                },
+              ),
             ),
             SizedBox(
               height: Utils.height(context) * 0.03,
             ),
-            vm.val == 1
+            vm.selectedIndex == 1
                 ? const CustomSearchContainer()
                 : const CatContainer(
                     thistitle: 'NL NATIONAL',
                   ),
-            vm.val == 1
+            vm.selectedIndex == 1
                 ? CustomContainer(
                     width: Utils.width(context) * 1,
                     height: Utils.height(context) * 0.07,
@@ -133,7 +85,7 @@ class _LottoResultUiState extends State<LottoResultUi> {
                     date: '13/06/2022',
                     draw: '743',
                   ),
-            vm.val == 1
+            vm.selectedIndex == 1
                 ? ListTile(
                     contentPadding:
                         const EdgeInsets.only(right: 15.0, left: 40.0),
@@ -162,24 +114,24 @@ class _LottoResultUiState extends State<LottoResultUi> {
                 : const CatContainer(
                     thistitle: 'PM GOLD',
                   ),
-            vm.val == 0
+            vm.selectedIndex == 0
                 ? const CustomDrawContainer(
                     date: '13/06/2022',
                     draw: '921',
                   )
                 : const Center(),
-            vm.val == 0
+            vm.selectedIndex == 0
                 ? const CatContainer(
                     thistitle: 'GC JET',
                   )
                 : const Center(),
-            vm.val == 0
+            vm.selectedIndex == 0
                 ? const CustomDrawContainer(
                     date: '13/06/2022',
                     draw: '643',
                   )
                 : const Center(),
-            vm.val == 1 ? const CustomTable() : const Center(),
+            vm.selectedIndex == 1 ? const CustomTable() : const Center(),
           ],
         );
       }),
