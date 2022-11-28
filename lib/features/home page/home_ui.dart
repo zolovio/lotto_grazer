@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -33,7 +34,7 @@ class _HomePageUiState extends State<HomePageUi> {
     },
     {
       'name': 'GRENCO KEY CHART',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.grencoKeyChart,
     },
     {
       'name': 'SAVED PLANS',

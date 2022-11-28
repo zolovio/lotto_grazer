@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
+import 'package:lotto_grazer/features/grenco%20key%20chart/grenco_key_chart_screen.dart';
 import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/forecast_details_ui.dart';
@@ -47,6 +48,9 @@ class Routes {
       case RoutesName.overdueNumbers:
         return MaterialPageRoute(
             builder: (BuildContext context) => const OverdueNumbersUi());
+      case RoutesName.grencoKeyChart:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const GrencoKeyChartScreen());
 
       default:
         return MaterialPageRoute(builder: (_) {
