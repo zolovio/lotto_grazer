@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
-import 'package:lotto_grazer/features/grenco%20key%20chart/grenco_key_chart_screen.dart';
+import 'package:lotto_grazer/features/grenco_key_chart/forecast%20details/grenco_forecast_details.dart';
+import 'package:lotto_grazer/features/grenco_key_chart/grenco_key_chart_screen.dart';
 import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/forecast_details_ui.dart';
@@ -9,6 +10,7 @@ import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/lotto_forecast
 import 'package:lotto_grazer/features/lotto%20key%20book/lotto_key_book.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_today_result_ui.dart';
 import 'package:lotto_grazer/features/overdue%20number/overdue_numbers_ui.dart';
+import 'package:lotto_grazer/features/saved_plans/saved_plans_screen.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class Routes {
@@ -51,7 +53,12 @@ class Routes {
       case RoutesName.grencoKeyChart:
         return MaterialPageRoute(
             builder: (BuildContext context) => const GrencoKeyChartScreen());
-
+      case RoutesName.grencoForecastDetails:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const GrencoForecastDetails());
+      case RoutesName.savedPlans:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const SavedPlansScreen());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(

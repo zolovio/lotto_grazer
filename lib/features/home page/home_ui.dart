@@ -38,7 +38,7 @@ class _HomePageUiState extends State<HomePageUi> {
     },
     {
       'name': 'SAVED PLANS',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.savedPlans,
     },
     {
       'name': 'FIND & COMPARE EVENTS',
