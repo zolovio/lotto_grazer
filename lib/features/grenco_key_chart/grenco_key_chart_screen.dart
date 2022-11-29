@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lotto_grazer/features/grenco%20key%20chart/grenco_key_chart_vm.dart';
+import 'package:lotto_grazer/features/grenco_key_chart/grenco_key_chart_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/grenco_key_chart_analysis_card.dart';
 import 'package:lotto_grazer/res/components/common_drop_down.dart';

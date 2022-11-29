@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 final grencoKeyChartProvider =
     ChangeNotifierProvider.autoDispose<GrencoKeyChartVm>((ref) {
@@ -11,6 +12,7 @@ class GrencoKeyChartVm extends ChangeNotifier {
   int selectedIndex = 0;
 
   void viewDetailsTap(BuildContext context) {
+    Navigator.of(context).pushNamed(RoutesName.grencoForecastDetails);
     print("view detail");
   }
 
