@@ -42,7 +42,7 @@ class _GrencoKeyChartAnalysisCardState
           Expanded(
             child: Container(
                 decoration: const BoxDecoration(
-                  color: AppColors.lightBlueColor,
+                  color: AppColors.blueColor,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15.0),
                     topLeft: Radius.circular(15.0),
@@ -72,7 +72,11 @@ class _GrencoKeyChartAnalysisCardState
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const SizedBox(
+                      height: 6,
+                    ),
                     WCard(
+                      widthForButton: "notNull",
                       label: widget.week,
                       textColor: AppColors.blackColor,
                       bgColor: AppColors.buttonColor,
@@ -91,7 +95,7 @@ class _GrencoKeyChartAnalysisCardState
           Expanded(
             child: Container(
                 decoration: const BoxDecoration(
-                  color: AppColors.lightBlueColor,
+                  color: AppColors.blueColor,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(15.0),
                     bottomRight: Radius.circular(15.0),
@@ -100,7 +104,9 @@ class _GrencoKeyChartAnalysisCardState
                 child: Center(
                     child: GestureDetector(
                         onTap: () => widget.onDetailsTap(),
-                        child: const WCard(label: ' View \n Detail     ')))),
+                        child: const WCard(
+                            widthForButton: 'notNull',
+                            label: ' View \n Detail     ')))),
           ),
         ],
       ),

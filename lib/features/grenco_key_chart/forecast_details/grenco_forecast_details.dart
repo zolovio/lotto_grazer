@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lotto_grazer/features/grenco_key_chart/forecast%20details/grenco_forecast_details_vm.dart';
+import 'package:lotto_grazer/features/grenco_key_chart/forecast_details/grenco_forecast_details_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/number_card.dart';
+import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class GrencoForecastDetails extends StatefulWidget {
@@ -223,46 +225,18 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CustomButton(
-                        title: 'W3',
-                        onpress: () {},
-                        bottomLeftRadius: 5.0,
-                        bottomRightRadius: 5.0,
-                        topRightRadius: 5.0,
-                        topLeftRadius: 5.0,
-                        fontsize: 11.0,
-                        btnwidth: Utils.width(context) * 0.05,
-                        btnheight: Utils.height(context) * 0.04,
+                      SizedBox(
+                        height: 8,
                       ),
-                      CustomContainer(
-                        width: Utils.width(context) * 0.14,
-                        height: Utils.height(context) * 0.04,
-                        margin: const EdgeInsets.only(top: 1.0),
-                        title: '18',
-                        bgColor: AppColors.whiteColor.withOpacity(0.1),
-                        fgColor: AppColors.blackColor,
-                        fontsize: 16.0,
-                        fontweight: FontWeight.w700,
-                        align: TextAlign.center,
-                        border: Border.all(
-                          color: AppColors.blueColor,
-                          width: 3.0,
-                        ),
+                      WCard(
+                        label: 'W3',
+                        borderColor: Colors.transparent,
                       ),
-                      CustomContainer(
-                        width: Utils.width(context) * 0.14,
-                        height: Utils.height(context) * 0.04,
-                        margin: const EdgeInsets.only(top: 0.5),
-                        title: '50',
-                        bgColor: AppColors.whiteColor.withOpacity(0.1),
-                        fgColor: AppColors.blackColor,
-                        fontsize: 16.0,
-                        fontweight: FontWeight.w700,
-                        align: TextAlign.center,
-                        border: Border.all(
-                          color: AppColors.blueColor,
-                          width: 3.0,
-                        ),
+                      NumberCard(
+                        label: '18',
+                      ),
+                      NumberCard(
+                        label: '50',
                       ),
                     ],
                   ),
@@ -450,7 +424,7 @@ class CustomNumberContainer extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 1.7),
       border: Border.all(
         width: 2.0,
-        color: AppColors.blueColor,
+        color: AppColors.lightBlueColor,
       ),
       title: title,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
