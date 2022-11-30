@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/saved_plans/saved_plans_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -168,7 +170,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                   const CustomText(
                                     title: "PLAN",
                                     underline: true,
-                                    fontsize: 15,
+                                    fontsize: 15.5,
                                     fontweight: FontWeight.w600,
                                   ),
                                   const SizedBox(
@@ -181,7 +183,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                   ),
                                   CustomText(
                                     title: _vm.savedPlansList[index].planName,
-                                    fontsize: 15,
+                                    fontsize: 15.5,
                                     fontweight: FontWeight.w600,
                                   ),
                                 ],
@@ -201,6 +203,11 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment:
+                                    (_vm.savedPlansList[index].planName ==
+                                            'PROGRESSIVE NUMBER')
+                                        ? CrossAxisAlignment.stretch
+                                        : CrossAxisAlignment.center,
                                 children: [
                                   // vertical lapping numbers
                                   if (_vm.savedPlansList[index].planType ==
@@ -319,7 +326,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                       ],
                                     ),
                                   ],
-                                  // upward pivoted numbers
+                                  // Pivoted numbers
                                   if (_vm.savedPlansList[index].planName ==
                                       'PIVOTED NUMBER') ...[
                                     Row(
@@ -360,7 +367,316 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                           label:
                                               _vm.savedPlansList[index].num1),
                                   ],
-                                  // downward pivoted numbers
+                                  // Ball Spacing
+                                  if (_vm.savedPlansList[index].planName ==
+                                      'BALL SPACING') ...[
+                                    if (_vm.savedPlansList[index].planType ==
+                                        'VERTICAL') ...[
+                                      WCard(
+                                        label: _vm
+                                            .savedPlansList[index].winningNum1,
+                                        borderColor: Colors.transparent,
+                                      ),
+                                      WCard(
+                                        label: _vm
+                                            .savedPlansList[index].winningNum2,
+                                        borderColor: Colors.transparent,
+                                      ),
+                                    ],
+                                    if (_vm.savedPlansList[index].planType ==
+                                        'HORIZONTAL')
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          WCard(
+                                            label: _vm.savedPlansList[index]
+                                                .winningNum1,
+                                            borderColor: Colors.transparent,
+                                          ),
+                                          WCard(
+                                            label: _vm.savedPlansList[index]
+                                                .winningNum2,
+                                            borderColor: Colors.transparent,
+                                          ),
+                                        ],
+                                      ),
+                                    NumberCardWithTitle(
+                                        num: _vm.savedPlansList[index].num1,
+                                        title: "SPACING")
+                                  ],
+                                  // Event Summation
+                                  if (_vm.savedPlansList[index].planName ==
+                                      'EVENT SUMMATION') ...[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        WCard(
+                                          label: _vm.savedPlansList[index]
+                                              .winningNum1,
+                                          borderColor: Colors.transparent,
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        WCard(
+                                          label: _vm.savedPlansList[index]
+                                              .winningNum2,
+                                          borderColor: Colors.transparent,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        NumberCardWithTitle(
+                                            num: _vm.savedPlansList[index].num1,
+                                            title: "SUM"),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        NumberCardWithTitle(
+                                            num: _vm.savedPlansList[index].num2,
+                                            title: "CONSTANT"),
+                                      ],
+                                    )
+                                  ],
+                                  // Polar Addition
+                                  if (_vm.savedPlansList[index].planName ==
+                                      'POLAR ADDITION') ...[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        WCard(
+                                          label: _vm.savedPlansList[index]
+                                              .winningNum1,
+                                          borderColor: Colors.transparent,
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        WCard(
+                                          label: _vm.savedPlansList[index]
+                                              .winningNum2,
+                                          borderColor: Colors.transparent,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        NumberCardWithTitle(
+                                            num: _vm.savedPlansList[index].num1,
+                                            title: "ADDITION"),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        NumberCardWithTitle(
+                                            num: _vm.savedPlansList[index].num2,
+                                            title: "CONSTANT"),
+                                      ],
+                                    )
+                                  ],
+                                  // Sequential Number
+                                  if (_vm.savedPlansList[index].planName ==
+                                      'SEQUENTIAL NUMBER') ...[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        WCard(
+                                          label: _vm.savedPlansList[index]
+                                              .winningNum1,
+                                          borderColor: Colors.transparent,
+                                        ),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        WCard(
+                                          label: _vm.savedPlansList[index]
+                                              .winningNum2,
+                                          borderColor: Colors.transparent,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        NumberCardWithTitle(
+                                            num: _vm.savedPlansList[index].num1,
+                                            title: "V-CODE"),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        NumberCardWithTitle(
+                                            num: _vm.savedPlansList[index].num2,
+                                            title: "CONSTANT"),
+                                      ],
+                                    )
+                                  ],
+                                  // Progressive Number
+                                  if (_vm.savedPlansList[index].planName ==
+                                      'PROGRESSIVE NUMBER') ...[
+                                    WCard(
+                                      label:
+                                          _vm.savedPlansList[index].winningNum1,
+                                      borderColor: Colors.transparent,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.add,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.add,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          if (_vm.savedPlansList[index]
+                                                  .planType ==
+                                              "VERTICAL")
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              size: 15.sp,
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.add,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.minus,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Icon(
+                                            CupertinoIcons.add,
+                                            size: 15.sp,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          if (_vm.savedPlansList[index]
+                                                  .planType ==
+                                              "VERTICAL")
+                                            Icon(
+                                              CupertinoIcons.add,
+                                              size: 15.sp,
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                    CustomContainer(
+                                      margin: const EdgeInsets.only(
+                                          left: 8.0, right: 8.0),
+                                      height: Utils.height(context) * 0.035,
+                                      title: "SIGN CODE",
+                                      bgColor: AppColors.blueColor,
+                                      fgColor: AppColors.whiteColor,
+                                      fontsize: 10.0,
+                                      fontweight: FontWeight.w900,
+                                      align: TextAlign.center,
+                                      border: Border.all(
+                                        color: AppColors.lightBlueColor,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                  ],
+
+                                  // Constant Position
+                                  if (_vm.savedPlansList[index].planName ==
+                                      'CONSTANT POSITION') ...[
+                                    WCard(
+                                      label:
+                                          _vm.savedPlansList[index].winningNum1,
+                                      borderColor: Colors.transparent,
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    NumberCard(
+                                      label: _vm.savedPlansList[index].num1,
+                                    ),
+                                  ],
                                 ],
                               ),
                             ),
@@ -372,8 +688,30 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               child: Center(
                                   child: GestureDetector(
-                                      onTap: () => _vm.viewDetailsTap(context),
+                                      onTap: () => _vm.viewDetailsTap(context,
+                                          lotteryGameName: _vm
+                                              .savedPlansList[index]
+                                              .lotteryGameName,
+                                          date: _vm.savedPlansList[index].date,
+                                          pType: _vm
+                                              .savedPlansList[index].planType,
+                                          pName: _vm
+                                              .savedPlansList[index].planName,
+                                          winNum1: _vm.savedPlansList[index]
+                                              .winningNum1,
+                                          winNum2: _vm.savedPlansList[index]
+                                              .winningNum2,
+                                          isRightDiagonal: _vm
+                                              .savedPlansList[index]
+                                              .isRightDiagonal,
+                                          isUpwardPivoted: _vm
+                                              .savedPlansList[index]
+                                              .isUpwardPivoted,
+                                          n1: _vm.savedPlansList[index].num1,
+                                          n2: _vm.savedPlansList[index].num2,
+                                          n3: _vm.savedPlansList[index].num3),
                                       child: WCard(
+                                          widthForButton: "notNull",
                                           bgColor: AppColors.greyColor
                                               .withOpacity(0.3),
                                           textColor: AppColors.blackColor,
