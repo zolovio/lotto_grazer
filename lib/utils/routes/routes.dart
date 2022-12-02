@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
-import 'package:lotto_grazer/features/grenco_key_chart/forecast_details/grenco_forecast_details.dart';
 import 'package:lotto_grazer/features/grenco_key_chart/grenco_key_chart_screen.dart';
 import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
@@ -53,9 +52,7 @@ class Routes {
       case RoutesName.grencoKeyChart:
         return MaterialPageRoute(
             builder: (BuildContext context) => const GrencoKeyChartScreen());
-      case RoutesName.grencoForecastDetails:
-        return MaterialPageRoute(
-            builder: (BuildContext context) => const GrencoForecastDetails());
+
       case RoutesName.savedPlans:
         return MaterialPageRoute(
             builder: (BuildContext context) => const SavedPlansScreen());

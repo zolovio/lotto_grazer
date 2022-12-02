@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lotto_grazer/features/saved_plans/forecast_details/diagonal_lapping_number_forecast_details.dart';
-import 'package:lotto_grazer/features/saved_plans/forecast_details/vertical_lapping_number_forecast_details.dart';
-import 'package:lotto_grazer/utils/routes/routes_names.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/constant_position/constant_position_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/diagonal_lapping_number/diagonal_lapping_number_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/event_summation/event_summation_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/horizontal_lapping_number/horizontal_lapping_number_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/pivoted_number/pivoted_number_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/vertical_lapping_number/vertical_lapping_number_forecast_details.dart';
 
 final savedPlansProvider =
     ChangeNotifierProvider.autoDispose<SavedPlansVm>((ref) {
@@ -198,6 +201,57 @@ class SavedPlansVm extends ChangeNotifier {
                   num1: n1,
                   num2: n2,
                   isRightDiagonal: isRightDiagonal,
+                )));
+        break;
+      case "HORIZONTAL LAPPING NUMBER":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => HorizontalLappingNumberForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  winningNum2: winNum2,
+                  num1: n1,
+                  num2: n2,
+                )));
+        break;
+      case " PIVOTED NUMBER":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PivotedNumberForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  num1: n1,
+                  num2: n2,
+                  num3: n3,
+                  isUpwardPivoted: isUpwardPivoted,
+                )));
+        break;
+      case " EVENT SUMMATION":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => EventSummationForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  winningNum2: winNum2,
+                  num1: n1,
+                  num2: n2,
+                )));
+        break;
+      case " CONSTANT POSITION":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ConstantPositionForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  num1: n1,
                 )));
         break;
       default:

@@ -14,6 +14,5 @@ class RoutesName {
   static const String lottoResult = 'lotto_result_ui';
   static const String overdueNumbers = 'overdue_numbers_ui';
   static const String grencoKeyChart = 'grenco_key_chart_screen';
-  static const String grencoForecastDetails = 'grenco_forecast_details';
   static const String savedPlans = 'saved_plans_screen';
 }
