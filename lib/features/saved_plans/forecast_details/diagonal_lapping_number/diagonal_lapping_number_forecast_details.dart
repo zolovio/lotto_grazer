@@ -1,45 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lotto_grazer/features/saved_plans/forecast_details/vertical_lapping_number_forecast_details_vm.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/diagonal_lapping_number/diagonal_lapping_number_forecast_details_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_number_container.dart';
+import 'package:lotto_grazer/res/components/custom_row_widget.dart';
 import 'package:lotto_grazer/res/components/number_card.dart';
 import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
-class VerticalLappingNumberForecastDetails extends StatefulWidget {
+class DiagonalLappingNumberForecastDetails extends StatefulWidget {
   final String lotteryGameName;
   final String date;
   final String planType;
   final String planName;
   final String winningNum1;
+  final String winningNum2;
   final String num1;
   final String num2;
-  const VerticalLappingNumberForecastDetails({
+  final bool isRightDiagonal;
+  const DiagonalLappingNumberForecastDetails({
     super.key,
     required this.lotteryGameName,
     required this.date,
     required this.planType,
     required this.planName,
     required this.winningNum1,
+    required this.winningNum2,
     required this.num1,
     required this.num2,
+    required this.isRightDiagonal,
   });
 
   @override
-  State<VerticalLappingNumberForecastDetails> createState() =>
-      _VerticalLappingNumberForecastDetailsState();
+  State<DiagonalLappingNumberForecastDetails> createState() =>
+      _DiagonalLappingNumberForecastDetailsState();
 }
 
-class _VerticalLappingNumberForecastDetailsState
-    extends State<VerticalLappingNumberForecastDetails> {
+class _DiagonalLappingNumberForecastDetailsState
+    extends State<DiagonalLappingNumberForecastDetails> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      final _vm = ref.watch(verticalLappingNumberForecastDetailsProvider);
+      final _vm = ref.watch(diagonalLappingNumberForecastDetailsProvider);
 
       return Scaffold(
         appBar: PreferredSize(
@@ -259,15 +265,39 @@ class _VerticalLappingNumberForecastDetailsState
                       const SizedBox(
                         height: 8,
                       ),
-                      WCard(
-                        label: widget.winningNum1,
-                        borderColor: Colors.transparent,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          WCard(
+                            label: widget.winningNum1,
+                            borderColor: Colors.transparent,
+                          ),
+                          WCard(
+                            label: widget.winningNum2,
+                            borderColor: Colors.transparent,
+                          ),
+                        ],
                       ),
-                      NumberCard(
-                        label: widget.num1,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          NumberCard(
+                              label: widget.isRightDiagonal ? '' : widget.num1),
+                          NumberCard(
+                              label: widget.isRightDiagonal ? widget.num1 : ''),
+                        ],
                       ),
-                      NumberCard(
-                        label: widget.num2,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          NumberCard(
+                              label: widget.isRightDiagonal ? widget.num2 : ''),
+                          NumberCard(
+                              label: widget.isRightDiagonal ? '' : widget.num2),
+                        ],
                       ),
                     ],
                   ),
@@ -276,8 +306,11 @@ class _VerticalLappingNumberForecastDetailsState
                   width: Utils.width(context) * 0.6,
                   height: Utils.height(context) * 0.16,
                   padding: const EdgeInsets.all(10.0),
-                  title:
-                      'In any two given event the number ${widget.num1} Laps ${widget.num2} on the 3rd box winning vertically.',
+                  title: (widget.isRightDiagonal)
+                      ? 'In any two given event the number ${widget.num1} '
+                          'Laps ${widget.num2} on the 3rd and 2nd box winning diagonally.'
+                      : 'In any two given event the number ${widget.num1} '
+                          'Laps ${widget.num2} on the 1st and 2nd box winning diagonally.',
                   bgColor: AppColors.whiteColor.withOpacity(0.1),
                   fgColor: AppColors.blackColor,
                   fontsize: 15.0,
@@ -363,7 +396,6 @@ class _VerticalLappingNumberForecastDetailsState
             CustomContainer(
               width: Utils.width(context) * 1,
               height: Utils.height(context) * 0.04,
-              // padding: const EdgeInsets.all(15.0),
               title: 'PROJECTED BANKERS',
               bgColor: AppColors.greyColor.withOpacity(0.5),
               fgColor: AppColors.blackColor,
@@ -435,7 +467,6 @@ class _VerticalLappingNumberForecastDetailsState
                   width: Utils.width(context) * 0.2,
                   height: Utils.height(context) * 0.08,
                   padding: const EdgeInsets.all(5.0),
-                  // margin: const EdgeInsets.all(5.0),
                   border: Border.all(
                     width: 0.0,
                     color: AppColors.whiteColor.withOpacity(0.1),
@@ -479,9 +510,6 @@ class _VerticalLappingNumberForecastDetailsState
                   fontweight: FontWeight.w700,
                   align: TextAlign.center,
                 ),
-                // SizedBox(
-                //   width: Utils.width(context) * 0.1,
-                // ),
                 const CustomNumberContainer(
                   title: '1',
                 ),
@@ -523,90 +551,5 @@ class _VerticalLappingNumberForecastDetailsState
         ),
       );
     });
-  }
-}
-
-class CustomNumberContainer extends StatelessWidget {
-  final String title;
-  const CustomNumberContainer({
-    super.key,
-    required this.title,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomContainer(
-      width: Utils.width(context) * 0.09,
-      height: Utils.height(context) * 0.044,
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      border: Border.all(
-        width: 2.0,
-        color: AppColors.lightBlueColor,
-      ),
-      title: title,
-      bgColor: AppColors.whiteColor.withOpacity(0.1),
-      fgColor: AppColors.blackColor,
-      fontsize: 16.0,
-      fontweight: FontWeight.w700,
-      align: TextAlign.center,
-    );
-  }
-}
-
-class CustomRowWidget extends StatelessWidget {
-  final String c1text;
-  final String c2text;
-  const CustomRowWidget({
-    super.key,
-    required this.c1text,
-    required this.c2text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomContainer(
-          width: Utils.width(context) * 0.6,
-          padding: const EdgeInsets.all(10.0),
-          title: c1text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-        CustomContainer(
-          width: Utils.width(context) * 0.4,
-          padding: const EdgeInsets.all(10.0),
-          title: c2text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 0.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }
