@@ -4,7 +4,8 @@ import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_number_container.dart';
+import 'package:lotto_grazer/res/components/custom_row_widget.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class ForecastDetails extends StatefulWidget {
@@ -535,94 +536,6 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class CustomNumberContainer extends StatelessWidget {
-  final String title;
-  const CustomNumberContainer({
-    super.key,
-    required this.title,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomContainer(
-      width: Utils.width(context) * 0.11,
-      height: Utils.height(context) * 0.055,
-      // padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      border: Border.all(
-        width: 2.0,
-        color: AppColors.blueColor,
-      ),
-      title: title,
-      bgColor: AppColors.whiteColor.withOpacity(0.1),
-      fgColor: AppColors.blackColor,
-      fontsize: 16.0,
-      fontweight: FontWeight.w700,
-      align: TextAlign.center,
-    );
-  }
-}
-
-class CustomRowWidget extends StatelessWidget {
-  final String c1text;
-  final String c2text;
-  const CustomRowWidget({
-    super.key,
-    required this.c1text,
-    required this.c2text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomContainer(
-          width: Utils.width(context) * 0.6,
-          // height: Utils.height(context) * 0.04,
-          padding: const EdgeInsets.all(10.0),
-          title: c1text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-        CustomContainer(
-          width: Utils.width(context) * 0.4,
-          // height: Utils.height(context) * 0.04,
-          padding: const EdgeInsets.all(10.0),
-          title: c2text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 0.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

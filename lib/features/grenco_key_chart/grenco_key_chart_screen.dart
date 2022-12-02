@@ -192,7 +192,13 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
                       secondNum: '50',
                       planName: 'ON BOARD PLAN',
                       week: "Week 1",
-                      onDetailsTap: () => _vm.viewDetailsTap(context),
+                      onDetailsTap: () => _vm.viewDetailsTap(
+                        context,
+                        firstNum: '18',
+                        secondNum: '50',
+                        planName: 'PM GOLD',
+                        countingWeek: "2",
+                      ),
                     ));
               },
             )),

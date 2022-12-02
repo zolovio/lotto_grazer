@@ -8,10 +8,21 @@ import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/number_card.dart';
 import 'package:lotto_grazer/res/components/w_card.dart';
+import 'package:lotto_grazer/res/components/custom_number_container.dart';
+import 'package:lotto_grazer/res/components/custom_row_widget.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class GrencoForecastDetails extends StatefulWidget {
-  const GrencoForecastDetails({super.key});
+  final String num1;
+  final String num2;
+  final String countingWeek;
+  final String planName;
+  const GrencoForecastDetails(
+      {super.key,
+      required this.num1,
+      required this.num2,
+      required this.planName,
+      required this.countingWeek});
 
   @override
   State<GrencoForecastDetails> createState() => _GrencoForecastDetailsState();
@@ -21,7 +32,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      final _vm = ref.watch(grencoForecastDetailsProvider);
+      final vm = ref.watch(grencoForecastDetailsProvider);
 
       return Scaffold(
         appBar: PreferredSize(
@@ -50,7 +61,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   width: Utils.width(context) * 0.5,
                   height: Utils.height(context) * 0.08,
                   child: CustomContainer(
-                    title: 'PM GOLD',
+                    title: widget.planName,
                     bgColor: AppColors.whiteColor.withOpacity(0.1),
                     fgColor: AppColors.blackColor,
                     fontsize: 16.0,
@@ -100,7 +111,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                             width: Utils.width(context) * 0.15,
                             height: Utils.height(context) * 0.04,
                             child: CustomContainer(
-                              title: '1',
+                              title: widget.countingWeek,
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
                               fontsize: 10.0,
@@ -225,7 +236,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
                       WCard(
@@ -233,10 +244,10 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                         borderColor: Colors.transparent,
                       ),
                       NumberCard(
-                        label: '18',
+                        label: widget.num1,
                       ),
                       NumberCard(
-                        label: '50',
+                        label: widget.num2,
                       ),
                     ],
                   ),
@@ -246,7 +257,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   height: Utils.height(context) * 0.16,
                   padding: const EdgeInsets.all(10.0),
                   title:
-                      'In any two given event the number 18 Laps 50 on the 3rd box winning.',
+                      'In any two given event the number ${widget.num1} Laps ${widget.num2}  on the 3rd box winning.',
                   bgColor: AppColors.whiteColor.withOpacity(0.1),
                   fgColor: AppColors.blackColor,
                   fontsize: 15.0,
@@ -406,90 +417,5 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
         ),
       );
     });
-  }
-}
-
-class CustomNumberContainer extends StatelessWidget {
-  final String title;
-  const CustomNumberContainer({
-    super.key,
-    required this.title,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomContainer(
-      width: Utils.width(context) * 0.09,
-      height: Utils.height(context) * 0.044,
-      margin: const EdgeInsets.symmetric(horizontal: 1.7),
-      border: Border.all(
-        width: 2.0,
-        color: AppColors.lightBlueColor,
-      ),
-      title: title,
-      bgColor: AppColors.whiteColor.withOpacity(0.1),
-      fgColor: AppColors.blackColor,
-      fontsize: 16.0,
-      fontweight: FontWeight.w700,
-      align: TextAlign.center,
-    );
-  }
-}
-
-class CustomRowWidget extends StatelessWidget {
-  final String c1text;
-  final String c2text;
-  const CustomRowWidget({
-    super.key,
-    required this.c1text,
-    required this.c2text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomContainer(
-          width: Utils.width(context) * 0.6,
-          padding: const EdgeInsets.all(10.0),
-          title: c1text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-        CustomContainer(
-          width: Utils.width(context) * 0.4,
-          padding: const EdgeInsets.all(10.0),
-          title: c2text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 0.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }

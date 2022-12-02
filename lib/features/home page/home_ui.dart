@@ -64,10 +64,6 @@ class _HomePageUiState extends State<HomePageUi> {
 
   List timingkeys = [
     {
-      'name': 'ENDING NUMBER CHART',
-      'navigation': RoutesName.lottoKeyBook,
-    },
-    {
       'name': 'LAPPING NUMER KEYS',
       'navigation': RoutesName.lottoKeyBook,
     },
@@ -218,7 +214,7 @@ class _HomePageUiState extends State<HomePageUi> {
           ),
           Container(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.06,
+            height: Utils.height(context) * 0.04,
             decoration: BoxDecoration(
               color: AppColors.greyColor,
               border: const Border(
