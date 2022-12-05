@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -46,9 +47,8 @@ class _LoginUiState extends State<LoginUi> {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
       body: ValueListenableBuilder(
           valueListenable: islogin,
@@ -57,59 +57,61 @@ class _LoginUiState extends State<LoginUi> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ListTile(
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 30.0, vertical: 25.0),
-                    leading: CustomButton(
-                      title: 'LOGIN',
-                      onpress: () {
-                        islogin.value = !islogin.value;
-                        // Navigator.of(context).pushNamed(RoutesName.login);
-                      },
-                      bgColor: islogin.value
-                          ? AppColors.whiteColor
-                          : const Color(0xFFbdd7ee),
-                      fgColor: AppColors.blackColor,
-                      bdColor: AppColors.blueColor,
-                      btnwidth: Utils.width(context) * 0.25,
-                      btnheight: Utils.height(context) * 0.06,
-                      bottomRightRadius: 0.0,
-                      topLeftRadius: 0.0,
-                      fontsize: 16.0,
-                      bdwidth: 3.0,
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 25.sm,
                     ),
-                    trailing: CustomButton(
-                      title: 'SIGNUP',
-                      onpress: () {
-                        islogin.value = !islogin.value;
-                        // Navigator.of(context).pushNamed(RoutesName.login);
-                      },
-                      bgColor: !islogin.value
-                          ? AppColors.whiteColor
-                          : const Color(0xFFbdd7ee),
-                      fgColor: AppColors.blackColor,
-                      bdColor: AppColors.blueColor,
-                      btnwidth: Utils.width(context) * 0.25,
-                      btnheight: Utils.height(context) * 0.06,
-                      bottomRightRadius: 0.0,
-                      topLeftRadius: 0.0,
-                      fontsize: 16.0,
-                      bdwidth: 3.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomButton(
+                          title: ' LOGIN ',
+                          onpress: () {
+                            islogin.value = !islogin.value;
+                            // Navigator.of(context).pushNamed(RoutesName.login);
+                          },
+                          bgColor: islogin.value
+                              ? AppColors.whiteColor
+                              : const Color(0xFFbdd7ee),
+                          fgColor: AppColors.blackColor,
+                          bdColor: AppColors.blueColor,
+                          btnwidth: 65.w,
+                          btnheight: 40.h,
+                          bottomRightRadius: 0.0,
+                          topLeftRadius: 0.0,
+                          fontsize: 15.sp,
+                          bdwidth: 3.w,
+                        ),
+                        CustomButton(
+                          title: 'SIGNUP',
+                          onpress: () {
+                            islogin.value = !islogin.value;
+                            // Navigator.of(context).pushNamed(RoutesName.login);
+                          },
+                          bgColor: !islogin.value
+                              ? AppColors.whiteColor
+                              : const Color(0xFFbdd7ee),
+                          fgColor: AppColors.blackColor,
+                          bdColor: AppColors.blueColor,
+                          btnwidth: 65.w,
+                          btnheight: 40.h,
+                          bottomRightRadius: 0.0,
+                          topLeftRadius: 0.0,
+                          fontsize: 15.sp,
+                          bdwidth: 3.w,
+                        ),
+                      ],
                     ),
                   ),
-                  islogin.value
-                      ? SizedBox(
-                          height: Utils.height(context) * 0.025,
-                        )
-                      : SizedBox(
-                          height: Utils.height(context) * 0.1,
-                        ),
+                  SizedBox(
+                    height: 25.h,
+                  ),
                   !islogin.value
                       ? const Center()
                       : Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30.0,
-                            vertical: 20.0,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 30.sm,
+                            vertical: 20.sm,
                           ),
                           child: CustomFormField(
                             title: 'ENTER YOUR NAME',
@@ -125,14 +127,14 @@ class _LoginUiState extends State<LoginUi> {
                                 : const Color(0xFFbdd7ee),
                             fgColor: AppColors.blackColor,
                             // bdColor: AppColors.blueColor,
-                            width: Utils.width(context) * 0.8,
-                            height: Utils.height(context) * 0.065,
+                            width: 285.w,
+                            height: 45.h,
                             bottomRightRadius: 0.0,
-                            bottomLeftRadius: 15.0,
+                            bottomLeftRadius: 14.r,
                             topLeftRadius: 0.0,
-                            topRightRadius: 15.0,
-                            fontsize: 13.0,
-                            bdwidth: 2.5,
+                            topRightRadius: 14.r,
+                            fontsize: 13.sp,
+                            bdwidth: 2.4.w,
                             gradientcolors: const [
                               Color(0xFF41719c),
                               Color(0xFF7296b6),
@@ -140,9 +142,9 @@ class _LoginUiState extends State<LoginUi> {
                           ),
                         ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 20.0,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 30.sm,
+                      vertical: 20.sm,
                     ),
                     child: CustomFormField(
                       title: islogin.value
@@ -163,16 +165,14 @@ class _LoginUiState extends State<LoginUi> {
                           : const Color(0xFFbdd7ee),
                       fgColor: AppColors.blackColor,
                       // bdColor: AppColors.blueColor,
-                      width: Utils.width(context) * 0.8,
-                      height: islogin.value
-                          ? Utils.height(context) * 0.07
-                          : Utils.height(context) * 0.075,
+                      width: 285.w,
+                      height: islogin.value ? 45.h : 46.h,
                       bottomRightRadius: islogin.value ? 0.0 : 10.0,
-                      bottomLeftRadius: islogin.value ? 15.0 : 30.0,
-                      topLeftRadius: islogin.value ? 0.0 : 10.0,
-                      topRightRadius: islogin.value ? 15.0 : 30.0,
-                      fontsize: islogin.value ? 13.0 : 16.0,
-                      bdwidth: 2.5,
+                      bottomLeftRadius: islogin.value ? 15.r : 30.r,
+                      topLeftRadius: islogin.value ? 0.0 : 10.r,
+                      topRightRadius: islogin.value ? 15.r : 30.r,
+                      fontsize: islogin.value ? 13.sp : 16.sp,
+                      bdwidth: 2.4.w,
                       gradientcolors: const [
                         Color(0xFF41719c),
                         Color(0xFF7296b6),
@@ -180,9 +180,9 @@ class _LoginUiState extends State<LoginUi> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 20.0,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 30.sm,
+                      vertical: 20.sm,
                     ),
                     child: CustomFormField(
                       title: islogin.value ? 'ENTER A PASSWORD' : 'PASSWORD',
@@ -198,16 +198,14 @@ class _LoginUiState extends State<LoginUi> {
                           : const Color(0xFFbdd7ee),
                       fgColor: AppColors.blackColor,
                       // bdColor: AppColors.blueColor,
-                      width: Utils.width(context) * 0.8,
-                      height: islogin.value
-                          ? Utils.height(context) * 0.07
-                          : Utils.height(context) * 0.075,
-                      bottomRightRadius: islogin.value ? 0.0 : 10.0,
-                      bottomLeftRadius: islogin.value ? 15.0 : 30.0,
-                      topLeftRadius: islogin.value ? 0.0 : 10.0,
-                      topRightRadius: islogin.value ? 15.0 : 30.0,
-                      fontsize: islogin.value ? 13.0 : 16.0,
-                      bdwidth: 2.5,
+                      width: 285.w,
+                      height: islogin.value ? 45.h : 46.h,
+                      bottomRightRadius: islogin.value ? 0.0 : 10.r,
+                      bottomLeftRadius: islogin.value ? 15.0 : 30.r,
+                      topLeftRadius: islogin.value ? 0.0 : 10.r,
+                      topRightRadius: islogin.value ? 15.r : 30.r,
+                      fontsize: islogin.value ? 13.sp : 16.sp,
+                      bdwidth: 2.4.w,
                       gradientcolors: const [
                         Color(0xFF41719c),
                         Color(0xFF7296b6),
@@ -217,9 +215,9 @@ class _LoginUiState extends State<LoginUi> {
                   !islogin.value
                       ? const Center()
                       : Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30.0,
-                            vertical: 20.0,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 30.sm,
+                            vertical: 20.sm,
                           ),
                           child: CustomFormField(
                             title: 'RE-TYPE PASSWORD',
@@ -237,14 +235,14 @@ class _LoginUiState extends State<LoginUi> {
                                 : const Color(0xFFbdd7ee),
                             fgColor: AppColors.blackColor,
                             // bdColor: AppColors.blueColor,
-                            width: Utils.width(context) * 0.8,
-                            height: Utils.height(context) * 0.065,
+                            width: 285.w,
+                            height: 45.h,
                             bottomRightRadius: 0.0,
-                            bottomLeftRadius: 15.0,
+                            bottomLeftRadius: 15.r,
                             topLeftRadius: 0.0,
-                            topRightRadius: 15.0,
-                            fontsize: 13.0,
-                            bdwidth: 2.5,
+                            topRightRadius: 15.r,
+                            fontsize: 13.sp,
+                            bdwidth: 2.4.w,
                             gradientcolors: const [
                               Color(0xFF41719c),
                               Color(0xFF7296b6),
@@ -256,9 +254,9 @@ class _LoginUiState extends State<LoginUi> {
                       : Align(
                           alignment: Alignment.centerRight,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 25.0,
-                              vertical: 0.0,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 25.sm,
+                              vertical: 0.sm,
                             ),
                             child: CustomButton(
                               title: 'FORGOT -PASSWORD ?',
@@ -271,11 +269,11 @@ class _LoginUiState extends State<LoginUi> {
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
                               bdColor: AppColors.whiteColor,
-                              btnwidth: Utils.width(context) * 0.2,
-                              btnheight: Utils.height(context) * 0.06,
+                              btnwidth: 180.w,
+                              btnheight: 10.h,
                               bottomRightRadius: 0.0,
                               topLeftRadius: 0.0,
-                              fontsize: 13.0,
+                              fontsize: 13.sp,
                               bdwidth: 0.0,
                             ),
                           ),
@@ -283,26 +281,26 @@ class _LoginUiState extends State<LoginUi> {
                   islogin.value
                       ? const Center()
                       : SizedBox(
-                          height: Utils.height(context) * 0.15,
+                          height: 90.h,
                         ),
                   islogin.value
                       ? const Center()
                       : Text(
                           'CONTINUE FREE WITH ADS',
                           style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w700,
                               color: AppColors.blackColor,
-                              fontSize: 20.0,
+                              fontSize: 18.sp,
                               wordSpacing: 0,
                               textBaseline: TextBaseline.alphabetic,
                               textStyle: Theme.of(context).textTheme.headline4),
                         ),
                   !islogin.value
                       ? SizedBox(
-                          height: Utils.height(context) * 0.02,
+                          height: 15.h,
                         )
                       : SizedBox(
-                          height: Utils.height(context) * 0.06,
+                          height: 20.h,
                         ),
                   !islogin.value
                       ? CustomButton(
@@ -313,15 +311,15 @@ class _LoginUiState extends State<LoginUi> {
                           bgColor: AppColors.whiteColor,
                           fgColor: AppColors.blackColor,
                           bdColor: AppColors.blueColor,
-                          btnwidth: Utils.width(context) * 0.25,
-                          btnheight: Utils.height(context) * 0.06,
-                          bottomRightRadius: 30.0,
-                          bottomLeftRadius: 30.0,
-                          topLeftRadius: 30.0,
-                          topRightRadius: 30.0,
-                          fontsize: 17.0,
-                          fontweight: FontWeight.w700,
-                          bdwidth: 3.0,
+                          btnwidth: 100.w,
+                          btnheight: 42.h,
+                          bottomRightRadius: 30.sm,
+                          bottomLeftRadius: 30.sm,
+                          topLeftRadius: 30.sm,
+                          topRightRadius: 30.sm,
+                          fontsize: 17.sp,
+                          fontweight: FontWeight.w600,
+                          bdwidth: 3.w,
                         )
                       : CustomButton(
                           title: 'SIGNUP',
@@ -331,16 +329,19 @@ class _LoginUiState extends State<LoginUi> {
                           bgColor: AppColors.greyColor.withOpacity(0.1),
                           fgColor: AppColors.blackColor,
                           bdColor: AppColors.blackColor,
-                          btnwidth: Utils.width(context) * 0.25,
-                          btnheight: Utils.height(context) * 0.06,
-                          bottomRightRadius: 5.0,
-                          bottomLeftRadius: 5.0,
-                          topLeftRadius: 5.0,
-                          topRightRadius: 5.0,
-                          fontsize: 17.0,
-                          fontweight: FontWeight.w700,
-                          bdwidth: 3.0,
+                          btnwidth: 100.w,
+                          btnheight: 42.h,
+                          bottomRightRadius: 5.r,
+                          bottomLeftRadius: 5.r,
+                          topLeftRadius: 5.r,
+                          topRightRadius: 5.r,
+                          fontsize: 17.sp,
+                          fontweight: FontWeight.w600,
+                          bdwidth: 3.w,
                         ),
+                  SizedBox(
+                    height: 10.h,
+                  )
                 ],
               ),
             );

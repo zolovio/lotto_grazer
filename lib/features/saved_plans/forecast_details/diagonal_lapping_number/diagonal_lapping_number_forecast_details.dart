@@ -51,7 +51,7 @@ class _DiagonalLappingNumberForecastDetailsState
         appBar: PreferredSize(
           preferredSize:
               Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-          child: const CutomAppBar(),
+          child: const CustomAppBar(),
         ),
         body: ListView(
           children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -101,131 +102,127 @@ class _HomePageUiState extends State<HomePageUi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.45,
-            child: GridView.builder(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
-              // physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-                childAspectRatio: 0.9,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 260.h,
+              child: GridView.builder(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 25.sm, vertical: 10.sm),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 8.sp,
+                  childAspectRatio: 0.9.sm,
+                ),
+                itemCount: features.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(features[index]['navigation']);
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Icon(
+                          Icons.flare_sharp,
+                          size: 45.sp,
+                          color: AppColors.blueColor,
+                        ),
+                        Text(
+                          features[index]['name'].toString(),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.blackColor,
+                              fontSize: 11.sp,
+                              wordSpacing: 0,
+                              textStyle: Theme.of(context).textTheme.headline4),
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
-              itemCount: features.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(features[index]['navigation']);
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      const Icon(
-                        Icons.flare_sharp,
-                        size: 60.0,
-                        color: AppColors.blueColor,
-                      ),
-                      Text(
-                        features[index]['name'].toString(),
-                        textAlign: TextAlign.center,
-                        softWrap: true,
-                        style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.blackColor,
-                            fontSize: 11.0,
-                            wordSpacing: 0,
-                            textStyle: Theme.of(context).textTheme.headline4),
-                      ),
-                    ],
-                  ),
-                );
-              },
             ),
-          ),
-          CustomContainer(
-            width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.06,
-            title: 'LOTTO TIMING KEYS',
-            bgColor: AppColors.greyColor,
-            fgColor: AppColors.blackColor,
-            bottomRightRadius: 0.0,
-            bottomLeftRadius: 0.0,
-            topLeftRadius: 0.0,
-            topRightRadius: 0.0,
-            fontsize: 19.0,
-            fontweight: FontWeight.w700,
-            border: Border.all(
-              width: 3.0,
-              color: AppColors.lightBlueColor,
-            ),
-          ),
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(25.0),
-              // physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                crossAxisSpacing: 5.0,
-                mainAxisSpacing: 5.0,
-                childAspectRatio: 0.7,
+            CustomContainer(
+              height: 45.h,
+              title: 'LOTTO TIMING KEYS',
+              bgColor: AppColors.greyColor,
+              fgColor: AppColors.blackColor,
+              bottomRightRadius: 0.0,
+              bottomLeftRadius: 0.0,
+              topLeftRadius: 0.0,
+              topRightRadius: 0.0,
+              fontsize: 18.sp,
+              fontweight: FontWeight.w700,
+              border: Border.all(
+                width: 3.w,
+                color: AppColors.lightBlueColor,
               ),
-              itemCount: timingkeys.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    // Navigator.of(context).pushNamed(RoutesName.products);
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      const Icon(
-                        Icons.flare_sharp,
-                        size: 60.0,
-                        color: AppColors.blueColor,
-                      ),
-                      Text(
-                        timingkeys[index]['name'].toString(),
-                        textAlign: TextAlign.center,
-                        softWrap: true,
-                        style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.blackColor,
-                            fontSize: 11.0,
-                            wordSpacing: 0,
-                            textStyle: Theme.of(context).textTheme.headline4),
-                      ),
-                    ],
-                  ),
-                );
-              },
             ),
-          ),
-          Container(
-            width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.04,
-            decoration: BoxDecoration(
-              color: AppColors.greyColor,
-              border: const Border(
-                top: BorderSide(
-                  color: AppColors.lightBlueColor,
-                  width: 3.0,
+            SizedBox(
+              height: 250.h,
+              child: GridView.builder(
+                padding: EdgeInsets.all(25.sm),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 5.0.sp,
+                  childAspectRatio: 0.7.sm,
+                ),
+                itemCount: timingkeys.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      // Navigator.of(context).pushNamed(RoutesName.products);
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Icon(
+                          Icons.flare_sharp,
+                          size: 45.sp,
+                          color: AppColors.blueColor,
+                        ),
+                        Text(
+                          timingkeys[index]['name'].toString(),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.blackColor,
+                              fontSize: 11.sp,
+                              wordSpacing: 0,
+                              textStyle: Theme.of(context).textTheme.headline4),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              height: 25.h,
+              decoration: BoxDecoration(
+                color: AppColors.greyColor,
+                border: const Border(
+                  top: BorderSide(
+                    color: AppColors.lightBlueColor,
+                    width: 3.0,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

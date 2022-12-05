@@ -28,7 +28,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
       appBar: PreferredSize(
         preferredSize:
             Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        child: const CustomAppBar(),
       ),
       body: Consumer(builder: (context, ref, _) {
         final _vm = ref.watch(grencoKeyChartProvider);

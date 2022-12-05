@@ -4,7 +4,6 @@ import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
@@ -55,7 +54,7 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
       appBar: PreferredSize(
         preferredSize:
             Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        child: const CustomAppBar(),
       ),
       body: Column(
         children: [
