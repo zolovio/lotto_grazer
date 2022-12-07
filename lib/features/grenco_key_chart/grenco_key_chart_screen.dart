@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/grenco_key_chart/grenco_key_chart_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
+import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/grenco_key_chart_analysis_card.dart';
 import 'package:lotto_grazer/res/components/common_drop_down.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -26,8 +27,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
         child: const CustomAppBar(),
       ),
       body: Consumer(builder: (context, ref, _) {
@@ -35,22 +35,23 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
         return CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Container(
-                width: size.width,
-                color: Colors.black,
-                child: const Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: CustomText(
-                    title: 'GRENCO KEY CHART',
-                    fontcolor: AppColors.whiteColor,
-                    fontweight: FontWeight.w600,
-                  ),
+              child: CustomContainer(
+                width: Utils.width(context) * 1,
+                height: 50.h,
+                title: 'GRENCO KEY CHART',
+                bgColor: AppColors.blackColor,
+                fgColor: AppColors.whiteColor,
+                fontsize: 17.sp,
+                fontweight: FontWeight.w700,
+                border: Border.all(
+                  width: 0.0,
+                  color: AppColors.whiteColor.withOpacity(0.1),
                 ),
               ),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.sm),
                 child: CustomText(
                   title: 'The Grenco Lotto Key chart is a chart that '
                       'brings together, Group number keys, Ending '
@@ -59,17 +60,18 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
                       'tends to pick at least two winning numbers '
                       'from, using the 3rd box winning Lapping plan. ',
                   fontcolor: AppColors.blackColor,
-                  fontweight: FontWeight.w500,
+                  fontsize: 14.sp,
+                  fontweight: FontWeight.w600,
                   align: TextAlign.start,
                 ),
               ),
             ),
             SliverToBoxAdapter(
               child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     border: Border(
                         top: BorderSide(
-                            color: AppColors.blackColor, width: 3.0))),
+                            color: AppColors.blackColor, width: 3.w))),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -97,7 +99,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
                       ),
                       SizedBox(height: 10.h),
                       SizedBox(
-                        height: size.height * 0.08,
+                        height: 60.h,
                         width: size.width,
                         child: CustomRadioButton(
                           list: _vm.keyList,
@@ -111,7 +113,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
                           ? const Center()
                           : CustomChildContainer(
                               width: Utils.width(context) * 1,
-                              height: Utils.height(context) * 0.25,
+                              height: 200.h,
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               child: Column(
                                 mainAxisAlignment:
@@ -145,15 +147,15 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
                                   ),
                                   CustomButton(
                                     btnwidth: Utils.width(context) * 0.2,
-                                    btnheight: Utils.height(context) * 0.05,
-                                    bottomLeftRadius: 5.0,
-                                    topLeftRadius: 5.0,
-                                    bottomRightRadius: 5.0,
-                                    topRightRadius: 5.0,
-                                    bdwidth: 2.0,
+                                    btnheight: 32.h,
+                                    bottomLeftRadius: 5.r,
+                                    topLeftRadius: 5.r,
+                                    bottomRightRadius: 5.r,
+                                    topRightRadius: 5.r,
+                                    bdwidth: 2.w,
                                     bgColor: AppColors.blueColor,
                                     title: 'Search',
-                                    fontsize: 16.0,
+                                    fontsize: 15.sp,
                                     fontweight: FontWeight.w700,
                                     onpress: () {},
                                   ),
@@ -169,14 +171,14 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
               child: Container(
                 decoration: BoxDecoration(
                     color: AppColors.greyColor.withOpacity(0.2),
-                    border: const Border(
+                    border: Border(
                         top:
-                            BorderSide(color: AppColors.blackColor, width: 3.0),
+                            BorderSide(color: AppColors.blackColor, width: 3.w),
                         bottom: BorderSide(
-                            color: AppColors.blackColor, width: 3.0))),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CustomText(
+                            color: AppColors.blackColor, width: 3.w))),
+                child: Padding(
+                  padding: EdgeInsets.all(8.sm),
+                  child: const CustomText(
                       title: 'KEY ANALYSIS', fontweight: FontWeight.w700),
                 ),
               ),
@@ -186,7 +188,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
               childCount: 9,
               (context, index) {
                 return Padding(
-                    padding: const EdgeInsets.all(2.0),
+                    padding: EdgeInsets.all(2.sm),
                     child: GrencoKeyChartAnalysisCard(
                       firstNum: '18',
                       secondNum: '50',

@@ -24,7 +24,7 @@ class CommonDropDown extends StatelessWidget {
       children: [
         if (title != null) ...[
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4.0),
+            padding: EdgeInsets.symmetric(vertical: 4.h),
             child: CustomText(
               title: title!,
               fontsize: 8.sp,
@@ -33,11 +33,11 @@ class CommonDropDown extends StatelessWidget {
           )
         ],
         Container(
-          height: size.height * 0.045,
+          height: 38.h,
           decoration: BoxDecoration(
             color: AppColors.greyColor.withOpacity(0.2),
-            border: Border.all(width: 2.0, color: AppColors.blueColor),
-            borderRadius: BorderRadius.circular(6.0),
+            border: Border.all(width: 2.w, color: AppColors.blueColor),
+            borderRadius: BorderRadius.circular(6.r),
           ),
           child: DropdownButton<String>(
             value: initialValue,

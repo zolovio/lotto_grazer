@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/utils/utils.dart';
@@ -18,41 +19,41 @@ class CustomRowWidget extends StatelessWidget {
       children: [
         CustomContainer(
           width: Utils.width(context) * 0.6,
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.sm),
           title: c1text,
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
-          fontsize: 16.0,
+          fontsize: 14.sp,
           fontweight: FontWeight.w700,
           align: TextAlign.center,
-          border: const Border(
+          border: Border(
             right: BorderSide(
               color: Colors.black,
-              width: 3.0,
+              width: 3.w,
             ),
             bottom: BorderSide(
               color: Colors.black,
-              width: 3.0,
+              width: 3.w,
             ),
           ),
         ),
         CustomContainer(
           width: Utils.width(context) * 0.4,
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.sm),
           title: c2text,
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
-          fontsize: 16.0,
+          fontsize: 14.sp,
           fontweight: FontWeight.w700,
           align: TextAlign.center,
-          border: const Border(
+          border: Border(
             right: BorderSide(
               color: Colors.black,
-              width: 0.0,
+              width: 0.w,
             ),
             bottom: BorderSide(
               color: Colors.black,
-              width: 3.0,
+              width: 3.w,
             ),
           ),
         ),

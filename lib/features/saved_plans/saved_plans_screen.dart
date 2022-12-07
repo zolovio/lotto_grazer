@@ -711,7 +711,6 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                           n2: _vm.savedPlansList[index].num2,
                                           n3: _vm.savedPlansList[index].num3),
                                       child: WCard(
-                                          widthForButton: "notNull",
                                           bgColor: AppColors.greyColor
                                               .withOpacity(0.3),
                                           textColor: AppColors.blackColor,

@@ -30,22 +30,21 @@ class _GrencoKeyChartAnalysisCardState
     extends State<GrencoKeyChartAnalysisCard> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.12.h,
+      height: 85.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        border: Border.all(color: AppColors.blackColor, width: 4.0),
+        borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(color: AppColors.blackColor, width: 4.w),
       ),
       child: Row(
         children: [
           Expanded(
             child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: AppColors.blueColor,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(15.0),
-                    topLeft: Radius.circular(15.0),
+                    bottomLeft: Radius.circular(15.r),
+                    topLeft: Radius.circular(15.r),
                   ),
                 ),
                 child: Column(
@@ -72,11 +71,11 @@ class _GrencoKeyChartAnalysisCardState
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 6,
+                    SizedBox(
+                      height: 6.h,
                     ),
                     WCard(
-                      widthForButton: "notNull",
+                      btnWidth: 60.w,
                       label: widget.week,
                       textColor: AppColors.blackColor,
                       bgColor: AppColors.buttonColor,
@@ -94,18 +93,19 @@ class _GrencoKeyChartAnalysisCardState
           ),
           Expanded(
             child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: AppColors.blueColor,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(15.0),
-                    bottomRight: Radius.circular(15.0),
+                    topRight: Radius.circular(15.r),
+                    bottomRight: Radius.circular(15.r),
                   ),
                 ),
                 child: Center(
                     child: GestureDetector(
                         onTap: () => widget.onDetailsTap(),
-                        child: const WCard(
-                            widthForButton: 'notNull',
+                        child: WCard(
+                            btnWidth: 90.w,
+                            btnHeight: 55.h,
                             label: ' View \n Detail     ')))),
           ),
         ],

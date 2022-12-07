@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
-import 'package:lotto_grazer/utils/utils.dart';
 
 class WCard extends StatelessWidget {
   final String label;
   final Color? borderColor;
   final Color? textColor;
   final Color? bgColor;
-  final String? widthForButton;
+  final double btnHeight;
+  final double btnWidth;
 
   const WCard(
       {Key? key,
@@ -17,28 +17,28 @@ class WCard extends StatelessWidget {
       this.borderColor,
       this.textColor,
       this.bgColor,
-      this.widthForButton})
+      this.btnHeight = 50,
+      this.btnWidth = 100})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 4.0),
+      padding: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 4.h),
       child: Container(
-        width: (widthForButton == null) ? Utils.width(context) * 0.12 : null,
+        width: (btnWidth == 100) ? 46.w : btnWidth,
+        height: (btnHeight == 50) ? 25.h : btnHeight,
+        alignment: Alignment.center,
         decoration: BoxDecoration(
             color: bgColor ?? AppColors.blackColor,
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(6.r),
             border: Border.all(
-                color: borderColor ?? AppColors.whiteColor, width: 3.0)),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CustomText(
-            title: label,
-            fontsize: 12.sp,
-            fontweight: FontWeight.w600,
-            fontcolor: textColor ?? AppColors.whiteColor,
-          ),
+                color: borderColor ?? AppColors.whiteColor, width: 2.w)),
+        child: CustomText(
+          title: label,
+          fontsize: 11.sp,
+          fontweight: FontWeight.w600,
+          fontcolor: textColor ?? AppColors.whiteColor,
         ),
       ),
     );

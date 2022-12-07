@@ -6,7 +6,10 @@ import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_number_container.dart';
 import 'package:lotto_grazer/res/components/custom_row_widget.dart';
+import 'package:lotto_grazer/res/components/number_card.dart';
+import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/utils/utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForecastDetails extends StatefulWidget {
   const ForecastDetails({super.key});
@@ -20,20 +23,19 @@ class _ForecastDetailsState extends State<ForecastDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
         child: const CustomAppBar(),
       ),
       body: ListView(
         children: [
           CustomContainer(
-            width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.08,
+            width: Utils.width(context) * 1.w,
+            height: 50.h,
             title: 'FORCAST DETAILS',
             bgColor: AppColors.blackColor,
             fgColor: AppColors.whiteColor,
-            fontsize: 18.0,
-            fontweight: FontWeight.w800,
+            fontsize: 17.sp,
+            fontweight: FontWeight.w700,
             border: Border.all(
               width: 0.0,
               color: AppColors.blackColor,
@@ -42,69 +44,68 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           Row(
             children: [
               SizedBox(
-                width: Utils.width(context) * 0.5,
-                height: Utils.height(context) * 0.08,
+                width: Utils.width(context) * 0.5.w,
+                height: 60.h,
                 child: CustomContainer(
                   title: 'NL FORTUNE',
                   bgColor: AppColors.whiteColor.withOpacity(0.1),
                   fgColor: AppColors.blackColor,
-                  fontsize: 16.0,
+                  fontsize: 16.sp,
                   align: TextAlign.center,
-                  fontweight: FontWeight.w800,
-                  border: const Border(
+                  fontweight: FontWeight.w700,
+                  border: Border(
                     right: BorderSide(
-                      width: 3.0,
+                      width: 3.w,
                       color: AppColors.blackColor,
                     ),
                     bottom: BorderSide(
-                      width: 3.0,
+                      width: 3.w,
                       color: AppColors.blackColor,
                     ),
                   ),
                 ),
               ),
               SizedBox(
-                // width: Utils.width(context) * 0.6,
-                height: Utils.height(context) * 0.08,
+                height: 60.h,
                 child: Column(
                   children: [
                     Row(
                       children: [
                         SizedBox(
-                          width: Utils.width(context) * 0.35,
-                          height: Utils.height(context) * 0.04,
+                          width: Utils.width(context) * 0.35.w,
+                          height: 30.h,
                           child: CustomContainer(
                             title: 'COUNTING WEEKS',
                             bgColor: AppColors.whiteColor.withOpacity(0.1),
                             fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
+                            fontsize: 10.sp,
                             align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
+                            fontweight: FontWeight.w600,
+                            border: Border(
                               right: BorderSide(
-                                width: 3.0,
+                                width: 3.w,
                                 color: AppColors.blackColor,
                               ),
                               bottom: BorderSide(
-                                width: 3.0,
+                                width: 3.w,
                                 color: AppColors.blackColor,
                               ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: Utils.width(context) * 0.15,
-                          height: Utils.height(context) * 0.04,
+                          width: Utils.width(context) * 0.15.w,
+                          height: 30.h,
                           child: CustomContainer(
                             title: '1',
                             bgColor: AppColors.whiteColor.withOpacity(0.1),
                             fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
+                            fontsize: 10.sp,
                             align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
+                            fontweight: FontWeight.w600,
+                            border: Border(
                               bottom: BorderSide(
-                                width: 3.0,
+                                width: 3.w,
                                 color: AppColors.blackColor,
                               ),
                             ),
@@ -115,40 +116,40 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                     Row(
                       children: [
                         SizedBox(
-                          width: Utils.width(context) * 0.25,
-                          height: Utils.height(context) * 0.04,
+                          width: Utils.width(context) * 0.25.w,
+                          height: 30.h,
                           child: CustomContainer(
                             title: 'UPDATED',
                             bgColor: AppColors.whiteColor.withOpacity(0.1),
                             fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
+                            fontsize: 10.sp,
                             align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
+                            fontweight: FontWeight.w600,
+                            border: Border(
                               right: BorderSide(
-                                width: 3.0,
+                                width: 3.w,
                                 color: AppColors.blackColor,
                               ),
                               bottom: BorderSide(
-                                width: 3.0,
+                                width: 3.w,
                                 color: AppColors.blackColor,
                               ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: Utils.width(context) * 0.25,
-                          height: Utils.height(context) * 0.04,
+                          width: Utils.width(context) * 0.25.w,
+                          height: 30.h,
                           child: CustomContainer(
                             title: '02/06/2022',
                             bgColor: AppColors.whiteColor.withOpacity(0.1),
                             fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
+                            fontsize: 10.sp,
                             align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
+                            fontweight: FontWeight.w600,
+                            border: Border(
                               bottom: BorderSide(
-                                width: 3.0,
+                                width: 3.w,
                                 color: AppColors.blackColor,
                               ),
                             ),
@@ -164,40 +165,40 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           Row(
             children: [
               CustomContainer(
-                width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.07,
+                width: Utils.width(context) * 0.4.w,
+                height: 40.h,
                 // padding: const EdgeInsets.all(15.0),
                 title: 'PLAN',
                 bgColor: AppColors.greyColor.withOpacity(0.5),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
-                border: const Border(
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                   right: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
               ),
               CustomContainer(
-                width: Utils.width(context) * 0.6,
-                height: Utils.height(context) * 0.07,
+                width: Utils.width(context) * 0.6.w,
+                height: 40.h,
                 // padding: const EdgeInsets.all(15.0),
                 title: 'LAPPING NUMBER',
                 bgColor: AppColors.greyColor.withOpacity(0.5),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
-                border: const Border(
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
               ),
@@ -208,88 +209,52 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomChildContainer(
                 width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.16,
-                // margin: const EdgeInsets.only(bottom: 4.0),
+                height: 120.h,
                 bgColor: AppColors.whiteColor.withOpacity(0.1),
-                border: const Border(
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
-                  // top: BorderSide(
-                  //   color: Colors.black,
-                  //   width: 3.0,
-                  // ),
                   right: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CustomButton(
-                      title: 'W3',
-                      onpress: () {
-                        // Navigator.of(context)
-                        //     .pushNamed(RoutesName.forecastDetails);
-                      },
-                      bottomLeftRadius: 5.0,
-                      bottomRightRadius: 5.0,
-                      topRightRadius: 5.0,
-                      topLeftRadius: 5.0,
-                      fontsize: 11.0,
-                      btnwidth: Utils.width(context) * 0.05,
-                      btnheight: Utils.height(context) * 0.04,
+                    SizedBox(
+                      height: 15.h,
                     ),
-                    CustomContainer(
-                      width: Utils.width(context) * 0.15,
-                      height: Utils.height(context) * 0.04,
-                      margin: const EdgeInsets.only(top: 1.0),
-                      title: '18',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
-                      fontsize: 16.0,
-                      fontweight: FontWeight.w700,
-                      align: TextAlign.center,
-                      border: Border.all(
-                        color: AppColors.blueColor,
-                        width: 3.0,
-                      ),
+                    const WCard(
+                      label: 'W3',
+                      borderColor: Colors.transparent,
                     ),
-                    CustomContainer(
-                      width: Utils.width(context) * 0.15,
-                      height: Utils.height(context) * 0.04,
-                      // margin: const EdgeInsets.all(0.0),
-                      title: '51',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
-                      fontsize: 16.0,
-                      fontweight: FontWeight.w700,
-                      align: TextAlign.center,
-                      border: Border.all(
-                        color: AppColors.blueColor,
-                        width: 3.0,
-                      ),
+                    const NumberCard(
+                      label: "18",
+                    ),
+                    const NumberCard(
+                      label: "51",
                     ),
                   ],
                 ),
               ),
               CustomContainer(
-                width: Utils.width(context) * 0.6,
-                height: Utils.height(context) * 0.16,
-                padding: const EdgeInsets.all(10.0),
+                width: Utils.width(context) * 0.6.w,
+                height: 120.h,
+                padding: EdgeInsets.all(10.sm),
                 title:
                     'In any two given event the number 18 Laps 51 on the 3rd box winning.',
                 bgColor: AppColors.whiteColor.withOpacity(0.1),
                 fgColor: AppColors.blackColor,
-                fontsize: 15.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w600,
                 align: TextAlign.left,
-                border: const Border(
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
               ),
@@ -297,18 +262,17 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.06,
-            // padding: const EdgeInsets.all(15.0),
+            height: 40.h,
             title: 'REFERENCE EVENTS',
             bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
                 color: Colors.black,
-                width: 3.0,
+                width: 3.w,
               ),
             ),
           ),
@@ -330,63 +294,60 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.06,
-            // padding: const EdgeInsets.all(15.0),
+            height: 40.h,
             title: 'KEY FORECAST',
             bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
                 color: Colors.black,
-                width: 3.0,
+                width: 3.w,
               ),
             ),
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.15,
-            padding:
-                const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+            height: 100.h,
+            padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 10.w),
             title:
                 'Counting 3 weeks up from the plan, the five(5) winning numbers of the event will counter and drop as a banker,8 weeks down',
             bgColor: AppColors.whiteColor.withOpacity(0.1),
             fgColor: AppColors.blackColor,
-            fontsize: 15.0,
+            fontsize: 14.sp,
             fontweight: FontWeight.w600,
             align: TextAlign.left,
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
                 color: Colors.black,
-                width: 3.0,
+                width: 3.w,
               ),
             ),
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.04,
-            // padding: const EdgeInsets.all(15.0),
+            height: 40.h,
             title: 'PROJECTED BANKERS',
             bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
           ),
           CustomChildContainer(
             width: Utils.width(context) * 0.7,
-            height: Utils.height(context) * 0.08,
-            margin: const EdgeInsets.only(bottom: 4.0),
+            height: 55.h,
+            margin: EdgeInsets.only(bottom: 4.h),
             bgColor: AppColors.whiteColor.withOpacity(0.1),
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
-                width: 3.0,
+                width: 3.w,
                 color: AppColors.lightBlueColor,
               ),
               top: BorderSide(
-                width: 3.0,
+                width: 3.w,
                 color: AppColors.lightBlueColor,
               ),
             ),
@@ -398,17 +359,17 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                   5,
                   (index) => CustomContainer(
                     width: Utils.width(context) * 0.2,
-                    height: Utils.height(context) * 0.08,
-                    padding: const EdgeInsets.all(5.0),
+                    height: 50.h,
+                    padding: EdgeInsets.all(5.sm),
                     shape: BoxShape.circle,
                     border: Border.all(
-                      width: 3.0,
+                      width: 3.w,
                       color: AppColors.lightBlueColor,
                     ),
                     title: '1',
                     bgColor: AppColors.whiteColor.withOpacity(0.1),
                     fgColor: AppColors.blackColor,
-                    fontsize: 15.0,
+                    fontsize: 15.sp,
                     align: TextAlign.center,
                   ),
                 ),
@@ -418,14 +379,13 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           Center(
             child: CustomButton(
               btnwidth: Utils.width(context) * 0.05,
-              // btnheight: Utils.height(context) * 0.1,
-              bottomLeftRadius: 3.0,
-              topLeftRadius: 3.0,
-              bottomRightRadius: 3.0,
-              topRightRadius: 3.0,
+              bottomLeftRadius: 3.r,
+              topLeftRadius: 3.r,
+              bottomRightRadius: 3.r,
+              topRightRadius: 3.r,
               bgColor: AppColors.blackColor.withOpacity(0.8),
               title: 'STAKE',
-              fontsize: 16.0,
+              fontsize: 15.sp,
               fontweight: FontWeight.w700,
               onpress: () {},
             ),
@@ -435,9 +395,8 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomContainer(
                 width: Utils.width(context) * 0.2,
-                height: Utils.height(context) * 0.08,
-                padding: const EdgeInsets.all(5.0),
-                // margin: const EdgeInsets.all(5.0),
+                height: 30.h,
+                padding: EdgeInsets.all(5.sm),
                 border: Border.all(
                   width: 0.0,
                   color: AppColors.whiteColor.withOpacity(0.1),
@@ -445,7 +404,7 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                 title: 'BEST 3 :',
                 bgColor: AppColors.whiteColor.withOpacity(0.1),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
               ),
@@ -468,8 +427,8 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomContainer(
                 width: Utils.width(context) * 0.2,
-                height: Utils.height(context) * 0.08,
-                padding: const EdgeInsets.all(5.0),
+                height: 30.h,
+                padding: EdgeInsets.all(5.sm),
                 border: Border.all(
                   width: 0.0,
                   color: AppColors.whiteColor.withOpacity(0.1),
@@ -477,13 +436,13 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                 title: 'BEST 5 :',
                 bgColor: AppColors.whiteColor.withOpacity(0.1),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
               ),
-              // SizedBox(
-              //   width: Utils.width(context) * 0.1,
-              // ),
+              SizedBox(
+                width: Utils.width(context) * 0.025,
+              ),
               const CustomNumberContainer(
                 title: '1',
               ),
@@ -506,29 +465,29 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomButton(
                 btnwidth: Utils.width(context) * 0.3,
-                btnheight: Utils.height(context) * 0.05,
-                bottomLeftRadius: 5.0,
-                topLeftRadius: 5.0,
-                bottomRightRadius: 5.0,
-                topRightRadius: 5.0,
-                bdwidth: 2.0,
+                btnheight: 35.h,
+                bottomLeftRadius: 5.r,
+                topLeftRadius: 5.r,
+                bottomRightRadius: 5.r,
+                topRightRadius: 5.r,
+                bdwidth: 2.w,
                 bgColor: AppColors.blueColor,
                 title: 'Save',
-                fontsize: 14.0,
+                fontsize: 14.sp,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),
               CustomButton(
                 btnwidth: Utils.width(context) * 0.6,
-                btnheight: Utils.height(context) * 0.05,
-                bottomLeftRadius: 5.0,
-                topLeftRadius: 5.0,
-                bottomRightRadius: 5.0,
-                topRightRadius: 5.0,
-                bdwidth: 2.0,
+                btnheight: 35.h,
+                bottomLeftRadius: 5.r,
+                topLeftRadius: 5.r,
+                bottomRightRadius: 5.r,
+                topRightRadius: 5.r,
+                bdwidth: 2.w,
                 bgColor: const Color(0xFF2f5597),
                 title: 'VIEW REFENCE CHARTS',
-                fontsize: 14.0,
+                fontsize: 14.sp,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
-import 'package:lotto_grazer/utils/utils.dart';
 
 class NumberCard extends StatelessWidget {
   final String label;
@@ -11,18 +10,17 @@ class NumberCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.04,
-      width: size.width * 0.15,
+      height: 26.h,
+      width: 50.w,
       decoration: BoxDecoration(
           color: AppColors.whiteColor,
-          border: Border.all(color: AppColors.lightBlueColor, width: 2.0)),
+          border: Border.all(color: AppColors.lightBlueColor, width: 2.w)),
       child: Center(
         child: CustomText(
           title: label,
-          fontsize: 12.sp,
-          fontweight: FontWeight.w900,
+          fontsize: 11.sp,
+          fontweight: FontWeight.w800,
           fontcolor: AppColors.blackColor,
         ),
       ),
@@ -39,39 +37,34 @@ class NumberCardWithTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Column(
       children: [
         CustomContainer(
-          width: (title == "SPACING")
-              ? Utils.width(context) * 0.28
-              : Utils.width(context) * 0.18,
-          height: Utils.height(context) * 0.05,
+          width: (title == "SPACING") ? 80.w : 70.w,
+          height: 35.h,
           title: num,
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
-          fontsize: 15.sp,
-          fontweight: FontWeight.w900,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w800,
           align: TextAlign.center,
           border: Border.all(
             color: AppColors.lightBlueColor,
-            width: 2.0,
+            width: 2.w,
           ),
         ),
         CustomContainer(
-          width: (title == "SPACING")
-              ? Utils.width(context) * 0.28
-              : Utils.width(context) * 0.18,
-          height: Utils.height(context) * 0.035,
+          width: (title == "SPACING") ? 80.w : 70.w,
+          height: 30.h,
           title: title,
           bgColor: AppColors.blueColor,
           fgColor: AppColors.whiteColor,
-          fontsize: 10.0,
-          fontweight: FontWeight.w900,
+          fontsize: 10.sp,
+          fontweight: FontWeight.w800,
           align: TextAlign.center,
           border: Border.all(
             color: AppColors.lightBlueColor,
-            width: 2.0,
+            width: 2.w,
           ),
         ),
       ],

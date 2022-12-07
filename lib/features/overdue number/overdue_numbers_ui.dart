@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/overdue%20number/overdue_numbers_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -22,7 +23,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
       decoration: BoxDecoration(
         color: AppColors.whiteColor.withOpacity(0.1),
         border: Border.all(
-          width: 1.0,
+          width: 1.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -30,11 +31,10 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
         CustomContainer(
             title: '\t',
             align: TextAlign.center,
-            // padding: const EdgeInsets.all(5.0),
             bgColor: AppColors.whiteColor.withOpacity(0.1),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w700,
-            fontsize: 13.0,
+            fontsize: 12.sp,
             underline: false),
         CustomContainer(
             title: 'NUMBER',
@@ -44,7 +44,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
             bgColor: const Color(0XFFa9d18e),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w800,
-            fontsize: 14.0,
+            fontsize: 13.sp,
             underline: false),
         CustomContainer(
             title: 'DRAW DELAY FREQUENCY',
@@ -54,7 +54,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
             bgColor: const Color(0XFFfff2cc),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w700,
-            fontsize: 13.0,
+            fontsize: 12.0,
             underline: false),
       ]);
   // final tablerow =
@@ -71,7 +71,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
         bgColor: AppColors.greyColor.withOpacity(0.25),
         fgColor: AppColors.blackColor,
         fontweight: FontWeight.w700,
-        fontsize: 13.0,
+        fontsize: 12.sp,
         underline: false,
       ),
       Padding(
@@ -79,7 +79,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
         child: CustomContainer(
           shape: BoxShape.circle,
           border: Border.all(
-            width: 2.5,
+            width: 2.5.w,
             color: AppColors.blueColor,
           ),
           title: titleCol2.toString(),
@@ -88,7 +88,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontweight: FontWeight.w700,
-          fontsize: 13.0,
+          fontsize: 12.sp,
           underline: false,
         ),
       ),
@@ -99,7 +99,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
         bgColor: AppColors.whiteColor.withOpacity(0.1),
         fgColor: AppColors.blackColor,
         fontweight: FontWeight.w700,
-        fontsize: 13.0,
+        fontsize: 12.sp,
         underline: false,
       ),
     ]);
@@ -110,20 +110,19 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
         child: const CustomAppBar(),
       ),
       body: ListView(
         children: [
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.08,
+            height: 50.h,
             title: 'OVERDUE NUMBERS',
             bgColor: AppColors.blackColor,
             fgColor: AppColors.whiteColor,
-            fontsize: 18.0,
-            fontweight: FontWeight.w800,
+            fontsize: 17.sp,
+            fontweight: FontWeight.w700,
             border: Border.all(
               width: 0.0,
               color: AppColors.whiteColor.withOpacity(0.1),
@@ -131,14 +130,14 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.145,
-            padding: const EdgeInsets.all(10.0),
+            height: 90.h,
+            padding: EdgeInsets.all(10.sm),
             title:
                 'Overdue Numbers is a showcase of the ten(10) numbers which have not been drawn for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
             bgColor: AppColors.whiteColor.withOpacity(0.1),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
-            fontweight: FontWeight.w500,
+            fontsize: 14.sp,
+            fontweight: FontWeight.w600,
             align: TextAlign.left,
             border: Border.all(
               width: 0.0,
@@ -149,13 +148,9 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           CustomChildContainer(
             width: Utils.width(context) * 0.07,
             bgColor: AppColors.whiteColor.withOpacity(0.1),
-            border: const Border(
-              // top: BorderSide(
-              //   width: 3.0,
-              //   color: AppColors.blackColor,
-              // ),
+            border: Border(
               bottom: BorderSide(
-                width: 3.0,
+                width: 3.w,
                 color: AppColors.blackColor,
               ),
             ),
@@ -193,8 +188,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
               },
               border: TableBorder.all(
                 color: AppColors.blackColor,
-                // style: BorderStyle.solid,
-                width: 2,
+                width: 2.w,
               ),
               children: tablerows,
             );
@@ -231,22 +225,22 @@ class CustomcatContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       width: Utils.width(context) * 0.1,
-      height: Utils.height(context) * 0.07,
-      padding: const EdgeInsets.all(15.0),
+      height: 50.h,
+      padding: EdgeInsets.all(15.sm),
       title: title.toString(),
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
-      fontsize: 18.0,
+      fontsize: 17.sp,
       fontweight: FontWeight.w700,
       align: TextAlign.center,
-      border: const Border(
+      border: Border(
         bottom: BorderSide(
           color: Colors.black,
-          width: 3.0,
+          width: 3.w,
         ),
         top: BorderSide(
           color: Colors.black,
-          width: 2.0,
+          width: 2.w,
         ),
       ),
     );
@@ -266,15 +260,11 @@ class CustomViewContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomChildContainer(
       width: Utils.width(context) * 1.0,
-      height: Utils.height(context) * 0.12,
+      height: 85.h,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
-      border: const Border(
-        // top: BorderSide(
-        //   width: 3.0,
-        //   color: AppColors.blackColor,
-        // ),
+      border: Border(
         bottom: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -288,54 +278,49 @@ class CustomViewContainer extends StatelessWidget {
                     title: 'DRAW: $draw',
                     fontcolor: AppColors.blackColor,
                     fontweight: FontWeight.w700,
-                    fontsize: 15.0,
+                    fontsize: 14.sp,
                     underline: false),
                 trailing: CustomText(
                     title: date.toString(),
                     fontcolor: AppColors.blackColor,
                     fontweight: FontWeight.w700,
-                    fontsize: 15.0,
+                    fontsize: 14.sp,
                     underline: false),
               ),
               CustomContainer(
                 width: Utils.width(context) * 1.0,
-                // height: Utils.height(context) * 0.07,
                 padding: const EdgeInsets.all(5.0),
                 title: '',
                 bgColor: AppColors.whiteColor.withOpacity(0.1),
                 fgColor: AppColors.blackColor,
-                fontsize: 18.0,
+                fontsize: 17.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
-                border: const Border(
-                  // bottom: BorderSide(
-                  //   color: Colors.black,
-                  //   width: 3.0,
-                  // ),
+                border: Border(
                   top: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
               ),
             ],
           ),
           Positioned(
-            top: 25.0,
-            left: Utils.width(context) * 0.35,
+            top: 25.h,
+            left: Utils.width(context) * 0.35.w,
             child: CustomButton(
               btnwidth: Utils.width(context) * 0.2,
-              btnheight: Utils.height(context) * 0.05,
-              bottomLeftRadius: 5.0,
-              topLeftRadius: 5.0,
-              bottomRightRadius: 5.0,
-              topRightRadius: 5.0,
-              bdwidth: 2.0,
+              btnheight: 32.h,
+              bottomLeftRadius: 5.r,
+              topLeftRadius: 5.r,
+              bottomRightRadius: 5.r,
+              topRightRadius: 5.r,
+              bdwidth: 2.w,
               bdColor: AppColors.blueColor,
               bgColor: const Color(0XFFf2f2f2),
               fgColor: AppColors.blackColor,
               title: '  View  ',
-              fontsize: 16.0,
+              fontsize: 15.sp,
               fontweight: FontWeight.w700,
               onpress: () {},
             ),

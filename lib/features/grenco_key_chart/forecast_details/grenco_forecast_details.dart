@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/grenco_key_chart/forecast_details/grenco_forecast_details_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
@@ -36,20 +37,19 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
 
       return Scaffold(
         appBar: PreferredSize(
-          preferredSize:
-              Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+          preferredSize: Size(Utils.width(context) * 1, 70.h),
           child: const CustomAppBar(),
         ),
         body: ListView(
           children: [
             CustomContainer(
               width: Utils.width(context) * 1,
-              height: Utils.height(context) * 0.08,
+              height: 50.h,
               title: 'FORCAST DETAILS',
               bgColor: AppColors.blackColor,
               fgColor: AppColors.whiteColor,
-              fontsize: 18.0,
-              fontweight: FontWeight.w800,
+              fontsize: 17.sp,
+              fontweight: FontWeight.w700,
               border: Border.all(
                 width: 0.0,
                 color: AppColors.blackColor,
@@ -58,68 +58,68 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
             Row(
               children: [
                 SizedBox(
-                  width: Utils.width(context) * 0.5,
-                  height: Utils.height(context) * 0.08,
+                  width: Utils.width(context) * 0.5.w,
+                  height: 60.h,
                   child: CustomContainer(
                     title: widget.planName,
                     bgColor: AppColors.whiteColor.withOpacity(0.1),
                     fgColor: AppColors.blackColor,
-                    fontsize: 16.0,
+                    fontsize: 16.sp,
                     align: TextAlign.center,
-                    fontweight: FontWeight.w800,
-                    border: const Border(
+                    fontweight: FontWeight.w700,
+                    border: Border(
                       right: BorderSide(
-                        width: 3.0,
+                        width: 3.w,
                         color: AppColors.blackColor,
                       ),
                       bottom: BorderSide(
-                        width: 3.0,
+                        width: 3.w,
                         color: AppColors.blackColor,
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: Utils.height(context) * 0.08,
+                  height: 60.h,
                   child: Column(
                     children: [
                       Row(
                         children: [
                           SizedBox(
-                            width: Utils.width(context) * 0.35,
-                            height: Utils.height(context) * 0.04,
+                            width: Utils.width(context) * 0.35.w,
+                            height: 30.h,
                             child: CustomContainer(
                               title: 'COUNTING WEEKS',
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
-                              fontweight: FontWeight.w700,
-                              border: const Border(
+                              fontweight: FontWeight.w600,
+                              border: Border(
                                 right: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                                 bottom: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
                             ),
                           ),
                           SizedBox(
-                            width: Utils.width(context) * 0.15,
-                            height: Utils.height(context) * 0.04,
+                            width: Utils.width(context) * 0.15.w,
+                            height: 30.h,
                             child: CustomContainer(
                               title: widget.countingWeek,
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
-                              fontweight: FontWeight.w700,
-                              border: const Border(
+                              fontweight: FontWeight.w600,
+                              border: Border(
                                 bottom: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
@@ -130,40 +130,40 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                       Row(
                         children: [
                           SizedBox(
-                            width: Utils.width(context) * 0.25,
-                            height: Utils.height(context) * 0.04,
+                            width: Utils.width(context) * 0.25.w,
+                            height: 30.h,
                             child: CustomContainer(
                               title: 'UPDATED',
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
-                              fontweight: FontWeight.w700,
-                              border: const Border(
+                              fontweight: FontWeight.w600,
+                              border: Border(
                                 right: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                                 bottom: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
                             ),
                           ),
                           SizedBox(
-                            width: Utils.width(context) * 0.25,
-                            height: Utils.height(context) * 0.04,
+                            width: Utils.width(context) * 0.25.w,
+                            height: 30.h,
                             child: CustomContainer(
                               title: '02/06/2022',
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
-                              fontweight: FontWeight.w700,
-                              border: const Border(
+                              fontweight: FontWeight.w600,
+                              border: Border(
                                 bottom: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
@@ -179,38 +179,38 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
             Row(
               children: [
                 CustomContainer(
-                  width: Utils.width(context) * 0.4,
-                  height: Utils.height(context) * 0.07,
+                  width: Utils.width(context) * 0.4.w,
+                  height: 40.h,
                   title: 'PLAN',
                   bgColor: AppColors.greyColor.withOpacity(0.5),
                   fgColor: AppColors.blackColor,
-                  fontsize: 16.0,
+                  fontsize: 15.sp,
                   fontweight: FontWeight.w700,
                   align: TextAlign.center,
-                  border: const Border(
+                  border: Border(
                     bottom: BorderSide(
                       color: Colors.black,
-                      width: 3.0,
+                      width: 3.w,
                     ),
                     right: BorderSide(
                       color: Colors.black,
-                      width: 3.0,
+                      width: 3.w,
                     ),
                   ),
                 ),
                 CustomContainer(
-                  width: Utils.width(context) * 0.6,
-                  height: Utils.height(context) * 0.07,
+                  width: Utils.width(context) * 0.6.w,
+                  height: 40.h,
                   title: 'LAPPING NUMBER',
                   bgColor: AppColors.greyColor.withOpacity(0.5),
                   fgColor: AppColors.blackColor,
-                  fontsize: 16.0,
+                  fontsize: 15.sp,
                   fontweight: FontWeight.w700,
                   align: TextAlign.center,
-                  border: const Border(
+                  border: Border(
                     bottom: BorderSide(
                       color: Colors.black,
-                      width: 3.0,
+                      width: 3.w,
                     ),
                   ),
                 ),
@@ -221,25 +221,25 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
               children: [
                 CustomChildContainer(
                   width: Utils.width(context) * 0.4,
-                  height: Utils.height(context) * 0.16,
+                  height: 120.h,
                   bgColor: AppColors.whiteColor.withOpacity(0.1),
-                  border: const Border(
+                  border: Border(
                     bottom: BorderSide(
                       color: Colors.black,
-                      width: 3.0,
+                      width: 3.w,
                     ),
                     right: BorderSide(
                       color: Colors.black,
-                      width: 3.0,
+                      width: 3.w,
                     ),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 8,
+                      SizedBox(
+                        height: 15.h,
                       ),
-                      WCard(
+                      const WCard(
                         label: 'W3',
                         borderColor: Colors.transparent,
                       ),
@@ -253,20 +253,20 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   ),
                 ),
                 CustomContainer(
-                  width: Utils.width(context) * 0.6,
-                  height: Utils.height(context) * 0.16,
-                  padding: const EdgeInsets.all(10.0),
+                  width: Utils.width(context) * 0.6.w,
+                  height: 120.h,
+                  padding: EdgeInsets.all(10.sm),
                   title:
                       'In any two given event the number ${widget.num1} Laps ${widget.num2}  on the 3rd box winning.',
                   bgColor: AppColors.whiteColor.withOpacity(0.1),
                   fgColor: AppColors.blackColor,
-                  fontsize: 15.0,
+                  fontsize: 15.sp,
                   fontweight: FontWeight.w600,
                   align: TextAlign.left,
-                  border: const Border(
+                  border: Border(
                     bottom: BorderSide(
                       color: Colors.black,
-                      width: 3.0,
+                      width: 3.w,
                     ),
                   ),
                 ),
@@ -274,17 +274,17 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
             ),
             CustomContainer(
               width: Utils.width(context) * 1,
-              height: Utils.height(context) * 0.06,
+              height: 40.h,
               title: 'REFERENCE EVENTS',
               bgColor: AppColors.greyColor.withOpacity(0.5),
               fgColor: AppColors.blackColor,
-              fontsize: 16.0,
+              fontsize: 15.sp,
               fontweight: FontWeight.w700,
               align: TextAlign.center,
-              border: const Border(
+              border: Border(
                 bottom: BorderSide(
                   color: Colors.black,
-                  width: 3.0,
+                  width: 3.w,
                 ),
               ),
             ),
@@ -306,88 +306,87 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
             ),
             CustomContainer(
               width: Utils.width(context) * 1,
-              height: Utils.height(context) * 0.06,
+              height: 40.h,
               title: 'KEY FORECAST',
               bgColor: AppColors.greyColor.withOpacity(0.5),
               fgColor: AppColors.blackColor,
-              fontsize: 16.0,
+              fontsize: 15.sp,
               fontweight: FontWeight.w700,
               align: TextAlign.center,
-              border: const Border(
+              border: Border(
                 bottom: BorderSide(
                   color: Colors.black,
-                  width: 3.0,
+                  width: 3.w,
                 ),
               ),
             ),
             CustomContainer(
               width: Utils.width(context) * 1,
-              height: Utils.height(context) * 0.08,
-              padding:
-                  const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+              height: 60.h,
+              padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 10.w),
               title: 'Stack group 5 set of numbers 4 weeks down. ',
               bgColor: AppColors.whiteColor.withOpacity(0.1),
               fgColor: AppColors.blackColor,
-              fontsize: 15.0,
+              fontsize: 15.sp,
               fontweight: FontWeight.w500,
               align: TextAlign.left,
-              border: const Border(
+              border: Border(
                 bottom: BorderSide(
                   color: Colors.black,
-                  width: 3.0,
+                  width: 3.w,
                 ),
               ),
             ),
             Center(
               child: CustomButton(
                 btnwidth: Utils.width(context) * 0.05,
-                bottomLeftRadius: 3.0,
-                topLeftRadius: 3.0,
-                bottomRightRadius: 3.0,
-                topRightRadius: 3.0,
+                bottomLeftRadius: 3.r,
+                topLeftRadius: 3.r,
+                bottomRightRadius: 3.r,
+                topRightRadius: 3.r,
                 bgColor: AppColors.blackColor.withOpacity(0.8),
                 title: 'STAKE',
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const CustomNumberContainer(
+                children: const [
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
-                  const CustomNumberContainer(
+                  CustomNumberContainer(
                     title: '1',
                   ),
                 ],
@@ -399,15 +398,15 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
               children: [
                 CustomButton(
                   btnwidth: Utils.width(context) * 0.6,
-                  btnheight: Utils.height(context) * 0.05,
-                  bottomLeftRadius: 5.0,
-                  topLeftRadius: 5.0,
-                  bottomRightRadius: 5.0,
-                  topRightRadius: 5.0,
-                  bdwidth: 2.0,
+                  btnheight: 35.h,
+                  bottomLeftRadius: 5.r,
+                  topLeftRadius: 5.r,
+                  bottomRightRadius: 5.r,
+                  topRightRadius: 5.r,
+                  bdwidth: 2.w,
                   bgColor: const Color(0xFF2f5597),
                   title: 'VIEW REFENCE CHARTS',
-                  fontsize: 14.0,
+                  fontsize: 14.sp,
                   fontweight: FontWeight.w700,
                   onpress: () {},
                 ),

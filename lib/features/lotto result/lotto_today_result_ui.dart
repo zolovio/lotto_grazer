@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_last20_draws_result_ui.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_result_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
@@ -24,8 +25,7 @@ class _LottoResultUiState extends State<LottoResultUi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
         child: const CustomAppBar(),
       ),
       body: Consumer(builder: (context, ref, _) {
@@ -34,19 +34,19 @@ class _LottoResultUiState extends State<LottoResultUi> {
           children: [
             CustomContainer(
               width: Utils.width(context) * 1,
-              height: Utils.height(context) * 0.08,
+              height: 50.h,
               title: 'LOTTO RESULT',
               bgColor: AppColors.blackColor,
               fgColor: AppColors.whiteColor,
-              fontsize: 18.0,
-              fontweight: FontWeight.w800,
+              fontsize: 17.sp,
+              fontweight: FontWeight.w700,
               border: Border.all(
                 width: 0.0,
                 color: AppColors.whiteColor.withOpacity(0.1),
               ),
             ),
             SizedBox(
-              height: Utils.height(context) * 0.08,
+              height: 60.h,
               width: Utils.width(context),
               child: CustomRadioButton(
                 list: vm.keyList,
@@ -57,7 +57,7 @@ class _LottoResultUiState extends State<LottoResultUi> {
               ),
             ),
             SizedBox(
-              height: Utils.height(context) * 0.03,
+              height: 10.h,
             ),
             vm.selectedIndex == 1
                 ? const CustomSearchContainer()
@@ -67,16 +67,15 @@ class _LottoResultUiState extends State<LottoResultUi> {
             vm.selectedIndex == 1
                 ? CustomContainer(
                     width: Utils.width(context) * 1,
-                    height: Utils.height(context) * 0.07,
-                    padding: const EdgeInsets.all(15.0),
+                    padding: EdgeInsets.all(15.sm),
                     title: 'LAST 2O DRAWS',
                     bgColor: AppColors.greyColor.withOpacity(0.5),
                     fgColor: AppColors.blackColor,
-                    fontsize: 18.0,
+                    fontsize: 17.sp,
                     fontweight: FontWeight.w800,
-                    border: const Border(
+                    border: Border(
                       bottom: BorderSide(
-                        width: 3.0,
+                        width: 3.w,
                         color: AppColors.blackColor,
                       ),
                     ),
@@ -150,20 +149,19 @@ class CatContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       width: Utils.width(context) * 1,
-      height: Utils.height(context) * 0.07,
-      padding: const EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(15.sm),
       title: thistitle,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
-      fontsize: 18.0,
+      fontsize: 17.sp,
       fontweight: FontWeight.w800,
-      border: const Border(
+      border: Border(
         top: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
         bottom: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -184,13 +182,13 @@ class CustomDrawContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomChildContainer(
       bgColor: AppColors.whiteColor.withOpacity(0.1),
-      border: const Border(
+      border: Border(
         top: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
         bottom: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -202,13 +200,13 @@ class CustomDrawContainer extends StatelessWidget {
                 title: 'DRAW: $draw',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 14.0,
+                fontsize: 13.sp,
                 underline: false),
             trailing: CustomText(
                 title: date.toString(),
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 14.0,
+                fontsize: 13.sp,
                 underline: false),
           ),
           Center(
@@ -216,7 +214,7 @@ class CustomDrawContainer extends StatelessWidget {
                 title: 'WINNING NUMBERS',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 underline: false),
           ),
           Row(
@@ -233,7 +231,7 @@ class CustomDrawContainer extends StatelessWidget {
                 title: 'MACHINE NUMBERS',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 underline: false),
           ),
           Row(
@@ -263,25 +261,24 @@ class CustomDrawContainer extends StatelessWidget {
 
 class CustomCircle extends StatelessWidget {
   final Color clr;
-  const CustomCircle({
-    super.key,
-    this.clr = AppColors.greenColor,
-  });
+  final String title;
+  const CustomCircle(
+      {super.key, this.clr = AppColors.greenColor, this.title = ''});
 
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
       width: Utils.width(context) * 0.2,
-      height: Utils.height(context) * 0.07,
-      margin: const EdgeInsets.symmetric(vertical: 10.0),
-      title: '',
+      height: 40.h,
+      margin: EdgeInsets.symmetric(vertical: 10.h),
+      title: title,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
-      fontsize: 18.0,
+      fontsize: 17.sp,
       fontweight: FontWeight.w800,
       shape: BoxShape.circle,
       border: Border.all(
-        width: 4.0,
+        width: 4.w,
         color: clr,
       ),
     );

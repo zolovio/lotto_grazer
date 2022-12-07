@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_result_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/common_drop_down.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class CustomSearchContainer extends StatelessWidget {
@@ -17,15 +16,15 @@ class CustomSearchContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomChildContainer(
       width: Utils.width(context) * 1,
-      height: Utils.height(context) * 0.25,
+      height: 200.h,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
-      border: const Border(
+      border: Border(
         top: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
         bottom: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -50,15 +49,15 @@ class CustomSearchContainer extends StatelessWidget {
           ),
           CustomButton(
             btnwidth: Utils.width(context) * 0.2,
-            btnheight: Utils.height(context) * 0.05,
-            bottomLeftRadius: 5.0,
-            topLeftRadius: 5.0,
-            bottomRightRadius: 5.0,
-            topRightRadius: 5.0,
-            bdwidth: 2.0,
+            btnheight: 32.h,
+            bottomLeftRadius: 5.r,
+            topLeftRadius: 5.r,
+            bottomRightRadius: 5.r,
+            topRightRadius: 5.r,
+            bdwidth: 2.w,
             bgColor: AppColors.blueColor,
             title: 'Search',
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             onpress: () {},
           ),
@@ -88,7 +87,7 @@ class _CustomTableState extends State<CustomTable> {
             bgColor: AppColors.blackColor.withOpacity(0.6),
             fgColor: AppColors.whiteColor,
             fontweight: FontWeight.w600,
-            fontsize: 11.0,
+            fontsize: 11.sp,
             underline: false),
         CustomContainer(
             title: 'DRAW',
@@ -97,7 +96,7 @@ class _CustomTableState extends State<CustomTable> {
             bgColor: AppColors.blackColor.withOpacity(0.6),
             fgColor: AppColors.whiteColor,
             fontweight: FontWeight.w600,
-            fontsize: 11.0,
+            fontsize: 11.sp,
             underline: false),
         CustomContainer(
             title: 'WINNING',
@@ -106,7 +105,7 @@ class _CustomTableState extends State<CustomTable> {
             bgColor: const Color(0XFFa8d08d),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w600,
-            fontsize: 11.0,
+            fontsize: 11.sp,
             underline: false),
         CustomContainer(
             title: 'MACHINE',
@@ -115,7 +114,7 @@ class _CustomTableState extends State<CustomTable> {
             bgColor: AppColors.orangeColor,
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w600,
-            fontsize: 11.0,
+            fontsize: 11.sp,
             underline: false),
       ]);
 
@@ -127,7 +126,7 @@ class _CustomTableState extends State<CustomTable> {
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
       fontweight: FontWeight.w500,
-      fontsize: 12.0,
+      fontsize: 12.sp,
       underline: false,
     ),
     CustomContainer(
@@ -137,7 +136,7 @@ class _CustomTableState extends State<CustomTable> {
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
       fontweight: FontWeight.w500,
-      fontsize: 12.0,
+      fontsize: 12.sp,
       underline: false,
     ),
     Row(
@@ -147,9 +146,9 @@ class _CustomTableState extends State<CustomTable> {
         5,
         (index) => CustomContainer(
           title: ' 3 ',
-          border: const Border(
+          border: Border(
             right: BorderSide(
-              width: 1.5,
+              width: 1.5.w,
               color: AppColors.blackColor,
             ),
           ),
@@ -158,7 +157,7 @@ class _CustomTableState extends State<CustomTable> {
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontweight: FontWeight.w500,
-          fontsize: 12.0,
+          fontsize: 12.sp,
           underline: false,
         ),
       ),
@@ -170,9 +169,9 @@ class _CustomTableState extends State<CustomTable> {
         5,
         (index) => CustomContainer(
           title: ' 3 ',
-          border: const Border(
+          border: Border(
             right: BorderSide(
-              width: 1.5,
+              width: 1.5.w,
               color: AppColors.blackColor,
             ),
           ),
@@ -181,7 +180,7 @@ class _CustomTableState extends State<CustomTable> {
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontweight: FontWeight.w500,
-          fontsize: 12.0,
+          fontsize: 12.sp,
           underline: false,
         ),
       ),
@@ -219,7 +218,7 @@ class _CustomTableState extends State<CustomTable> {
         border: TableBorder.all(
           color: AppColors.blackColor,
           style: BorderStyle.solid,
-          width: 2,
+          width: 2.w,
         ),
         children: tablerows,
       );
