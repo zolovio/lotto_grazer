@@ -185,7 +185,7 @@ class _EventSummationForecastDetailsState
                   title:
                       'In any two given event the sum of the five(5) winning numbers '
                       'must be equal to ${widget.num1} with a constant number ${widget.num2} '
-                      'at the 3rd winning numbers.',
+                      'at the 3rd box winning.',
                   bgColor: AppColors.whiteColor.withOpacity(0.1),
                   fgColor: AppColors.blackColor,
                   fontsize: 14.sp,
