@@ -39,22 +39,20 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
         CustomContainer(
             title: 'NUMBER',
             align: TextAlign.start,
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 26.h),
             bgColor: const Color(0XFFa9d18e),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w800,
-            fontsize: 13.sp,
+            fontsize: 16.sp,
             underline: false),
         CustomContainer(
             title: 'DRAW DELAY FREQUENCY',
             align: TextAlign.center,
-            padding: const EdgeInsets.only(
-                top: 15.0, bottom: 15.0, right: 12.0, left: 12.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
             bgColor: const Color(0XFFfff2cc),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w700,
-            fontsize: 12.0,
+            fontsize: 16.sp,
             underline: false),
       ]);
   // final tablerow =
@@ -67,15 +65,15 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
       CustomContainer(
         title: titleCol1.toString(),
         align: TextAlign.center,
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
         bgColor: AppColors.greyColor.withOpacity(0.25),
         fgColor: AppColors.blackColor,
         fontweight: FontWeight.w700,
-        fontsize: 12.sp,
+        fontsize: 13.sp,
         underline: false,
       ),
       Padding(
-        padding: const EdgeInsets.only(top: 2.5, bottom: 2.5),
+        padding: EdgeInsets.only(top: 2.5.h, bottom: 2.5.h),
         child: CustomContainer(
           shape: BoxShape.circle,
           border: Border.all(
@@ -88,18 +86,18 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontweight: FontWeight.w700,
-          fontsize: 12.sp,
+          fontsize: 13.sp,
           underline: false,
         ),
       ),
       CustomContainer(
         title: titleCol3.toString(),
         align: TextAlign.center,
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
         bgColor: AppColors.whiteColor.withOpacity(0.1),
         fgColor: AppColors.blackColor,
         fontweight: FontWeight.w700,
-        fontsize: 12.sp,
+        fontsize: 13.sp,
         underline: false,
       ),
     ]);
@@ -136,7 +134,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
                 'Overdue Numbers is a showcase of the ten(10) numbers which have not been drawn for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
             bgColor: AppColors.whiteColor.withOpacity(0.1),
             fgColor: AppColors.blackColor,
-            fontsize: 14.sp,
+            fontsize: 15.sp,
             fontweight: FontWeight.w600,
             align: TextAlign.left,
             border: Border.all(
@@ -307,7 +305,7 @@ class CustomViewContainer extends StatelessWidget {
           ),
           Positioned(
             top: 25.h,
-            left: Utils.width(context) * 0.35.w,
+            left: Utils.width(context) * 0.35,
             child: CustomButton(
               btnwidth: Utils.width(context) * 0.2,
               btnheight: 32.h,

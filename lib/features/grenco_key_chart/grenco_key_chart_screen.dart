@@ -51,7 +51,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.all(8.sm),
+                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 25.h),
                 child: CustomText(
                   title: 'The Grenco Lotto Key chart is a chart that '
                       'brings together, Group number keys, Ending '
@@ -198,7 +198,7 @@ class _GrencoKeyChartScreenState extends State<GrencoKeyChartScreen> {
                         context,
                         firstNum: '18',
                         secondNum: '50',
-                        planName: 'PM GOLD',
+                        gameName: 'PM GOLD',
                         countingWeek: "2",
                       ),
                     ));

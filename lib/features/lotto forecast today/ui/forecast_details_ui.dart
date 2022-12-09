@@ -6,6 +6,7 @@ import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_number_container.dart';
 import 'package:lotto_grazer/res/components/custom_row_widget.dart';
+import 'package:lotto_grazer/res/components/date_and_week_row.dart';
 import 'package:lotto_grazer/res/components/number_card.dart';
 import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/utils/utils.dart';
@@ -29,7 +30,7 @@ class _ForecastDetailsState extends State<ForecastDetails> {
       body: ListView(
         children: [
           CustomContainer(
-            width: Utils.width(context) * 1.w,
+            width: Utils.width(context) * 1,
             height: 50.h,
             title: 'FORCAST DETAILS',
             bgColor: AppColors.blackColor,
@@ -41,132 +42,13 @@ class _ForecastDetailsState extends State<ForecastDetails> {
               color: AppColors.blackColor,
             ),
           ),
-          Row(
-            children: [
-              SizedBox(
-                width: Utils.width(context) * 0.5.w,
-                height: 60.h,
-                child: CustomContainer(
-                  title: 'NL FORTUNE',
-                  bgColor: AppColors.whiteColor.withOpacity(0.1),
-                  fgColor: AppColors.blackColor,
-                  fontsize: 16.sp,
-                  align: TextAlign.center,
-                  fontweight: FontWeight.w700,
-                  border: Border(
-                    right: BorderSide(
-                      width: 3.w,
-                      color: AppColors.blackColor,
-                    ),
-                    bottom: BorderSide(
-                      width: 3.w,
-                      color: AppColors.blackColor,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 60.h,
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: Utils.width(context) * 0.35.w,
-                          height: 30.h,
-                          child: CustomContainer(
-                            title: 'COUNTING WEEKS',
-                            bgColor: AppColors.whiteColor.withOpacity(0.1),
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.sp,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w600,
-                            border: Border(
-                              right: BorderSide(
-                                width: 3.w,
-                                color: AppColors.blackColor,
-                              ),
-                              bottom: BorderSide(
-                                width: 3.w,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: Utils.width(context) * 0.15.w,
-                          height: 30.h,
-                          child: CustomContainer(
-                            title: '1',
-                            bgColor: AppColors.whiteColor.withOpacity(0.1),
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.sp,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w600,
-                            border: Border(
-                              bottom: BorderSide(
-                                width: 3.w,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: Utils.width(context) * 0.25.w,
-                          height: 30.h,
-                          child: CustomContainer(
-                            title: 'UPDATED',
-                            bgColor: AppColors.whiteColor.withOpacity(0.1),
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.sp,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w600,
-                            border: Border(
-                              right: BorderSide(
-                                width: 3.w,
-                                color: AppColors.blackColor,
-                              ),
-                              bottom: BorderSide(
-                                width: 3.w,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: Utils.width(context) * 0.25.w,
-                          height: 30.h,
-                          child: CustomContainer(
-                            title: '02/06/2022',
-                            bgColor: AppColors.whiteColor.withOpacity(0.1),
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.sp,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w600,
-                            border: Border(
-                              bottom: BorderSide(
-                                width: 3.w,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          const DateAndWeekRow(
+              gameName: "NL FORTUNE", countingWeek: "1", date: "02/05/2022"),
           Row(
             children: [
               CustomContainer(
-                width: Utils.width(context) * 0.4.w,
-                height: 40.h,
+                width: Utils.width(context) * 0.4,
+                height: 50.h,
                 // padding: const EdgeInsets.all(15.0),
                 title: 'PLAN',
                 bgColor: AppColors.greyColor.withOpacity(0.5),
@@ -186,8 +68,8 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                 ),
               ),
               CustomContainer(
-                width: Utils.width(context) * 0.6.w,
-                height: 40.h,
+                width: Utils.width(context) * 0.6,
+                height: 50.h,
                 // padding: const EdgeInsets.all(15.0),
                 title: 'LAPPING NUMBER',
                 bgColor: AppColors.greyColor.withOpacity(0.5),
@@ -241,7 +123,7 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                 ),
               ),
               CustomContainer(
-                width: Utils.width(context) * 0.6.w,
+                width: Utils.width(context) * 0.6,
                 height: 120.h,
                 padding: EdgeInsets.all(10.sm),
                 title:

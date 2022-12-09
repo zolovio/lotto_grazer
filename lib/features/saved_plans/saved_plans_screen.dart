@@ -26,8 +26,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
         child: const CustomAppBar(),
       ),
       body: Consumer(builder: (context, ref, _) {
@@ -35,42 +34,44 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
         return CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Container(
-                width: size.width,
-                color: Colors.black,
-                child: const Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: CustomText(
-                    title: 'SAVED PLANS',
-                    fontcolor: AppColors.whiteColor,
-                    fontweight: FontWeight.w600,
-                  ),
+              child: CustomContainer(
+                width: Utils.width(context) * 1,
+                height: 50.h,
+                title: 'SAVED PLANS',
+                bgColor: AppColors.blackColor,
+                fgColor: AppColors.whiteColor,
+                fontsize: 17.sp,
+                fontweight: FontWeight.w700,
+                border: Border.all(
+                  width: 0.0,
+                  color: AppColors.whiteColor.withOpacity(0.1),
                 ),
               ),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 25.h),
                 child: CustomText(
                   title: 'Saved Plans are key plans used in '
                       'forecasting potential winning numbers for '
                       'lotto games in the past, you saved.',
                   fontcolor: AppColors.blackColor,
-                  fontweight: FontWeight.w500,
+                  fontsize: 15.sp,
+                  fontweight: FontWeight.w600,
                   align: TextAlign.start,
                 ),
               ),
             ),
             SliverToBoxAdapter(
               child: Container(
-                  height: Utils.height(context) * 0.03,
+                  height: 25.h,
                   decoration: BoxDecoration(
                       color: AppColors.greyColor,
-                      border: const Border(
+                      border: Border(
                         top:
-                            BorderSide(color: AppColors.blackColor, width: 3.0),
+                            BorderSide(color: AppColors.blackColor, width: 3.w),
                         bottom:
-                            BorderSide(color: AppColors.blackColor, width: 3.0),
+                            BorderSide(color: AppColors.blackColor, width: 3.w),
                       )),
                   child: const Center()),
             ),
@@ -81,10 +82,10 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                 return Column(
                   children: [
                     Container(
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           border: Border(
                         bottom: BorderSide(
-                          width: 3.0,
+                          width: 3.w,
                           color: AppColors.blackColor,
                         ),
                       )),
@@ -93,17 +94,17 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                         children: [
                           SizedBox(
                             width: Utils.width(context) * 0.32,
-                            height: Utils.height(context) * 0.04,
+                            height: 30.h,
                             child: CustomContainer(
                               title: 'DRAW: ${_vm.savedPlansList[index].draw}',
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
                               fontweight: FontWeight.w700,
-                              border: const Border(
+                              border: Border(
                                 right: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
@@ -111,17 +112,17 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                           ),
                           SizedBox(
                             width: Utils.width(context) * 0.42,
-                            height: Utils.height(context) * 0.04,
+                            height: 30.h,
                             child: CustomContainer(
                               title: _vm.savedPlansList[index].lotteryGameName,
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
                               fontweight: FontWeight.w700,
-                              border: const Border(
+                              border: Border(
                                 right: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
@@ -129,12 +130,12 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                           ),
                           SizedBox(
                             width: Utils.width(context) * 0.25,
-                            height: Utils.height(context) * 0.04,
+                            height: 30.h,
                             child: CustomContainer(
                               title: _vm.savedPlansList[index].date,
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               fgColor: AppColors.blackColor,
-                              fontsize: 10.0,
+                              fontsize: 10.sp,
                               align: TextAlign.center,
                               fontweight: FontWeight.w700,
                             ),
@@ -143,10 +144,10 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                       ),
                     ),
                     Container(
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           border: Border(
                         bottom: BorderSide(
-                          width: 3.0,
+                          width: 3.w,
                           color: AppColors.blackColor,
                         ),
                       )),
@@ -155,35 +156,35 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                         children: [
                           SizedBox(
                             width: Utils.width(context) * 0.32,
-                            height: Utils.height(context) * 0.2,
+                            height: 140.h,
                             child: CustomChildContainer(
                               bgColor: AppColors.greyColor.withOpacity(0.3),
-                              border: const Border(
+                              border: Border(
                                 right: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const CustomText(
+                                  CustomText(
                                     title: "PLAN",
                                     underline: true,
-                                    fontsize: 15.5,
+                                    fontsize: 15.5.sp,
                                     fontweight: FontWeight.w600,
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: 10.h,
                                   ),
                                   CustomText(
                                     title: _vm.savedPlansList[index].planType,
-                                    fontsize: 10,
+                                    fontsize: 10.sp,
                                     fontweight: FontWeight.w500,
                                   ),
                                   CustomText(
                                     title: _vm.savedPlansList[index].planName,
-                                    fontsize: 15.5,
+                                    fontsize: 15.5.sp,
                                     fontweight: FontWeight.w600,
                                   ),
                                 ],
@@ -192,12 +193,12 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                           ),
                           SizedBox(
                             width: Utils.width(context) * 0.42,
-                            height: Utils.height(context) * 0.2,
+                            height: 140.h,
                             child: CustomChildContainer(
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
-                              border: const Border(
+                              border: Border(
                                 right: BorderSide(
-                                  width: 3.0,
+                                  width: 3.w,
                                   color: AppColors.blackColor,
                                 ),
                               ),
@@ -421,8 +422,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                               .winningNum1,
                                           borderColor: Colors.transparent,
                                         ),
-                                        const SizedBox(
-                                          width: 5,
+                                        SizedBox(
+                                          width: 4.w,
                                         ),
                                         WCard(
                                           label: _vm.savedPlansList[index]
@@ -440,8 +441,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                         NumberCardWithTitle(
                                             num: _vm.savedPlansList[index].num1,
                                             title: "SUM"),
-                                        const SizedBox(
-                                          width: 5,
+                                        SizedBox(
+                                          width: 4.w,
                                         ),
                                         NumberCardWithTitle(
                                             num: _vm.savedPlansList[index].num2,
@@ -463,8 +464,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                               .winningNum1,
                                           borderColor: Colors.transparent,
                                         ),
-                                        const SizedBox(
-                                          width: 5,
+                                        SizedBox(
+                                          width: 4.w,
                                         ),
                                         WCard(
                                           label: _vm.savedPlansList[index]
@@ -482,8 +483,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                         NumberCardWithTitle(
                                             num: _vm.savedPlansList[index].num1,
                                             title: "ADDITION"),
-                                        const SizedBox(
-                                          width: 5,
+                                        SizedBox(
+                                          width: 4.w,
                                         ),
                                         NumberCardWithTitle(
                                             num: _vm.savedPlansList[index].num2,
@@ -505,8 +506,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                               .winningNum1,
                                           borderColor: Colors.transparent,
                                         ),
-                                        const SizedBox(
-                                          width: 5,
+                                        SizedBox(
+                                          width: 4.w,
                                         ),
                                         WCard(
                                           label: _vm.savedPlansList[index]
@@ -524,8 +525,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                         NumberCardWithTitle(
                                             num: _vm.savedPlansList[index].num1,
                                             title: "V-CODE"),
-                                        const SizedBox(
-                                          width: 5,
+                                        SizedBox(
+                                          width: 4.w,
                                         ),
                                         NumberCardWithTitle(
                                             num: _vm.savedPlansList[index].num2,
@@ -542,7 +543,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                       borderColor: Colors.transparent,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.sm),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
@@ -555,15 +556,15 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                             CupertinoIcons.minus,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Icon(
                                             CupertinoIcons.add,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Icon(
                                             CupertinoIcons.minus,
@@ -573,15 +574,15 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                             CupertinoIcons.minus,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Icon(
                                             CupertinoIcons.add,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           if (_vm.savedPlansList[index]
                                                   .planType ==
@@ -594,7 +595,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.sm),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
@@ -607,15 +608,15 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                             CupertinoIcons.minus,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Icon(
                                             CupertinoIcons.add,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Icon(
                                             CupertinoIcons.minus,
@@ -625,15 +626,15 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                             CupertinoIcons.minus,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           Icon(
                                             CupertinoIcons.add,
                                             size: 15.sp,
                                           ),
-                                          const SizedBox(
-                                            width: 5,
+                                          SizedBox(
+                                            width: 4.w,
                                           ),
                                           if (_vm.savedPlansList[index]
                                                   .planType ==
@@ -646,13 +647,13 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                       ),
                                     ),
                                     CustomContainer(
-                                      margin: const EdgeInsets.only(
-                                          left: 8.0, right: 8.0),
-                                      height: Utils.height(context) * 0.035,
+                                      margin: EdgeInsets.only(
+                                          left: 8.w, right: 8.w),
+                                      height: 35.h,
                                       title: "SIGN CODE",
                                       bgColor: AppColors.blueColor,
                                       fgColor: AppColors.whiteColor,
-                                      fontsize: 10.0,
+                                      fontsize: 10.sp,
                                       fontweight: FontWeight.w900,
                                       align: TextAlign.center,
                                       border: Border.all(
@@ -670,8 +671,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                           _vm.savedPlansList[index].winningNum1,
                                       borderColor: Colors.transparent,
                                     ),
-                                    const SizedBox(
-                                      height: 15,
+                                    SizedBox(
+                                      height: 10.h,
                                     ),
                                     NumberCard(
                                       label: _vm.savedPlansList[index].num1,
@@ -683,7 +684,7 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                           ),
                           SizedBox(
                             width: Utils.width(context) * 0.25,
-                            height: Utils.height(context) * 0.15,
+                            height: 140.h,
                             child: CustomChildContainer(
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               child: Center(
@@ -711,6 +712,8 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                           n2: _vm.savedPlansList[index].num2,
                                           n3: _vm.savedPlansList[index].num3),
                                       child: WCard(
+                                          btnWidth: 80.w,
+                                          btnHeight: 45.h,
                                           bgColor: AppColors.greyColor
                                               .withOpacity(0.3),
                                           textColor: AppColors.blackColor,

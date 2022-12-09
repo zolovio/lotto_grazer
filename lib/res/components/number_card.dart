@@ -12,7 +12,7 @@ class NumberCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 26.h,
-      width: 50.w,
+      width: 58.w,
       decoration: BoxDecoration(
           color: AppColors.whiteColor,
           border: Border.all(color: AppColors.lightBlueColor, width: 2.w)),
@@ -40,7 +40,7 @@ class NumberCardWithTitle extends StatelessWidget {
     return Column(
       children: [
         CustomContainer(
-          width: (title == "SPACING") ? 80.w : 70.w,
+          width: (title == "SPACING") ? 100.w : 85.w,
           height: 35.h,
           title: num,
           bgColor: AppColors.whiteColor.withOpacity(0.1),
@@ -54,7 +54,7 @@ class NumberCardWithTitle extends StatelessWidget {
           ),
         ),
         CustomContainer(
-          width: (title == "SPACING") ? 80.w : 70.w,
+          width: (title == "SPACING") ? 100.w : 85.w,
           height: 30.h,
           title: title,
           bgColor: AppColors.blueColor,

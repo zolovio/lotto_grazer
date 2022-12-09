@@ -7,6 +7,7 @@ import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/date_and_week_row.dart';
 import 'package:lotto_grazer/res/components/number_card.dart';
 import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/res/components/custom_number_container.dart';
@@ -17,12 +18,12 @@ class GrencoForecastDetails extends StatefulWidget {
   final String num1;
   final String num2;
   final String countingWeek;
-  final String planName;
+  final String gameName;
   const GrencoForecastDetails(
       {super.key,
       required this.num1,
       required this.num2,
-      required this.planName,
+      required this.gameName,
       required this.countingWeek});
 
   @override
@@ -55,132 +56,15 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                 color: AppColors.blackColor,
               ),
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: Utils.width(context) * 0.5.w,
-                  height: 60.h,
-                  child: CustomContainer(
-                    title: widget.planName,
-                    bgColor: AppColors.whiteColor.withOpacity(0.1),
-                    fgColor: AppColors.blackColor,
-                    fontsize: 16.sp,
-                    align: TextAlign.center,
-                    fontweight: FontWeight.w700,
-                    border: Border(
-                      right: BorderSide(
-                        width: 3.w,
-                        color: AppColors.blackColor,
-                      ),
-                      bottom: BorderSide(
-                        width: 3.w,
-                        color: AppColors.blackColor,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 60.h,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: Utils.width(context) * 0.35.w,
-                            height: 30.h,
-                            child: CustomContainer(
-                              title: 'COUNTING WEEKS',
-                              bgColor: AppColors.whiteColor.withOpacity(0.1),
-                              fgColor: AppColors.blackColor,
-                              fontsize: 10.sp,
-                              align: TextAlign.center,
-                              fontweight: FontWeight.w600,
-                              border: Border(
-                                right: BorderSide(
-                                  width: 3.w,
-                                  color: AppColors.blackColor,
-                                ),
-                                bottom: BorderSide(
-                                  width: 3.w,
-                                  color: AppColors.blackColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: Utils.width(context) * 0.15.w,
-                            height: 30.h,
-                            child: CustomContainer(
-                              title: widget.countingWeek,
-                              bgColor: AppColors.whiteColor.withOpacity(0.1),
-                              fgColor: AppColors.blackColor,
-                              fontsize: 10.sp,
-                              align: TextAlign.center,
-                              fontweight: FontWeight.w600,
-                              border: Border(
-                                bottom: BorderSide(
-                                  width: 3.w,
-                                  color: AppColors.blackColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: Utils.width(context) * 0.25.w,
-                            height: 30.h,
-                            child: CustomContainer(
-                              title: 'UPDATED',
-                              bgColor: AppColors.whiteColor.withOpacity(0.1),
-                              fgColor: AppColors.blackColor,
-                              fontsize: 10.sp,
-                              align: TextAlign.center,
-                              fontweight: FontWeight.w600,
-                              border: Border(
-                                right: BorderSide(
-                                  width: 3.w,
-                                  color: AppColors.blackColor,
-                                ),
-                                bottom: BorderSide(
-                                  width: 3.w,
-                                  color: AppColors.blackColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: Utils.width(context) * 0.25.w,
-                            height: 30.h,
-                            child: CustomContainer(
-                              title: '02/06/2022',
-                              bgColor: AppColors.whiteColor.withOpacity(0.1),
-                              fgColor: AppColors.blackColor,
-                              fontsize: 10.sp,
-                              align: TextAlign.center,
-                              fontweight: FontWeight.w600,
-                              border: Border(
-                                bottom: BorderSide(
-                                  width: 3.w,
-                                  color: AppColors.blackColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            DateAndWeekRow(
+                gameName: widget.gameName,
+                countingWeek: widget.countingWeek,
+                date: '02/12/2022'),
             Row(
               children: [
                 CustomContainer(
-                  width: Utils.width(context) * 0.4.w,
-                  height: 40.h,
+                  width: Utils.width(context) * 0.4,
+                  height: 50.h,
                   title: 'PLAN',
                   bgColor: AppColors.greyColor.withOpacity(0.5),
                   fgColor: AppColors.blackColor,
@@ -199,8 +83,8 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   ),
                 ),
                 CustomContainer(
-                  width: Utils.width(context) * 0.6.w,
-                  height: 40.h,
+                  width: Utils.width(context) * 0.6,
+                  height: 50.h,
                   title: 'LAPPING NUMBER',
                   bgColor: AppColors.greyColor.withOpacity(0.5),
                   fgColor: AppColors.blackColor,
@@ -253,7 +137,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                   ),
                 ),
                 CustomContainer(
-                  width: Utils.width(context) * 0.6.w,
+                  width: Utils.width(context) * 0.6,
                   height: 120.h,
                   padding: EdgeInsets.all(10.sm),
                   title:
@@ -337,6 +221,9 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 10.h,
+            ),
             Center(
               child: CustomButton(
                 btnwidth: Utils.width(context) * 0.05,
@@ -392,7 +279,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

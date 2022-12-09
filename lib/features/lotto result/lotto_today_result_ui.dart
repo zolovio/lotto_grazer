@@ -48,12 +48,14 @@ class _LottoResultUiState extends State<LottoResultUi> {
             SizedBox(
               height: 60.h,
               width: Utils.width(context),
-              child: CustomRadioButton(
-                list: vm.keyList,
-                selectedIndex: vm.selectedIndex,
-                onSelect: (index) {
-                  vm.setIndex(index);
-                },
+              child: Center(
+                child: CustomRadioButton(
+                  list: vm.keyList,
+                  selectedIndex: vm.selectedIndex,
+                  onSelect: (index) {
+                    vm.setIndex(index);
+                  },
+                ),
               ),
             ),
             SizedBox(

@@ -15,14 +15,14 @@ class GrencoKeyChartVm extends ChangeNotifier {
     BuildContext context, {
     firstNum,
     secondNum,
-    planName,
+    gameName,
     countingWeek,
   }) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => GrencoForecastDetails(
               num1: firstNum,
               num2: secondNum,
-              planName: planName,
+              gameName: gameName,
               countingWeek: countingWeek,
             )));
     print("view detail");

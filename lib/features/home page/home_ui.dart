@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -117,7 +116,7 @@ class _HomePageUiState extends State<HomePageUi> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 8.sp,
-                  childAspectRatio: 0.9.sm,
+                  childAspectRatio: 1.h,
                 ),
                 itemCount: features.length,
                 itemBuilder: (context, index) {
@@ -134,6 +133,9 @@ class _HomePageUiState extends State<HomePageUi> {
                           size: 45.sp,
                           color: AppColors.blueColor,
                         ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
                         Text(
                           features[index]['name'].toString(),
                           textAlign: TextAlign.center,
@@ -141,7 +143,7 @@ class _HomePageUiState extends State<HomePageUi> {
                           style: GoogleFonts.montserrat(
                               fontWeight: FontWeight.w600,
                               color: AppColors.blackColor,
-                              fontSize: 11.sp,
+                              fontSize: 12.sp,
                               wordSpacing: 0,
                               textStyle: Theme.of(context).textTheme.headline4),
                         ),
@@ -152,7 +154,7 @@ class _HomePageUiState extends State<HomePageUi> {
               ),
             ),
             CustomContainer(
-              height: 45.h,
+              height: 50.h,
               title: 'LOTTO TIMING KEYS',
               bgColor: AppColors.greyColor,
               fgColor: AppColors.blackColor,
@@ -168,7 +170,7 @@ class _HomePageUiState extends State<HomePageUi> {
               ),
             ),
             SizedBox(
-              height: 250.h,
+              height: 240.h,
               child: GridView.builder(
                 padding: EdgeInsets.all(25.sm),
                 shrinkWrap: true,
@@ -176,7 +178,7 @@ class _HomePageUiState extends State<HomePageUi> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   crossAxisSpacing: 5.0.sp,
-                  childAspectRatio: 0.7.sm,
+                  childAspectRatio: 0.7.h,
                 ),
                 itemCount: timingkeys.length,
                 itemBuilder: (context, index) {
@@ -192,6 +194,9 @@ class _HomePageUiState extends State<HomePageUi> {
                           size: 45.sp,
                           color: AppColors.blueColor,
                         ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
                         Text(
                           timingkeys[index]['name'].toString(),
                           textAlign: TextAlign.center,
@@ -199,7 +204,7 @@ class _HomePageUiState extends State<HomePageUi> {
                           style: GoogleFonts.montserrat(
                               fontWeight: FontWeight.w600,
                               color: AppColors.blackColor,
-                              fontSize: 11.sp,
+                              fontSize: 12.sp,
                               wordSpacing: 0,
                               textStyle: Theme.of(context).textTheme.headline4),
                         ),
@@ -210,7 +215,7 @@ class _HomePageUiState extends State<HomePageUi> {
               ),
             ),
             Container(
-              height: 25.h,
+              height: 45.h,
               decoration: BoxDecoration(
                 color: AppColors.greyColor,
                 border: const Border(

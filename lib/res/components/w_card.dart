@@ -26,7 +26,7 @@ class WCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 4.h),
       child: Container(
-        width: (btnWidth == 100) ? 46.w : btnWidth,
+        width: (btnWidth == 100) ? 50.w : btnWidth,
         height: (btnHeight == 50) ? 25.h : btnHeight,
         alignment: Alignment.center,
         decoration: BoxDecoration(

@@ -29,8 +29,8 @@ class _LanguageUiState extends State<LanguageUi> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  height: 150.h,
-                  width: 150.w,
+                  height: 170.h,
+                  width: 170.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.grey.shade300,
@@ -85,7 +85,7 @@ class _LanguageUiState extends State<LanguageUi> {
                                 width: 1.5.w,
                                 color: AppColors.lightBlueColor,
                               ),
-                              width: 220.w,
+                              width: 250.w,
                               height: 45.h,
                               bottomRightRadius: 10.r,
                               topLeftRadius: 10.r,
@@ -103,7 +103,7 @@ class _LanguageUiState extends State<LanguageUi> {
                                 width: 1.5.w,
                                 color: AppColors.lightBlueColor,
                               ),
-                              width: 220.w,
+                              width: 250.w,
                               height: 45.h,
                               bottomRightRadius: 10.r,
                               topLeftRadius: 10.r,
@@ -122,7 +122,7 @@ class _LanguageUiState extends State<LanguageUi> {
                   bgColor: AppColors.blackColor,
                   fgColor: AppColors.whiteColor,
                   bdColor: AppColors.darkBlueColor,
-                  btnwidth: 100.w,
+                  btnwidth: 130.w,
                   btnheight: 42.h,
                   bottomRightRadius: 10.r,
                   topLeftRadius: 10.r,
