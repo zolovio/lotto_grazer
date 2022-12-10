@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/ball_spacing/ball_spacing_forecast_details.dart';
 import 'package:lotto_grazer/features/saved_plans/forecast_details/constant_position/constant_position_forecast_details.dart';
 import 'package:lotto_grazer/features/saved_plans/forecast_details/diagonal_lapping_number/diagonal_lapping_number_forecast_details.dart';
 import 'package:lotto_grazer/features/saved_plans/forecast_details/event_summation/event_summation_forecast_details.dart';
 import 'package:lotto_grazer/features/saved_plans/forecast_details/horizontal_lapping_number/horizontal_lapping_number_forecast_details.dart';
 import 'package:lotto_grazer/features/saved_plans/forecast_details/pivoted_number/pivoted_number_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/polar_addition/polar_addition_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/progressive_number/progressive_number_forecast_details.dart';
+import 'package:lotto_grazer/features/saved_plans/forecast_details/sequential_number/sequential_number_forecast_details.dart';
 import 'package:lotto_grazer/features/saved_plans/forecast_details/vertical_lapping_number/vertical_lapping_number_forecast_details.dart';
 
 final savedPlansProvider =
@@ -137,21 +141,23 @@ class SavedPlansVm extends ChangeNotifier {
       num2: '35',
     ),
     SavedPlansData(
-      draw: "966",
-      lotteryGameName: "NL FORTUNE",
-      date: "02/06/2022",
-      planType: "VERTICAL",
-      planName: "PROGRESSIVE NUMBER",
-      winningNum1: 'w',
-    ),
+        draw: "966",
+        lotteryGameName: "NL FORTUNE",
+        date: "02/06/2022",
+        planType: "VERTICAL",
+        planName: "PROGRESSIVE NUMBER",
+        winningNum1: 'w',
+        signCode1: '-- + -- ++',
+        signCode2: '++ -- ++'),
     SavedPlansData(
-      draw: "966",
-      lotteryGameName: "NL FORTUNE",
-      date: "02/06/2022",
-      planType: "HORIZONTAL",
-      planName: "PROGRESSIVE NUMBER",
-      winningNum1: 'w',
-    ),
+        draw: "966",
+        lotteryGameName: "NL FORTUNE",
+        date: "02/06/2022",
+        planType: "HORIZONTAL",
+        planName: "PROGRESSIVE NUMBER",
+        winningNum1: 'w',
+        signCode1: '+ -- -- +',
+        signCode2: '+ -- ++'),
     SavedPlansData(
       draw: "966",
       lotteryGameName: "NL FORTUNE",
@@ -163,18 +169,22 @@ class SavedPlansVm extends ChangeNotifier {
     ),
   ];
 
-  void viewDetailsTap(BuildContext context,
-      {required lotteryGameName,
-      required date,
-      required pType,
-      required pName,
-      required winNum1,
-      isRightDiagonal,
-      isUpwardPivoted,
-      winNum2,
-      n1,
-      n2,
-      n3}) {
+  void viewDetailsTap(
+    BuildContext context, {
+    required lotteryGameName,
+    required date,
+    required pType,
+    required pName,
+    required winNum1,
+    isRightDiagonal,
+    isUpwardPivoted,
+    winNum2,
+    n1,
+    n2,
+    n3,
+    signCode1,
+    signCode2,
+  }) {
     String planTypeWithName = '$pType $pName';
     switch (planTypeWithName) {
       case "VERTICAL LAPPING NUMBER":
@@ -230,6 +240,30 @@ class SavedPlansVm extends ChangeNotifier {
                   isUpwardPivoted: isUpwardPivoted,
                 )));
         break;
+      case "HORIZONTAL BALL SPACING":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => BallSpacingForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  winningNum2: winNum2,
+                  num1: n1,
+                )));
+        break;
+      case "VERTICAL BALL SPACING":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => BallSpacingForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  winningNum2: winNum2,
+                  num1: n1,
+                )));
+        break;
       case " EVENT SUMMATION":
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => EventSummationForecastDetails(
@@ -241,6 +275,56 @@ class SavedPlansVm extends ChangeNotifier {
                   winningNum2: winNum2,
                   num1: n1,
                   num2: n2,
+                )));
+        break;
+      case " POLAR ADDITION":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PolarAdditionForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  winningNum2: winNum2,
+                  num1: n1,
+                  num2: n2,
+                )));
+        break;
+      case " SEQUENTIAL NUMBER":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => SequentialNumberForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  winningNum2: winNum2,
+                  num1: n1,
+                  num2: n2,
+                )));
+        break;
+      case "VERTICAL PROGRESSIVE NUMBER":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ProgressiveNumberForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  signCode1: signCode1,
+                  signCode2: signCode2,
+                )));
+        break;
+      case "HORIZONTAL PROGRESSIVE NUMBER":
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ProgressiveNumberForecastDetails(
+                  lotteryGameName: lotteryGameName,
+                  date: date,
+                  planType: pType,
+                  planName: pName,
+                  winningNum1: winNum1,
+                  signCode1: signCode1,
+                  signCode2: signCode2,
                 )));
         break;
       case " CONSTANT POSITION":
@@ -273,6 +357,9 @@ class SavedPlansData {
   String num1;
   String num2;
   String num3;
+  String signCode1;
+  String signCode2;
+
   bool isRightDiagonal;
   bool isUpwardPivoted;
 
@@ -287,6 +374,8 @@ class SavedPlansData {
     this.num1 = '',
     this.num2 = '',
     this.num3 = '',
+    this.signCode1 = '',
+    this.signCode2 = '',
     this.isRightDiagonal = true,
     this.isUpwardPivoted = true,
   });
