@@ -41,7 +41,7 @@ class _LanguageUiState extends State<LanguageUi> {
                   ),
                   child: Center(
                     child: Text(
-                      "CHOOSE LANGUAGE",
+                      "CHOOSE\nLANGUAGE",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.montserrat(
                           fontWeight: FontWeight.w600,

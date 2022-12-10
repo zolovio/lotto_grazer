@@ -97,19 +97,19 @@ class _LottoResultUiState extends State<LottoResultUi> {
                         title: 'NL',
                         fontcolor: AppColors.blackColor,
                         fontweight: FontWeight.w500,
-                        fontsize: 19.0,
+                        fontsize: 18.sp,
                         underline: false),
                     title: CustomText(
                         title: 'NATIONAL LOTTO',
                         fontcolor: AppColors.blackColor,
                         fontweight: FontWeight.w800,
-                        fontsize: 16.0,
+                        fontsize: 15.sp,
                         underline: false),
                     trailing: CustomText(
                         title: 'YEAR 2022',
                         fontcolor: AppColors.blackColor,
                         fontweight: FontWeight.w800,
-                        fontsize: 16.0,
+                        fontsize: 15.sp,
                         underline: false),
                   )
                 : const CatContainer(

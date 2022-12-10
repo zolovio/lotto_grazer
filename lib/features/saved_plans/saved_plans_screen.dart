@@ -542,110 +542,68 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                                           _vm.savedPlansList[index].winningNum1,
                                       borderColor: Colors.transparent,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.all(8.sm),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.add,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.add,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          if (_vm.savedPlansList[index]
-                                                  .planType ==
-                                              "VERTICAL")
-                                            Icon(
-                                              CupertinoIcons.add,
-                                              size: 15.sp,
-                                            ),
-                                        ],
+                                    if (_vm.savedPlansList[index].planType ==
+                                        'VERTICAL') ...[
+                                      CustomChildContainer(
+                                        padding: EdgeInsets.all(8.sm),
+                                        bgColor: Colors.transparent,
+                                        child: Text(
+                                          _vm.savedPlansList[index].signCode1,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: AppColors.blackColor,
+                                              fontSize: 18.sp,
+                                              fontWeight: FontWeight.w700,
+                                              wordSpacing: 10.w,
+                                              letterSpacing: 5.w),
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(8.sm),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.add,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.minus,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Icon(
-                                            CupertinoIcons.add,
-                                            size: 15.sp,
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          if (_vm.savedPlansList[index]
-                                                  .planType ==
-                                              "VERTICAL")
-                                            Icon(
-                                              CupertinoIcons.add,
-                                              size: 15.sp,
-                                            ),
-                                        ],
+                                      CustomChildContainer(
+                                        padding: EdgeInsets.all(8.sm),
+                                        bgColor: Colors.transparent,
+                                        child: Text(
+                                          _vm.savedPlansList[index].signCode2,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: AppColors.blackColor,
+                                              fontSize: 18.sp,
+                                              fontWeight: FontWeight.w700,
+                                              wordSpacing: 10.w,
+                                              letterSpacing: 5.w),
+                                        ),
                                       ),
-                                    ),
+                                    ],
+                                    if (_vm.savedPlansList[index].planType ==
+                                        'HORIZONTAL') ...[
+                                      CustomChildContainer(
+                                        padding: EdgeInsets.all(8.sm),
+                                        bgColor: Colors.transparent,
+                                        child: Text(
+                                          _vm.savedPlansList[index].signCode1,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: AppColors.blackColor,
+                                              fontSize: 18.sp,
+                                              fontWeight: FontWeight.w700,
+                                              wordSpacing: 10.w,
+                                              letterSpacing: 5.w),
+                                        ),
+                                      ),
+                                      CustomChildContainer(
+                                        padding: EdgeInsets.all(8.sm),
+                                        bgColor: Colors.transparent,
+                                        child: Text(
+                                          _vm.savedPlansList[index].signCode2,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: AppColors.blackColor,
+                                              fontSize: 18.sp,
+                                              fontWeight: FontWeight.w700,
+                                              wordSpacing: 10.w,
+                                              letterSpacing: 5.w),
+                                        ),
+                                      ),
+                                    ],
                                     CustomContainer(
                                       margin: EdgeInsets.only(
                                           left: 8.w, right: 8.w),
@@ -689,28 +647,35 @@ class _SavedPlansScreenState extends State<SavedPlansScreen> {
                               bgColor: AppColors.whiteColor.withOpacity(0.1),
                               child: Center(
                                   child: GestureDetector(
-                                      onTap: () => _vm.viewDetailsTap(context,
-                                          lotteryGameName: _vm
-                                              .savedPlansList[index]
-                                              .lotteryGameName,
-                                          date: _vm.savedPlansList[index].date,
-                                          pType: _vm
-                                              .savedPlansList[index].planType,
-                                          pName: _vm
-                                              .savedPlansList[index].planName,
-                                          winNum1: _vm.savedPlansList[index]
-                                              .winningNum1,
-                                          winNum2: _vm.savedPlansList[index]
-                                              .winningNum2,
-                                          isRightDiagonal: _vm
-                                              .savedPlansList[index]
-                                              .isRightDiagonal,
-                                          isUpwardPivoted: _vm
-                                              .savedPlansList[index]
-                                              .isUpwardPivoted,
-                                          n1: _vm.savedPlansList[index].num1,
-                                          n2: _vm.savedPlansList[index].num2,
-                                          n3: _vm.savedPlansList[index].num3),
+                                      onTap: () => _vm.viewDetailsTap(
+                                            context,
+                                            lotteryGameName: _vm
+                                                .savedPlansList[index]
+                                                .lotteryGameName,
+                                            date:
+                                                _vm.savedPlansList[index].date,
+                                            pType: _vm
+                                                .savedPlansList[index].planType,
+                                            pName: _vm
+                                                .savedPlansList[index].planName,
+                                            winNum1: _vm.savedPlansList[index]
+                                                .winningNum1,
+                                            winNum2: _vm.savedPlansList[index]
+                                                .winningNum2,
+                                            isRightDiagonal: _vm
+                                                .savedPlansList[index]
+                                                .isRightDiagonal,
+                                            isUpwardPivoted: _vm
+                                                .savedPlansList[index]
+                                                .isUpwardPivoted,
+                                            n1: _vm.savedPlansList[index].num1,
+                                            n2: _vm.savedPlansList[index].num2,
+                                            n3: _vm.savedPlansList[index].num3,
+                                            signCode1: _vm.savedPlansList[index]
+                                                .signCode1,
+                                            signCode2: _vm.savedPlansList[index]
+                                                .signCode2,
+                                          ),
                                       child: WCard(
                                           btnWidth: 80.w,
                                           btnHeight: 45.h,

@@ -25,7 +25,7 @@ class CustomRadioButton extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 12.h),
       itemCount: list.length,
       itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Row(
           children: [
             Container(

@@ -174,7 +174,7 @@ class _HomePageUiState extends State<HomePageUi> {
               child: GridView.builder(
                 padding: EdgeInsets.all(25.sm),
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+                // physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   crossAxisSpacing: 5.0.sp,

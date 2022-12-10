@@ -83,7 +83,7 @@ class _CustomTableState extends State<CustomTable> {
         CustomContainer(
             title: 'DATE',
             align: TextAlign.center,
-            padding: const EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(5.sm),
             bgColor: AppColors.blackColor.withOpacity(0.6),
             fgColor: AppColors.whiteColor,
             fontweight: FontWeight.w600,
@@ -92,7 +92,7 @@ class _CustomTableState extends State<CustomTable> {
         CustomContainer(
             title: 'DRAW',
             align: TextAlign.center,
-            padding: const EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(5.sm),
             bgColor: AppColors.blackColor.withOpacity(0.6),
             fgColor: AppColors.whiteColor,
             fontweight: FontWeight.w600,
@@ -101,7 +101,7 @@ class _CustomTableState extends State<CustomTable> {
         CustomContainer(
             title: 'WINNING',
             align: TextAlign.center,
-            padding: const EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(5.sm),
             bgColor: const Color(0XFFa8d08d),
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w600,
@@ -110,7 +110,7 @@ class _CustomTableState extends State<CustomTable> {
         CustomContainer(
             title: 'MACHINE',
             align: TextAlign.center,
-            padding: const EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(5.sm),
             bgColor: AppColors.orangeColor,
             fgColor: AppColors.blackColor,
             fontweight: FontWeight.w600,
@@ -122,21 +122,21 @@ class _CustomTableState extends State<CustomTable> {
     CustomContainer(
       title: '13/1',
       align: TextAlign.center,
-      padding: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(5.sm),
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
       fontweight: FontWeight.w500,
-      fontsize: 12.sp,
+      fontsize: 11.sp,
       underline: false,
     ),
     CustomContainer(
       title: '1323',
       align: TextAlign.center,
-      padding: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(5.sm),
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
       fontweight: FontWeight.w500,
-      fontsize: 12.sp,
+      fontsize: 11.sp,
       underline: false,
     ),
     Row(
@@ -146,18 +146,20 @@ class _CustomTableState extends State<CustomTable> {
         5,
         (index) => CustomContainer(
           title: ' 3 ',
-          border: Border(
-            right: BorderSide(
-              width: 1.5.w,
-              color: AppColors.blackColor,
-            ),
-          ),
+          border: (index == 4)
+              ? null
+              : Border(
+                  right: BorderSide(
+                    width: 1.5.w,
+                    color: AppColors.blackColor,
+                  ),
+                ),
           align: TextAlign.center,
-          padding: const EdgeInsets.all(5.0),
+          padding: EdgeInsets.all(5.sm),
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontweight: FontWeight.w500,
-          fontsize: 12.sp,
+          fontsize: 11.sp,
           underline: false,
         ),
       ),
@@ -169,18 +171,20 @@ class _CustomTableState extends State<CustomTable> {
         5,
         (index) => CustomContainer(
           title: ' 3 ',
-          border: Border(
-            right: BorderSide(
-              width: 1.5.w,
-              color: AppColors.blackColor,
-            ),
-          ),
+          border: (index == 4)
+              ? null
+              : Border(
+                  right: BorderSide(
+                    width: 1.5.w,
+                    color: AppColors.blackColor,
+                  ),
+                ),
           align: TextAlign.center,
-          padding: const EdgeInsets.all(5.0),
+          padding: EdgeInsets.all(5.sm),
           bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontweight: FontWeight.w500,
-          fontsize: 12.sp,
+          fontsize: 11.sp,
           underline: false,
         ),
       ),
@@ -209,11 +213,11 @@ class _CustomTableState extends State<CustomTable> {
         tablerow,
       ];
       return Table(
-        columnWidths: const {
-          0: FlexColumnWidth(1),
-          1: FlexColumnWidth(1),
-          2: FlexColumnWidth(2),
-          3: FlexColumnWidth(2),
+        columnWidths: {
+          0: FlexColumnWidth(1.w),
+          1: FlexColumnWidth(1.w),
+          2: FlexColumnWidth(3.w),
+          3: FlexColumnWidth(3.w),
         },
         border: TableBorder.all(
           color: AppColors.blackColor,
