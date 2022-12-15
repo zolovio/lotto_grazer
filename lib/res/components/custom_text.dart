@@ -1,40 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomText extends StatelessWidget {
-  String title;
-  Color fontcolor;
-  FontWeight fontweight;
-  double fontsize;
-  bool underline;
-  TextAlign align;
-  CustomText({
+  final String title;
+  final bool underline;
+  final Color? fontcolor;
+  final double? fontsize;
+  final FontWeight? fontweight;
+  final TextAlign? align;
+  const CustomText({
     super.key,
     required this.title,
-    required this.fontcolor,
-    required this.fontweight,
-    required this.fontsize,
-    required this.underline,
-    this.align = TextAlign.left,
+    this.fontcolor = Colors.black,
+    this.fontweight = FontWeight.normal,
+    this.fontsize = 16.0,
+    this.align = TextAlign.center,
+    this.underline = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title.toString(),
-      textAlign: align,
       style: GoogleFonts.montserrat(
-          fontWeight: fontweight,
-          color: fontcolor,
-          fontSize: fontsize,
-          textBaseline: TextBaseline.alphabetic,
-          textStyle: Theme.of(context).textTheme.headline4!.copyWith(
-                decoration:
-                    underline ? TextDecoration.underline : TextDecoration.none,
-              )),
+        fontWeight: fontweight,
+        color: fontcolor,
+        fontSize: fontsize,
+        wordSpacing: 0,
+        textBaseline: TextBaseline.alphabetic,
+        textStyle: Theme.of(context).textTheme.headline4!.copyWith(
+            decoration:
+                underline ? TextDecoration.underline : TextDecoration.none),
+      ),
+      textAlign: align,
     );
   }
 }

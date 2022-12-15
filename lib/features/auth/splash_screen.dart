@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 
 class SplashUi extends StatefulWidget {
@@ -25,12 +25,12 @@ class _SplashUiState extends State<SplashUi> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Text(
           'Lotto Grazzer',
           style: TextStyle(
-            fontSize: 25.0,
+            fontSize: 25.sp,
             fontWeight: FontWeight.bold,
           ),
         ),

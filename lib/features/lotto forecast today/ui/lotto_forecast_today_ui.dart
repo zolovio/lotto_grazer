@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
@@ -55,20 +53,19 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
       body: Column(
         children: [
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.08,
+            height: 50.h,
             title: 'LOTTO FORCAST TODAY',
             bgColor: AppColors.blackColor,
             fgColor: AppColors.whiteColor,
-            fontsize: 18.0,
-            fontweight: FontWeight.w800,
+            fontsize: 17.sp,
+            fontweight: FontWeight.w700,
             border: Border.all(
               width: 0.0,
               color: AppColors.whiteColor.withOpacity(0.1),
@@ -76,13 +73,13 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.13,
-            padding: const EdgeInsets.all(15.0),
+            height: 90.h,
+            padding: EdgeInsets.all(15.sm),
             title:
                 'Today’s forecast lotto numbers are generated using timing keys and patterns that are carefully calculated to give you a winning, on lotto games played today. View,use and save.',
             bgColor: AppColors.whiteColor.withOpacity(0.1),
             fgColor: AppColors.blackColor,
-            fontsize: 15.0,
+            fontsize: 14.sp,
             fontweight: FontWeight.w600,
             align: TextAlign.left,
             border: Border.all(
@@ -92,22 +89,22 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.07,
-            padding: const EdgeInsets.all(15.0),
+            height: 50.h,
+            padding: EdgeInsets.all(15.sm),
             title: 'FORECAST GAMES',
             bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 18.0,
+            fontsize: 17.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
                 color: Colors.black,
-                width: 3.0,
+                width: 3.w,
               ),
               top: BorderSide(
                 color: Colors.black,
-                width: 3.0,
+                width: 3.w,
               ),
             ),
           ),
@@ -119,21 +116,21 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
                   children: [
                     CustomChildContainer(
                       width: Utils.width(context) * 0.3,
-                      height: Utils.height(context) * 0.11,
-                      margin: const EdgeInsets.only(bottom: 4.0),
+                      height: 76.5.h,
+                      margin: EdgeInsets.only(bottom: 4.h),
                       bgColor: AppColors.blueColor.withOpacity(0.25),
-                      border: const Border(
+                      border: Border(
                         bottom: BorderSide(
                           color: Colors.black,
-                          width: 3.0,
+                          width: 3.w,
                         ),
                         top: BorderSide(
                           color: Colors.black,
-                          width: 3.0,
+                          width: 3.w,
                         ),
                         right: BorderSide(
                           color: Colors.black,
-                          width: 3.0,
+                          width: 3.w,
                         ),
                       ),
                       child: Column(
@@ -144,35 +141,35 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
                                   forecastgames[index]['short_name'].toString(),
                               fontcolor: AppColors.redColor,
                               fontweight: FontWeight.w700,
-                              fontsize: 16.0,
+                              fontsize: 15.sp,
                               underline: false),
                           CustomText(
                               title:
                                   forecastgames[index]['full_name'].toString(),
                               fontcolor: AppColors.blackColor,
                               fontweight: FontWeight.w700,
-                              fontsize: 16.0,
+                              fontsize: 15.sp,
                               underline: false),
                         ],
                       ),
                     ),
                     CustomChildContainer(
                       width: Utils.width(context) * 0.7,
-                      height: Utils.height(context) * 0.11,
-                      margin: const EdgeInsets.only(bottom: 4.0),
+                      height: 76.5.h,
+                      margin: EdgeInsets.only(bottom: 4.h),
                       bgColor: AppColors.blueColor.withOpacity(0.25),
-                      border: const Border(
+                      border: Border(
                         bottom: BorderSide(
                           color: Colors.black,
-                          width: 3.0,
+                          width: 3.w,
                         ),
                         top: BorderSide(
                           color: Colors.black,
-                          width: 3.0,
+                          width: 3.w,
                         ),
                         left: BorderSide(
                           color: Colors.black,
-                          width: 3.0,
+                          width: 3.w,
                         ),
                       ),
                       child: Column(
@@ -180,7 +177,7 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
                         children: [
                           SizedBox(
                             width: Utils.width(context) * 0.63,
-                            height: Utils.height(context) * 0.04,
+                            height: 30.h,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -189,14 +186,14 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
                                         'DRAW:${forecastgames[index]['draw']}',
                                     fontcolor: AppColors.blackColor,
                                     fontweight: FontWeight.w700,
-                                    fontsize: 14.0,
+                                    fontsize: 13.sp,
                                     underline: false),
                                 CustomText(
                                     title:
                                         forecastgames[index]['date'].toString(),
                                     fontcolor: AppColors.blackColor,
                                     fontweight: FontWeight.w700,
-                                    fontsize: 14.0,
+                                    fontsize: 13.sp,
                                     underline: false),
                               ],
                             ),
@@ -209,13 +206,13 @@ class _LottoForecastTodayUiState extends State<LottoForecastTodayUi> {
                                   Navigator.of(context)
                                       .pushNamed(RoutesName.forecastDetails);
                                 },
-                                bottomLeftRadius: 5.0,
-                                bottomRightRadius: 5.0,
-                                topRightRadius: 5.0,
-                                topLeftRadius: 5.0,
-                                fontsize: 12.0,
+                                bottomLeftRadius: 5.r,
+                                bottomRightRadius: 5.r,
+                                topRightRadius: 5.r,
+                                topLeftRadius: 5.r,
+                                fontsize: 11.sp,
                                 btnwidth: Utils.width(context) * 0.05,
-                                btnheight: Utils.height(context) * 0.042,
+                                btnheight: 30.h,
                               ),
                             ),
                           ),
