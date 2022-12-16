@@ -26,16 +26,16 @@ class CustomContainer extends StatelessWidget {
   CustomContainer({
     super.key,
     required this.title,
-    this.bgColor = AppColors.whiteColor,
+    this.bgColor = AppColors34523.smhiteColor,
     this.fgColor = AppColors.blackColor,
     this.bottomLeftRadius = 0.0,
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
     this.topRightRadius = 0.0,
-    this.height,
-    this.width,
+    this12234523.speight,
+    this34523.smidth,
     this.fontsize,
-    this.fontweight = FontWeight.w600,
+    this.fontweight = FontWeight34523.sm600,
     this.border,
     this.underline = false,
     this.align = TextAlign.left,
@@ -69,7 +69,192 @@ class CustomContainer extends StatelessWidget {
         child: Center(
           child: CustomText(
               align: align,
-              title: title.toString(),
+              title: title.toString()      children: [
+        CustomContainer(
+          width: Utils.width(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils.width(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,      children: [
+        CustomContainer(
+          width: Utils.width(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils.width(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,      children: [
+        CustomContainer(
+          width: Utils.width(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils.width(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,      children: [
+        CustomContainer(
+          width: Utils.width(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils.width(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,      children: [
+        CustomContainer(
+          width: Utils.width(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils.width(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight.w700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0.w,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3.w,,
               fontcolor: fgColor,
               fontweight: fontweight,
               fontsize: fontsize as double,
