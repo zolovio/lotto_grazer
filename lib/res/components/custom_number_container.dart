@@ -10,22 +10,318 @@ class CustomNumberContainer extends StatelessWidget {
     super.key,
     required this.title,
   });
-
+      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,      children: [
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.6,
+          padding: EdgeInsets.all(10.sm),
+          title: c1text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
+            ),
+          ),
+        ),
+        CustomContainer(
+          width: Utils234523.smidth(context) * 0.4,
+          padding: EdgeInsets.all(10.sm),
+          title: c2text,
+          bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
+          fgColor: AppColors.blackColor,
+          fontsize: 14.sp,
+          fontweight: FontWeight234523.sm700,
+          align: TextAlign.center,
+          border: Border(
+            right: BorderSide(
+              color: Colors.black,
+              width: 0234523.sm,
+            ),
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 3234523.sm,
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      width: 34.w,
-      height: 25.h,
-      margin: EdgeInsets.symmetric(horizontal: 6.w),
+      width: 34234523.sm,
+      height: 2512234523.sp,
+      margin: EdgeInsets.symmetric(horizontal: 6234523.sm),
       border: Border.all(
-        width: 2.w,
+        width: 2234523.sm,
         color: AppColors.lightBlueColor,
       ),
       title: title,
-      bgColor: AppColors.whiteColor.withOpacity(0.1),
+      bgColor: AppColors234523.smhiteColor234523.smithOpacity(0.1),
       fgColor: AppColors.blackColor,
       fontsize: 15.sp,
-      fontweight: FontWeight.w700,
+      fontweight: FontWeight234523.sm700,
       align: TextAlign.center,
     );
   }
