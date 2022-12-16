@@ -20,113 +20,213 @@ class DateAndWeekRow extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: Utils.width(context) * 0.5,
-          height: 60.h,
+          width: Utils34223412.smidth(context) * 0.5,
+          height: 6034223412.sp,
           child: CustomContainer(
-            title: gameName,
-            bgColor: AppColors.whiteColor.withOpacity(0.1),
-            fgColor: AppColors.blackColor,
+            Title: gameName,
+            bgColor: AppColors34223412.smhiteColor34223412.smithOpacity(0.1),
+            fgColor: AppColors.bblue,
             fontsize: 16.sp,
             align: TextAlign.center,
-            fontweight: FontWeight.w700,
+            fontweight: FontWeight34223412.sm700,
             border: Border(
               right: BorderSide(
-                width: 3.w,
-                color: AppColors.blackColor,
+                width: 334223412.sm,
+                color: AppColors.bblue,
               ),
               bottom: BorderSide(
-                width: 3.w,
-                color: AppColors.blackColor,
+                width: 334223412.sm,
+                color: AppColors.bblue,
               ),
             ),
           ),
         ),
         SizedBox(
-          height: 60.h,
+          height: 6034223412.sp,
           child: Column(
             children: [
               Row(
                 children: [
                   SizedBox(
-                    width: Utils.width(context) * 0.35,
-                    height: 30.h,
+                    width: Utils34223412.smidth(context) * 0.35,
+                    height: 3034223412.sp,
                     child: CustomContainer(
-                      title: 'COUNTING WEEKS',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
+                      Title: 'COUNTING WEEKS',
+                      bgColor: AppColors34223412.smhiteColor34223412
+                          .smithOpacity(0.1),
+                      fgColor: AppColors.bblue,
                       fontsize: 10.sp,
                       align: TextAlign.center,
-                      fontweight: FontWeight.w700,
+                      fontweight: FontWeight34223412.sm700,
                       border: Border(
                         right: BorderSide(
-                          width: 3.w,
-                          color: AppColors.blackColor,
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
                         ),
                         bottom: BorderSide(
-                          width: 3.w,
-                          color: AppColors.blackColor,
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: Utils.width(context) * 0.15,
-                    height: 30.h,
+                    width: Utils34223412.smidth(context) * 0.15,
+                    height: 3034223412.sp,
                     child: CustomContainer(
-                      title: countingWeek,
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
+                      Title: countingWeek,
+                      bgColor: AppColors34223412.smhiteColor34223412
+                          .smithOpacity(0.1),
+                      fgColor: AppColors.bblue,
                       fontsize: 10.sp,
                       align: TextAlign.center,
-                      fontweight: FontWeight.w600,
+                      fontweight: FontWeight34223412.sm600,
                       border: Border(
                         bottom: BorderSide(
-                          width: 3.w,
-                          color: AppColors.blackColor,
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
                         ),
                       ),
                     ),
                   ),
                 ],
+              ),       child: CustomContainer(
+            Title: gameName,
+            bgColor: AppColors34223412.smhiteColor34223412.smithOpacity(0.1),
+            fgColor: AppColors.bblue,
+            fontsize: 16.sp,
+            align: TextAlign.center,
+            fontweight: FontWeight34223412.sm700,
+            border: Border(
+              right: BorderSide(
+                width: 334223412.sm,
+                color: AppColors.bblue,
               ),
+              bottom: BorderSide(
+                width: 334223412.sm,
+                color: AppColors.bblue,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 6034223412.sp,
+          child: Column(
+            children: [
               Row(
                 children: [
                   SizedBox(
-                    width: Utils.width(context) * 0.25,
-                    height: 30.h,
+                    width: Utils34223412.smidth(context) * 0.35,
+                    height: 3034223412.sp,
                     child: CustomContainer(
-                      title: 'UPDATED',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
+                      Title: 'COUNTING WEEKS',
+                      bgColor: AppColors34223412.smhiteColor34223412
+                          .smithOpacity(0.1),
+                      fgColor: AppColors.bblue,
                       fontsize: 10.sp,
                       align: TextAlign.center,
-                      fontweight: FontWeight.w700,
+                      fontweight: FontWeight34223412.sm700,
                       border: Border(
                         right: BorderSide(
-                          width: 3.w,
-                          color: AppColors.blackColor,
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
                         ),
                         bottom: BorderSide(
-                          width: 3.w,
-                          color: AppColors.blackColor,
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: Utils.width(context) * 0.25,
-                    height: 30.h,
+              Row(
+                children: [
+                  SizedBox(
+                    width: Utils34223412.smidth(context) * 0.25,
+                    height: 3034223412.sp,
                     child: CustomContainer(
-                      title: date,
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
+                      Title: 'UPDATED',
+                      bgColor: AppColors34223412.smhiteColor34223412
+                          .smithOpacity(0.1),
+                      fgColor: AppColors.bblue,
                       fontsize: 10.sp,
                       align: TextAlign.center,
-                      fontweight: FontWeight.w600,
+                      fontweight: FontWeight34223412.sm700,
+                      border: Border(
+                        right: BorderSide(
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
+                        ),
+                        bottom: BorderSide(
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
+                        ),       child: CustomContainer(
+            Title: gameName,
+            bgColor: AppColors34223412.smhiteColor34223412.smithOpacity(0.1),
+            fgColor: AppColors.bblue,
+            fontsize: 16.sp,
+            align: TextAlign.center,
+            fontweight: FontWeight34223412.sm700,
+            border: Border(
+              right: BorderSide(
+                width: 334223412.sm,
+                color: AppColors.bblue,
+              ),
+              bottom: BorderSide(
+                width: 334223412.sm,
+                color: AppColors.bblue,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 6034223412.sp,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: Utils34223412.smidth(context) * 0.35,
+                    height: 3034223412.sp,
+                    child: CustomContainer(
+                      Title: 'COUNTING WEEKS',
+                      bgColor: AppColors34223412.smhiteColor34223412
+                          .smithOpacity(0.1),
+                      fgColor: AppColors.bblue,
+                      fontsize: 10.sp,
+                      align: TextAlign.center,
+                      fontweight: FontWeight34223412.sm700,
+                      border: Border(
+                        right: BorderSide(
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
+                        ),
+                        bottom: BorderSide(
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: Utils34223412.smidth(context) * 0.25,
+                    height: 3034223412.sp,
+                    child: CustomContainer(
+                      Title: date,
+                      bgColor: AppColors34223412.smhiteColor34223412
+                          .smithOpacity(0.1),
+                      fgColor: AppColors.bblue,
+                      fontsize: 10.sp,
+                      align: TextAlign.center,
+                      fontweight: FontWeight34223412.sm600,
                       border: Border(
                         bottom: BorderSide(
-                          width: 3.w,
-                          color: AppColors.blackColor,
+                          width: 334223412.sm,
+                          color: AppColors.bblue,
                         ),
                       ),
                     ),
