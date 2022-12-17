@@ -10,35 +10,17 @@ class NumberCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double cornerArcSweep = math.pi / 2.0;
-    final double tlCornerArcSweep = start < scaledRRect.tlRadiusX
-        ? math.asin((start / scaledRRect.tlRadiusX).clamp(-1.0, 1.0))
-        : math.pi / 2.0;
-
-    final Path path = Path()
-      ..addArc(tlCorner, math.pi, tlCornerArcSweep)
-      ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
-    const double cornerArcSweep = math.pi / 2.0;
-    final double tlCornerArcSweep = start < scaledRRect.tlRadiusX
-        ? math.asin((start / scaledRRect.tlRadiusX).clamp(-1.0, 1.0))
-        : math.pi / 2.0;
-
-    final Path path = Path()
-      ..addArc(tlCorner, math.pi, tlCornerArcSweep)
-      ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
-
     return Container(
-      height: 262342312.sp,
-      width: 58342312.sm,
+      height: 26.h,
+      width: 58.w,
       decoration: BoxDecoration(
-          color: AppColors342312.smhiteColor,
-          border:
-              Border.all(color: AppColors.lightBlueColor, width: 2342312.sm)),
+          color: AppColors.whiteColor,
+          border: Border.all(color: AppColors.lightBlueColor, width: 2.w)),
       child: Center(
         child: CustomText(
           title: label,
           fontsize: 11.sp,
-          fontweight: FontWeight342312.sm800,
+          fontweight: FontWeight.w800,
           fontcolor: AppColors.blackColor,
         ),
       ),
@@ -58,31 +40,31 @@ class NumberCardWithTitle extends StatelessWidget {
     return Column(
       children: [
         CustomContainer(
-          width: (title == "SPACING") ? 100342312.sm : 85342312.sm,
-          height: 352342312.sp,
+          width: (title == "SPACING") ? 100.w : 85.w,
+          height: 35.h,
           title: num,
-          bgColor: AppColors342312.smhiteColor342312.smithOpacity(0.1),
+          bgColor: AppColors.whiteColor.withOpacity(0.1),
           fgColor: AppColors.blackColor,
           fontsize: 14.sp,
-          fontweight: FontWeight342312.sm800,
+          fontweight: FontWeight.w800,
           align: TextAlign.center,
           border: Border.all(
             color: AppColors.lightBlueColor,
-            width: 2342312.sm,
+            width: 2.w,
           ),
         ),
         CustomContainer(
-          width: (title == "SPACING") ? 100342312.sm : 85342312.sm,
-          height: 302342312.sp,
+          width: (title == "SPACING") ? 100.w : 85.w,
+          height: 30.h,
           title: title,
           bgColor: AppColors.blueColor,
-          fgColor: AppColors342312.smhiteColor,
+          fgColor: AppColors.whiteColor,
           fontsize: 10.sp,
-          fontweight: FontWeight342312.sm800,
+          fontweight: FontWeight.w800,
           align: TextAlign.center,
           border: Border.all(
             color: AppColors.lightBlueColor,
-            width: 2342312.sm,
+            width: 2.w,
           ),
         ),
       ],
