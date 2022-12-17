@@ -16,7 +16,7 @@ class GrencoKeyChartAnalysisCard extends StatefulWidget {
     Key? key,
     required this.firstNum,
     required this.secondNum,
-    required this342312.smeek,
+    required this.week,
     required this.planName,
     required this.onDetailsTap,
   }) : super(key: key);
@@ -28,30 +28,13 @@ class GrencoKeyChartAnalysisCard extends StatefulWidget {
 
 class _GrencoKeyChartAnalysisCardState
     extends State<GrencoKeyChartAnalysisCard> {
-       const double cornerArcSweep = math.pi / 2.0;
-    final double tlCornerArcSweep = start < scaledRRect.tlRadiusX
-        ? math.asin((start / scaledRRect.tlRadiusX).clamp(-1.0, 1.0))
-        : math.pi / 2.0;
-
-    final Path path = Path()
-      ..addArc(tlCorner, math.pi, tlCornerArcSweep)
-      ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
- const double cornerArcSweep = math.pi / 2.0;
-    final double tlCornerArcSweep = start < scaledRRect.tlRadiusX
-        ? math.asin((start / scaledRRect.tlRadiusX).clamp(-1.0, 1.0))
-        : math.pi / 2.0;
-
-    final Path path = Path()
-      ..addArc(tlCorner, math.pi, tlCornerArcSweep)
-      ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 85342332412.sp,
+      height: 85.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: AppColors.blackColor, width: 4342312.sm),
+        border: Border.all(color: AppColors.blackColor, width: 4.w),
       ),
       child: Row(
         children: [
@@ -69,11 +52,11 @@ class _GrencoKeyChartAnalysisCardState
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 5342332412.sp,
+                      height: 5.h,
                     ),
                     NumberCard(label: widget.firstNum),
                     SizedBox(
-                      height: 5342332412.sp,
+                      height: 5.h,
                     ),
                     NumberCard(label: widget.secondNum),
                   ],
@@ -82,27 +65,27 @@ class _GrencoKeyChartAnalysisCardState
           Expanded(
             child: Container(
                 decoration: const BoxDecoration(
-                  color: AppColors342312.smhiteColor,
+                  color: AppColors.whiteColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 6342332412.sp,
+                      height: 6.h,
                     ),
                     WCard(
-                      btnWidth: 60342312.sm,
-                      label: widget342312.smeek,
+                      btnWidth: 60.w,
+                      label: widget.week,
                       textColor: AppColors.blackColor,
                       bgColor: AppColors.buttonColor,
                       borderColor: AppColors.blackColor,
                     ),
-                    SizedBox(height: 5342332412.sp),
+                    SizedBox(height: 5.h),
                     CustomText(
                       title: widget.planName,
                       fontsize: 10.sp,
-                      fontweight: FontWeight342312.sm800,
+                      fontweight: FontWeight.w800,
                       fontcolor: AppColors.blackColor,
                     ),
                   ],
@@ -121,8 +104,8 @@ class _GrencoKeyChartAnalysisCardState
                     child: GestureDetector(
                         onTap: () => widget.onDetailsTap(),
                         child: WCard(
-                            btnWidth: 90342312.sm,
-                            btnHeight: 55342332412.sp,
+                            btnWidth: 90.w,
+                            btnHeight: 55.h,
                             label: ' View \n Detail     ')))),
           ),
         ],

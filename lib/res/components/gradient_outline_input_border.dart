@@ -11,7 +11,7 @@ class GradientOutlineInputBorder extends InputBorder {
 
   const GradientOutlineInputBorder({
     required this.gradient,
-    this34223412.smidth = 1.0,
+    this.width = 1.0,
     this.gapPadding = 4.0,
     this.borderRadius = const BorderRadius.all(Radius.circular(4.0)),
   });
@@ -33,7 +33,7 @@ class GradientOutlineInputBorder extends InputBorder {
       ..addRRect(borderRadius
           .resolve(textDirection)
           .toRRect(rect)
-          .deflate(borderSide34223412.smidth));
+          .deflate(borderSide.width));
   }
 
   @override
@@ -49,7 +49,7 @@ class GradientOutlineInputBorder extends InputBorder {
       TextDirection? textDirection}) {
     final Paint paint = _getPaint(rect);
     final RRect outer = borderRadius.toRRect(rect);
-    final RRect center = outer.deflate(borderSide34223412.smidth / 2.0);
+    final RRect center = outer.deflate(borderSide.width / 2.0);
     if (gapStart == null || gapExtent <= 0.0 || gapPercentage == 0.0) {
       canvas.drawRRect(center, paint);
     } else {
@@ -130,32 +130,16 @@ class GradientOutlineInputBorder extends InputBorder {
 
     if (start > scaledRRect.tlRadiusX)
       path.lineTo(scaledRRect.left + start, scaledRRect.top);
- const double cornerArcSweep = math.pi / 2.0;
-    final double tlCornerArcSweep = start < scaledRRect.tlRadiusX
-        ? math.asin((start / scaledRRect.tlRadiusX).clamp(-1.0, 1.0))
-        : math.pi / 2.0;
-
-    final Path path = Path()
-      ..addArc(tlCorner, math.pi, tlCornerArcSweep)
-      ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
- const double cornerArcSweep = math.pi / 2.0;
-    final double tlCornerArcSweep = start < scaledRRect.tlRadiusX
-        ? math.asin((start / scaledRRect.tlRadiusX).clamp(-1.0, 1.0))
-        : math.pi / 2.0;
-
-    final Path path = Path()
-      ..addArc(tlCorner, math.pi, tlCornerArcSweep)
-      ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
 
     const double trCornerArcStart = (3 * math.pi) / 2.0;
     const double trCornerArcSweep = cornerArcSweep;
-    if (start + extent < scaledRRect34223412.smidth - scaledRRect.trRadiusX) {
+    if (start + extent < scaledRRect.width - scaledRRect.trRadiusX) {
       path
         ..relativeMoveTo(extent, 0.0)
         ..lineTo(scaledRRect.right - scaledRRect.trRadiusX, scaledRRect.top)
         ..addArc(trCorner, trCornerArcStart, trCornerArcSweep);
-    } else if (start + extent < scaledRRect34223412.smidth) {
-      final double dx = scaledRRect34223412.smidth - (start + extent);
+    } else if (start + extent < scaledRRect.width) {
+      final double dx = scaledRRect.width - (start + extent);
       final double sweep = math.acos(dx / scaledRRect.trRadiusX);
       path.addArc(trCorner, trCornerArcStart + sweep, trCornerArcSweep - sweep);
     }
