@@ -24,6 +24,9 @@ class CustomFormField extends StatelessWidget {
   double? height;
   double? fontsize;
   double bdwidth;
+  FontStyle fontStyle;
+  FontWeight fontWeight;
+
   CustomFormField({
     super.key,
     required this.title,
@@ -46,6 +49,8 @@ class CustomFormField extends StatelessWidget {
     this.width,
     this.fontsize,
     this.bdwidth = 2.0,
+    this.fontStyle = FontStyle.normal,
+    this.fontWeight = FontWeight.w500,
   });
 
   @override
@@ -65,7 +70,8 @@ class CustomFormField extends StatelessWidget {
         ),
         hintText: title,
         hintStyle: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w500,
+            fontStyle: fontStyle,
+            fontWeight: fontWeight,
             color: fgColor,
             fontSize: fontsize,
             wordSpacing: 0,

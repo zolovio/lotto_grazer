@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/auth/splash_screen.dart';
+import 'package:lotto_grazer/features/auth/ui/auth_ui.dart';
 import 'package:lotto_grazer/features/home%20page/home_ui.dart';
 import 'package:lotto_grazer/features/language/language_ui.dart';
 import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/forecast_details_ui.dart';
-import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/lotto_forecast_today_ui.dart';
+import 'package:lotto_grazer/features/lotto%20forecast%20today/ui/lotto_prediction_ui.dart';
 import 'package:lotto_grazer/features/lotto%20key%20book/lotto_key_book.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_today_result_ui.dart';
 import 'package:lotto_grazer/features/overdue%20number/overdue_numbers_ui.dart';
@@ -34,7 +34,7 @@ class Routes {
             builder: (BuildContext context) => const HomePageUi());
       case RoutesName.lottoForecastToday:
         return MaterialPageRoute(
-            builder: (BuildContext context) => const LottoForecastTodayUi());
+            builder: (BuildContext context) => const LottoPredictionUi());
       case RoutesName.forecastDetails:
         return MaterialPageRoute(
             builder: (BuildContext context) => const ForecastDetails());

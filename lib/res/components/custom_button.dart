@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 
@@ -21,6 +20,8 @@ class CustomButton extends StatelessWidget {
   FontWeight fontweight;
   double bdwidth;
   double? elevation;
+  MaterialTapTargetSize materialTapTargetSize;
+
   CustomButton({
     super.key,
     required this.title,
@@ -40,6 +41,7 @@ class CustomButton extends StatelessWidget {
     this.bdwidth = 2.0,
     this.loading = false,
     this.underline = false,
+    this.materialTapTargetSize = MaterialTapTargetSize.padded,
   });
 
   @override
@@ -48,6 +50,7 @@ class CustomButton extends StatelessWidget {
       elevation: elevation,
       color: bgColor,
       textColor: fgColor,
+      materialTapTargetSize: materialTapTargetSize,
       shape: RoundedRectangleBorder(
         side: BorderSide(
           color: bdColor,
@@ -64,11 +67,12 @@ class CustomButton extends StatelessWidget {
       height: btnheight,
       minWidth: btnwidth,
       child: CustomText(
-          title: title.toString(),
-          fontcolor: fgColor,
-          fontweight: fontweight,
-          fontsize: fontsize,
-          underline: underline),
+        title: title.toString(),
+        fontcolor: fgColor,
+        fontweight: fontweight,
+        fontsize: fontsize,
+        underline: underline,
+      ),
       // Text(
       //   title.toString(),
       //   style: GoogleFonts.montserrat(
