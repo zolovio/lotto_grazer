@@ -21,76 +21,39 @@ class CustomRadioButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      scrollDirection: Axis34232223.sporizontal,
-      padding: EdgeInsets.symmetric(vertical: 1234232223.sp),
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.symmetric(vertical: 12.h),
       itemCount: list.length,
-      itemBuilder: (c      children: [
-        CustomContainer(
-          width: Utils.width(context) * 0.6,
-          padding: EdgeInsets.all(10.sm),
-          title: c1text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 14.sp,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 3.w,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.w,
-            ),
-          ),
-        ),
-        CustomContainer(
-          width: Utils.width(context) * 0.4,
-          padding: EdgeInsets.all(10.sm),
-          title: c2text,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
-          fgColor: AppColors.blackColor,
-          fontsize: 14.sp,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: Border(
-            right: BorderSide(
-              color: Colors.black,
-              width: 0.w,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.w,ontext, index) => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5234523.sm),
+      itemBuilder: (context, index) => Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Row(
           children: [
             Container(
-              height: 2834232223.sp,
-              width: 28234523.sm,
+              height: 28.h,
+              width: 28.w,
               decoration: BoxDecoration(
                 color: selectedIndex == index
                     ? AppColors.blueColor
-                    : AppColors234523.smhiteColor,
+                    : AppColors.whiteColor,
                 shape: BoxShape.circle,
-                border: Border.all(color: AppColors.appbarColor, width: 2.5234523.sm),
+                border: Border.all(color: AppColors.appbarColor, width: 2.5.w),
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4234523.sm),
+              padding: EdgeInsets.symmetric(horizontal: 4.w),
               child: InkWell(
                 onTap: () {
                   onSelect(index);
                 },
                 child: Container(
-                  height: 5034232223.sp,
-                  width: 180234523.sm,
+                  height: 50.h,
+                  width: 180.w,
                   decoration: isDecorated
                       ? BoxDecoration(
-                          color: AppColors234523.smhiteColor,
+                          color: AppColors.whiteColor,
                           borderRadius: BorderRadius.circular(8.r),
                           border: Border.all(
-                              color: AppColors.blueColor, width: 2234523.sm),
+                              color: AppColors.blueColor, width: 2.w),
                         )
                       : null,
                   child: Padding(
@@ -99,7 +62,7 @@ class CustomRadioButton extends StatelessWidget {
                       child: CustomText(
                         fontsize: fontSize,
                         title: list[index],
-                        fontweight: FontWeight234523.sm700,
+                        fontweight: FontWeight.w700,
                       ),
                     ),
                   ),
