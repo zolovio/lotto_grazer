@@ -20,6 +20,7 @@ class CustomButton extends StatelessWidget {
   FontWeight fontweight;
   double bdwidth;
   double? elevation;
+  TextAlign align;
   MaterialTapTargetSize materialTapTargetSize;
 
   CustomButton({
@@ -41,6 +42,7 @@ class CustomButton extends StatelessWidget {
     this.bdwidth = 2.0,
     this.loading = false,
     this.underline = false,
+    this.align = TextAlign.left,
     this.materialTapTargetSize = MaterialTapTargetSize.padded,
   });
 
@@ -68,6 +70,7 @@ class CustomButton extends StatelessWidget {
       minWidth: btnwidth,
       child: CustomText(
         title: title.toString(),
+        align: align,
         fontcolor: fgColor,
         fontweight: fontweight,
         fontsize: fontsize,

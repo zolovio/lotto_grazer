@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
+import 'package:lotto_grazer/res/components/custom_bottom_tab_bar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
@@ -532,7 +533,7 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             width: Utils.width(context) * 1,
             height: Utils.height(context) * 0.04,
             // padding: const EdgeInsets.all(15.0),
-            title: 'PROJECTED BANKERS',
+            title: 'PROJECTED NUMBERS',
             border: const Border(
               bottom: BorderSide(
                 width: 1.0,
@@ -577,8 +578,8 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                     title: "${index + 1}",
                     bgColor: AppColors.whiteColor,
                     fgColor: AppColors.blackColor,
-                    fontsize: 16.0,
-                    fontweight: FontWeight.w800,
+                    fontsize: 20.0,
+                    fontweight: FontWeight.w700,
                     align: TextAlign.center,
                   ),
                 ),
@@ -622,55 +623,73 @@ class _ForecastDetailsState extends State<ForecastDetails> {
               SizedBox(
                 width: Utils.width(context) * 0.15,
               ),
-              const CustomNumberContainer(
+              CustomNumberContainer(
                 title: '1',
+                width: Utils.width(context) * 0.11,
+                height: Utils.height(context) * 0.040,
+                color: AppColors.whiteColor,
+                borderColor: AppColors.blueColor,
+                padding: EdgeInsets.zero,
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
-              const CustomNumberContainer(
-                title: '1',
+              CustomNumberContainer(
+                title: '2',
+                width: Utils.width(context) * 0.11,
+                height: Utils.height(context) * 0.040,
+                color: AppColors.whiteColor,
+                borderColor: AppColors.blueColor,
+                padding: EdgeInsets.zero,
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
-              const CustomNumberContainer(
-                title: '1',
+              CustomNumberContainer(
+                title: '3',
+                width: Utils.width(context) * 0.11,
+                height: Utils.height(context) * 0.040,
+                color: AppColors.whiteColor,
+                borderColor: AppColors.blueColor,
+                padding: EdgeInsets.zero,
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CustomContainer(
-                width: Utils.width(context) * 0.2,
-                height: Utils.height(context) * 0.08,
-                padding: const EdgeInsets.all(5.0),
-                border: Border.all(
-                  width: 0.0,
-                  color: AppColors.whiteColor,
-                ),
-                title: 'BEST 5 :',
-                bgColor: AppColors.whiteColor,
-                fgColor: AppColors.blackColor,
-                fontsize: 16.0,
-                fontweight: FontWeight.w700,
-                align: TextAlign.center,
-              ),
-              // SizedBox(
-              //   width: Utils.width(context) * 0.1,
-              // ),
-              const CustomNumberContainer(
-                title: '1',
-              ),
-              const CustomNumberContainer(
-                title: '1',
-              ),
-              const CustomNumberContainer(
-                title: '1',
-              ),
-              const CustomNumberContainer(
-                title: '1',
-              ),
-              const CustomNumberContainer(
-                title: '1',
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //     CustomContainer(
+          //       width: Utils.width(context) * 0.2,
+          //       height: Utils.height(context) * 0.08,
+          //       padding: const EdgeInsets.all(5.0),
+          //       border: Border.all(
+          //         width: 0.0,
+          //         color: AppColors.whiteColor,
+          //       ),
+          //       title: 'BEST 5 :',
+          //       bgColor: AppColors.whiteColor,
+          //       fgColor: AppColors.blackColor,
+          //       fontsize: 16.0,
+          //       fontweight: FontWeight.w700,
+          //       align: TextAlign.center,
+          //     ),
+          //     // SizedBox(
+          //     //   width: Utils.width(context) * 0.1,
+          //     // ),
+          //     const CustomNumberContainer(
+          //       title: '1',
+          //     ),
+          //     const CustomNumberContainer(
+          //       title: '1',
+          //     ),
+          //     const CustomNumberContainer(
+          //       title: '1',
+          //     ),
+          //     const CustomNumberContainer(
+          //       title: '1',
+          //     ),
+          //     const CustomNumberContainer(
+          //       title: '1',
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -683,8 +702,8 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                 topRightRadius: 5.0,
                 bdwidth: 2.0,
                 bgColor: AppColors.blueColor,
-                title: 'Save',
-                fontsize: 14.0,
+                title: 'SAVE',
+                fontsize: 16.0,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),
@@ -697,39 +716,54 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                 topRightRadius: 5.0,
                 bdwidth: 2.0,
                 bgColor: const Color(0xFF2f5597),
-                title: 'VIEW REFENCE CHARTS',
+                title: 'VIEW PLAN ON CHARTS',
                 fontsize: 14.0,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),
             ],
           ),
+          const SizedBox(height: 10),
         ],
       ),
+      bottomNavigationBar: const CustomBottomTabBar(),
     );
   }
 }
 
 class CustomNumberContainer extends StatelessWidget {
   final String title;
+  final double width;
+  final double height;
+  final Color color;
+  final Color borderColor;
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
+
   const CustomNumberContainer({
     super.key,
     required this.title,
+    required this.padding,
+    required this.margin,
+    required this.width,
+    required this.height,
+    required this.color,
+    required this.borderColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      width: Utils.width(context) * 0.11,
-      height: Utils.height(context) * 0.055,
-      // padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      width: width,
+      height: height,
+      padding: padding,
+      margin: margin,
       border: Border.all(
         width: 2.0,
-        color: AppColors.blueColor,
+        color: borderColor,
       ),
       title: title,
-      bgColor: AppColors.whiteColor,
+      bgColor: color,
       fgColor: AppColors.blackColor,
       fontsize: 16.0,
       fontweight: FontWeight.w700,
