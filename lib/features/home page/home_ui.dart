@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
+import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -15,11 +17,11 @@ class HomePageUi extends StatefulWidget {
 class _HomePageUiState extends State<HomePageUi> {
   List features = [
     {
-      'name': 'LOTTO PREDICTION',
+      'name': 'LOTTO FORECAST TODAY',
       'navigation': RoutesName.lottoForecastToday,
     },
     {
-      'name': 'LOTTO KEYBOOK',
+      'name': 'THE RADICAL LOTTO KEYBOOK',
       'navigation': RoutesName.lottoKeyBook,
     },
     {
@@ -31,208 +33,201 @@ class _HomePageUiState extends State<HomePageUi> {
       'navigation': RoutesName.overdueNumbers,
     },
     {
-      'name': 'GRENCO NUMBERS',
+      'name': 'GRENCO KEY CHART',
+      'navigation': RoutesName.grencoKeyChart,
+    },
+    {
+      'name': 'SAVED PLANS',
+      'navigation': RoutesName.savedPlans,
+    },
+    {
+      'name': 'FIND & COMPARE EVENTS',
       'navigation': RoutesName.lottoKeyBook,
     },
     {
-      'name': 'LOTTO TOOLS',
+      'name': 'CLASSIFICATION CHART',
       'navigation': RoutesName.lottoKeyBook,
     },
     {
-      'name': 'TIMING KEYS',
+      'name': 'GROUP NUMBER CHART',
       'navigation': RoutesName.lottoKeyBook,
     },
     {
-      'name': '2 SURE TRACER',
+      'name': 'COLUMN NUMBER CHART',
       'navigation': RoutesName.lottoKeyBook,
     },
     {
-      'name': 'POWER X PLAY',
+      'name': 'ENDING NUMBER CHART',
       'navigation': RoutesName.lottoKeyBook,
     },
   ];
 
-  // List features = [
-  //   {
-  //     'name': 'LOTTO FORECAST TODAY',
-  //     'navigation': RoutesName.lottoForecastToday,
-  //   },
-  //   {
-  //     'name': 'THE RADICAL LOTTO KEYBOOK',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'LOTTO RESULT',
-  //     'navigation': RoutesName.lottoResult,
-  //   },
-  //   {
-  //     'name': 'OVERDUE NUMBERS',
-  //     'navigation': RoutesName.overdueNumbers,
-  //   },
-  //   {
-  //     'name': 'GRENCO KEY CHART',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'SAVED PLANS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'FIND & COMPARE EVENTS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'CLASSIFICATION CHART',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'GROUP NUMBER CHART',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'COLUMN NUMBER CHART',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'ENDING NUMBER CHART',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  // ];
-  //
-  // List timingKeys = [
-  //   {
-  //     'name': 'ENDING NUMBER CHART',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'LAPPING NUMER KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'POLAR ADDITION KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'EVENT SUMMATION KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'PIVOTED NUMBER KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'BALL SPACING KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'CONSTANT POSITION KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'SEQUENTIAL NUMBER KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  //   {
-  //     'name': 'PROGRESSIVE NUMBER KEYS',
-  //     'navigation': RoutesName.lottoKeyBook,
-  //   },
-  // ];
+  List timingkeys = [
+    {
+      'name': 'LAPPING NUMER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'POLAR ADDITION KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'EVENT SUMMATION KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'PIVOTED NUMBER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'BALL SPACING KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'CONSTANT POSITION KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'SEQUENTIAL NUMBER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+    {
+      'name': 'PROGRESSIVE NUMBER KEYS',
+      'navigation': RoutesName.lottoKeyBook,
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
-      body: GridView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-        // physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0,
-          childAspectRatio: 0.9,
-        ),
-        itemCount: features.length,
-        itemBuilder: (context, index) {
-          List itemName = [];
-          if (index == 8) {
-            itemName = features[index]['name'].toString().split(" ");
-          }
-          return InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed(features[index]['navigation']);
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const Icon(
-                  Icons.flare_sharp,
-                  size: 60.0,
-                  color: AppColors.blueColor,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 260.h,
+              child: GridView.builder(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 25.sm, vertical: 10.sm),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 8.sp,
+                  childAspectRatio: 1.h,
                 ),
-                SizedBox(height: Utils.height(context) * 0.02),
-                index == 8
-                    ? Row(
-                        children: [
-                          Text(
-                            "${itemName[0]} ",
-                            textAlign: TextAlign.center,
-                            softWrap: true,
-                            maxLines: 2,
-                            style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.blackColor,
-                              fontSize: 12.0,
-                              wordSpacing: 0,
-                            ),
-                          ),
-                          Text(
-                            itemName[1],
-                            textAlign: TextAlign.center,
-                            softWrap: true,
-                            maxLines: 2,
-                            style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.redColor,
-                              fontSize: 20.0,
-                              wordSpacing: 0,
-                            ),
-                          ),
-                          Text(
-                            " ${itemName[2]}",
-                            textAlign: TextAlign.center,
-                            softWrap: true,
-                            maxLines: 2,
-                            style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.blackColor,
-                              fontSize: 12.0,
-                              wordSpacing: 0,
-                            ),
-                          ),
-                        ],
-                      )
-                    : Text(
-                        features[index]['name'].toString(),
-                        textAlign: TextAlign.center,
-                        softWrap: true,
-                        maxLines: 2,
-                        style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.blackColor,
-                          fontSize: 12.0,
-                          wordSpacing: 0,
-                          textStyle: Theme.of(context).textTheme.headline4,
+                itemCount: features.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(features[index]['navigation']);
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Icon(
+                          Icons.flare_sharp,
+                          size: 45.sp,
+                          color: AppColors.blueColor,
                         ),
-                      ),
-              ],
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          features[index]['name'].toString(),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.blackColor,
+                              fontSize: 12.sp,
+                              wordSpacing: 0,
+                              textStyle: Theme.of(context).textTheme.headline4),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
-          );
-        },
+            CustomContainer(
+              height: 50.h,
+              title: 'LOTTO TIMING KEYS',
+              bgColor: AppColors.greyColor,
+              fgColor: AppColors.blackColor,
+              bottomRightRadius: 0.0,
+              bottomLeftRadius: 0.0,
+              topLeftRadius: 0.0,
+              topRightRadius: 0.0,
+              fontsize: 18.sp,
+              fontweight: FontWeight.w700,
+              border: Border.all(
+                width: 3.w,
+                color: AppColors.lightBlueColor,
+              ),
+            ),
+            SizedBox(
+              height: 240.h,
+              child: GridView.builder(
+                padding: EdgeInsets.all(25.sm),
+                shrinkWrap: true,
+                // physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  crossAxisSpacing: 5.0.sp,
+                  childAspectRatio: 0.7.h,
+                ),
+                itemCount: timingkeys.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      // Navigator.of(context).pushNamed(RoutesName.products);
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Icon(
+                          Icons.flare_sharp,
+                          size: 45.sp,
+                          color: AppColors.blueColor,
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          timingkeys[index]['name'].toString(),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.blackColor,
+                              fontSize: 12.sp,
+                              wordSpacing: 0,
+                              textStyle: Theme.of(context).textTheme.headline4),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              height: 45.h,
+              decoration: BoxDecoration(
+                color: AppColors.greyColor,
+                border: const Border(
+                  top: BorderSide(
+                    color: AppColors.lightBlueColor,
+                    width: 3.0,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

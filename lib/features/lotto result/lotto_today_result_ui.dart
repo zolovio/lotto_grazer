@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_last20_draws_result_ui.dart';
 import 'package:lotto_grazer/features/lotto%20result/lotto_result_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_radio_button.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
@@ -21,9 +25,8 @@ class _LottoResultUiState extends State<LottoResultUi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
       body: Consumer(builder: (context, ref, _) {
         final vm = ref.watch(lottoLast20DrawsVmProvider);
@@ -31,102 +34,50 @@ class _LottoResultUiState extends State<LottoResultUi> {
           children: [
             CustomContainer(
               width: Utils.width(context) * 1,
-              height: Utils.height(context) * 0.08,
+              height: 50.h,
               title: 'LOTTO RESULT',
               bgColor: AppColors.blackColor,
               fgColor: AppColors.whiteColor,
-              fontsize: 18.0,
-              fontweight: FontWeight.w800,
+              fontsize: 17.sp,
+              fontweight: FontWeight.w700,
               border: Border.all(
                 width: 0.0,
                 color: AppColors.whiteColor.withOpacity(0.1),
               ),
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: Utils.width(context) * 0.5,
-                  height: Utils.height(context) * 0.055,
-                  child: RadioListTile<int>(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 0.0),
-                    activeColor: AppColors.blueColor,
-                    title: CustomContainer(
-                      title: 'TODAY RESULTS',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
-                      fontsize: 14.0,
-                      topLeftRadius: 10.0,
-                      topRightRadius: 10.0,
-                      bottomLeftRadius: 10.0,
-                      bottomRightRadius: 10.0,
-                      fontweight: FontWeight.w800,
-                      border: Border.all(
-                        width: 2.0,
-                        color: AppColors.blueColor,
-                      ),
-                    ),
-                    value: 0,
-                    groupValue: vm.val,
-                    onChanged: (int? newvalue) {
-                      vm.val = newvalue;
-                      vm.notifyListeners();
-                      // print(thisval);
-                    },
-                  ),
+            SizedBox(
+              height: 60.h,
+              width: Utils.width(context),
+              child: Center(
+                child: CustomRadioButton(
+                  list: vm.keyList,
+                  selectedIndex: vm.selectedIndex,
+                  onSelect: (index) {
+                    vm.setIndex(index);
+                  },
                 ),
-                SizedBox(
-                  width: Utils.width(context) * 0.5,
-                  height: Utils.height(context) * 0.055,
-                  child: RadioListTile<int>(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 0.0),
-                    activeColor: AppColors.blueColor,
-                    title: CustomContainer(
-                      title: 'LAST 20 DRAWS',
-                      bgColor: AppColors.whiteColor.withOpacity(0.1),
-                      fgColor: AppColors.blackColor,
-                      fontsize: 14.0,
-                      topLeftRadius: 10.0,
-                      topRightRadius: 10.0,
-                      bottomLeftRadius: 10.0,
-                      bottomRightRadius: 10.0,
-                      fontweight: FontWeight.w800,
-                      border: Border.all(
-                        width: 2.0,
-                        color: AppColors.blueColor,
-                      ),
-                    ),
-                    value: 1,
-                    groupValue: vm.val,
-                    onChanged: (int? newvalue) {
-                      vm.val = newvalue;
-                      vm.notifyListeners();
-                      // print(thisval);
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
             SizedBox(
-              height: Utils.height(context) * 0.03,
+              height: 10.h,
             ),
-            vm.val == 1
+            vm.selectedIndex == 1
                 ? const CustomSearchContainer()
                 : const CatContainer(
                     thistitle: 'NL NATIONAL',
                   ),
-            vm.val == 1
+            vm.selectedIndex == 1
                 ? CustomContainer(
                     width: Utils.width(context) * 1,
-                    height: Utils.height(context) * 0.07,
-                    padding: const EdgeInsets.all(15.0),
+                    padding: EdgeInsets.all(15.sm),
                     title: 'LAST 2O DRAWS',
                     bgColor: AppColors.greyColor.withOpacity(0.5),
                     fgColor: AppColors.blackColor,
-                    fontsize: 18.0,
+                    fontsize: 17.sp,
                     fontweight: FontWeight.w800,
-                    border: const Border(
+                    border: Border(
                       bottom: BorderSide(
-                        width: 3.0,
+                        width: 3.w,
                         color: AppColors.blackColor,
                       ),
                     ),
@@ -135,7 +86,7 @@ class _LottoResultUiState extends State<LottoResultUi> {
                     date: '13/06/2022',
                     draw: '743',
                   ),
-            vm.val == 1
+            vm.selectedIndex == 1
                 ? ListTile(
                     contentPadding:
                         const EdgeInsets.only(right: 15.0, left: 40.0),
@@ -146,42 +97,42 @@ class _LottoResultUiState extends State<LottoResultUi> {
                         title: 'NL',
                         fontcolor: AppColors.blackColor,
                         fontweight: FontWeight.w500,
-                        fontsize: 19.0,
+                        fontsize: 18.sp,
                         underline: false),
                     title: CustomText(
                         title: 'NATIONAL LOTTO',
                         fontcolor: AppColors.blackColor,
                         fontweight: FontWeight.w800,
-                        fontsize: 16.0,
+                        fontsize: 15.sp,
                         underline: false),
                     trailing: CustomText(
                         title: 'YEAR 2022',
                         fontcolor: AppColors.blackColor,
                         fontweight: FontWeight.w800,
-                        fontsize: 16.0,
+                        fontsize: 15.sp,
                         underline: false),
                   )
                 : const CatContainer(
                     thistitle: 'PM GOLD',
                   ),
-            vm.val == 0
+            vm.selectedIndex == 0
                 ? const CustomDrawContainer(
                     date: '13/06/2022',
                     draw: '921',
                   )
                 : const Center(),
-            vm.val == 0
+            vm.selectedIndex == 0
                 ? const CatContainer(
                     thistitle: 'GC JET',
                   )
                 : const Center(),
-            vm.val == 0
+            vm.selectedIndex == 0
                 ? const CustomDrawContainer(
                     date: '13/06/2022',
                     draw: '643',
                   )
                 : const Center(),
-            vm.val == 1 ? const CustomTable() : const Center(),
+            vm.selectedIndex == 1 ? const CustomTable() : const Center(),
           ],
         );
       }),
@@ -200,20 +151,19 @@ class CatContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       width: Utils.width(context) * 1,
-      height: Utils.height(context) * 0.07,
-      padding: const EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(15.sm),
       title: thistitle,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
-      fontsize: 18.0,
+      fontsize: 17.sp,
       fontweight: FontWeight.w800,
-      border: const Border(
+      border: Border(
         top: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
         bottom: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -234,13 +184,13 @@ class CustomDrawContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomChildContainer(
       bgColor: AppColors.whiteColor.withOpacity(0.1),
-      border: const Border(
+      border: Border(
         top: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
         bottom: BorderSide(
-          width: 3.0,
+          width: 3.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -252,13 +202,13 @@ class CustomDrawContainer extends StatelessWidget {
                 title: 'DRAW: $draw',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 14.0,
+                fontsize: 13.sp,
                 underline: false),
             trailing: CustomText(
                 title: date.toString(),
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 14.0,
+                fontsize: 13.sp,
                 underline: false),
           ),
           Center(
@@ -266,7 +216,7 @@ class CustomDrawContainer extends StatelessWidget {
                 title: 'WINNING NUMBERS',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 underline: false),
           ),
           Row(
@@ -283,7 +233,7 @@ class CustomDrawContainer extends StatelessWidget {
                 title: 'MACHINE NUMBERS',
                 fontcolor: AppColors.blackColor,
                 fontweight: FontWeight.w700,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 underline: false),
           ),
           Row(
@@ -313,25 +263,24 @@ class CustomDrawContainer extends StatelessWidget {
 
 class CustomCircle extends StatelessWidget {
   final Color clr;
-  const CustomCircle({
-    super.key,
-    this.clr = AppColors.greenColor,
-  });
+  final String title;
+  const CustomCircle(
+      {super.key, this.clr = AppColors.greenColor, this.title = ''});
 
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
       width: Utils.width(context) * 0.2,
-      height: Utils.height(context) * 0.07,
-      margin: const EdgeInsets.symmetric(vertical: 10.0),
-      title: '',
+      height: 40.h,
+      margin: EdgeInsets.symmetric(vertical: 10.h),
+      title: title,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
-      fontsize: 18.0,
+      fontsize: 17.sp,
       fontweight: FontWeight.w800,
       shape: BoxShape.circle,
       border: Border.all(
-        width: 4.0,
+        width: 4.w,
         color: clr,
       ),
     );

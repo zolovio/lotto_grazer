@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
@@ -15,9 +16,8 @@ class _LottoKeyBookState extends State<LottoKeyBook> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
       body: SfPdfViewer.asset(
         'assets/files/book.pdf',

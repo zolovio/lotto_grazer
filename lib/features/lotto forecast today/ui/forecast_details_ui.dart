@@ -1,15 +1,16 @@
-import 'dart:ui';
-
-import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
-import 'package:lotto_grazer/res/components/custom_bottom_tab_bar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
+import 'package:lotto_grazer/res/components/custom_number_container.dart';
+import 'package:lotto_grazer/res/components/custom_row_widget.dart';
+import 'package:lotto_grazer/res/components/date_and_week_row.dart';
+import 'package:lotto_grazer/res/components/number_card.dart';
+import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/utils/utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForecastDetails extends StatefulWidget {
   const ForecastDetails({super.key});
@@ -23,185 +24,63 @@ class _ForecastDetailsState extends State<ForecastDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        preferredSize: Size(Utils.width(context) * 1, 70.h),
+        child: const CustomAppBar(),
       ),
       body: ListView(
         children: [
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.06,
-            title: 'FORECAST DETAILS',
+            height: 50.h,
+            title: 'FORCAST DETAILS',
             bgColor: AppColors.blackColor,
             fgColor: AppColors.whiteColor,
-            fontsize: 20.0,
+            fontsize: 17.sp,
             fontweight: FontWeight.w700,
             border: Border.all(
               width: 0.0,
               color: AppColors.blackColor,
             ),
           ),
-          Row(
-            children: [
-              SizedBox(
-                width: Utils.width(context) * 0.5,
-                height: Utils.height(context) * 0.06,
-                child: CustomContainer(
-                  title: 'NL FORTUNE',
-                  checkWidget: true,
-                  leadingIcon: FlagsCode.NL,
-                  bgColor: AppColors.whiteColor,
-                  fgColor: AppColors.blackColor,
-                  fontsize: 16.0,
-                  align: TextAlign.center,
-                  fontweight: FontWeight.w800,
-                  border: const Border(
-                    right: BorderSide(
-                      width: 3.0,
-                      color: AppColors.blackColor,
-                    ),
-                    bottom: BorderSide(
-                      width: 3.0,
-                      color: AppColors.blackColor,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: Utils.height(context) * 0.06,
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: Utils.width(context) * 0.40,
-                          height: Utils.height(context) * 0.03,
-                          child: CustomContainer(
-                            title: 'COUNTING WEEKS',
-                            bgColor: AppColors.whiteColor,
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
-                              right: BorderSide(
-                                width: 3.0,
-                                color: AppColors.blackColor,
-                              ),
-                              bottom: BorderSide(
-                                width: 3.0,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: Utils.width(context) * 0.10,
-                          height: Utils.height(context) * 0.03,
-                          child: CustomContainer(
-                            title: '1',
-                            bgColor: AppColors.whiteColor,
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
-                              bottom: BorderSide(
-                                width: 3.0,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: Utils.width(context) * 0.25,
-                          height: Utils.height(context) * 0.03,
-                          child: CustomContainer(
-                            title: 'DATE',
-                            bgColor: AppColors.whiteColor,
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
-                              right: BorderSide(
-                                width: 3.0,
-                                color: AppColors.blackColor,
-                              ),
-                              bottom: BorderSide(
-                                width: 3.0,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: Utils.width(context) * 0.25,
-                          height: Utils.height(context) * 0.03,
-                          child: CustomContainer(
-                            title: '02/06/2022',
-                            bgColor: AppColors.whiteColor,
-                            fgColor: AppColors.blackColor,
-                            fontsize: 10.0,
-                            align: TextAlign.center,
-                            fontweight: FontWeight.w700,
-                            border: const Border(
-                              bottom: BorderSide(
-                                width: 3.0,
-                                color: AppColors.blackColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          const DateAndWeekRow(
+              gameName: "NL FORTUNE", countingWeek: "1", date: "02/05/2022"),
           Row(
             children: [
               CustomContainer(
                 width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.05,
+                height: 50.h,
                 // padding: const EdgeInsets.all(15.0),
                 title: 'PLAN',
-                bgColor: AppColors.greyColor.withOpacity(0.3),
+                bgColor: AppColors.greyColor.withOpacity(0.5),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
-                border: const Border(
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                   right: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
               ),
               CustomContainer(
                 width: Utils.width(context) * 0.6,
-                height: Utils.height(context) * 0.05,
+                height: 50.h,
                 // padding: const EdgeInsets.all(15.0),
                 title: 'LAPPING NUMBER',
-                bgColor: AppColors.greyColor.withOpacity(0.3),
+                bgColor: AppColors.greyColor.withOpacity(0.5),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
-                border: const Border(
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
               ),
@@ -212,352 +91,145 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomChildContainer(
                 width: Utils.width(context) * 0.4,
-                height: Utils.height(context) * 0.13,
-                bgColor: AppColors.whiteColor,
-                border: const Border(
+                height: 120.h,
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                border: Border(
                   bottom: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                   right: BorderSide(
                     color: Colors.black,
-                    width: 3.0,
+                    width: 3.w,
                   ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 2.0),
-                    CustomButton(
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      title: 'W3',
-                      onpress: () {
-                        // Navigator.of(context)
-                        //     .pushNamed(RoutesName.forecastDetails);
-                      },
-                      bottomLeftRadius: 3.0,
-                      bottomRightRadius: 3.0,
-                      topRightRadius: 3.0,
-                      topLeftRadius: 3.0,
-                      fontsize: 11.0,
-                      btnwidth: Utils.width(context) * 0.15,
-                      btnheight: Utils.height(context) * 0.035,
+                    SizedBox(
+                      height: 15.h,
                     ),
-                    const SizedBox(height: 3.0),
-                    CustomContainer(
-                      width: Utils.width(context) * 0.15,
-                      height: Utils.height(context) * 0.04,
-                      // margin: const EdgeInsets.only(top: 1.0),
-                      title: '18',
-                      bgColor: AppColors.whiteColor,
-                      fgColor: AppColors.blackColor,
-                      fontsize: 16.0,
-                      fontweight: FontWeight.w700,
-                      align: TextAlign.center,
-                      border: Border.all(
-                        color: AppColors.blueColor,
-                        width: 3.0,
-                      ),
+                    const WCard(
+                      label: 'W3',
+                      borderColor: Colors.transparent,
                     ),
-                    CustomContainer(
-                      width: Utils.width(context) * 0.15,
-                      height: Utils.height(context) * 0.04,
-                      // margin: const EdgeInsets.all(0.0),
-                      title: '51',
-                      bgColor: AppColors.whiteColor,
-                      fgColor: AppColors.blackColor,
-                      fontsize: 16.0,
-                      fontweight: FontWeight.w700,
-                      align: TextAlign.center,
-                      border: Border.all(
-                        color: AppColors.blueColor,
-                        width: 3.0,
-                      ),
+                    const NumberCard(
+                      label: "18",
+                    ),
+                    const NumberCard(
+                      label: "51",
                     ),
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(12.0),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: AppColors.whiteColor,
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.black,
-                      width: 3.0,
-                    ),
-                  ),
-                ),
-                height: Utils.height(context) * 0.13,
+              CustomContainer(
                 width: Utils.width(context) * 0.6,
-                child: Center(
-                  child: RichText(
-                    textAlign: TextAlign.justify,
-                    text: TextSpan(
-                      style: GoogleFonts.montserrat(
-                        fontSize: 14.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      children: const <TextSpan>[
-                        TextSpan(text: 'In any two given event the number '),
-                        TextSpan(
-                          text: '18',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w800, fontSize: 17),
-                        ),
-                        TextSpan(text: ' Laps '),
-                        TextSpan(
-                          text: '51',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w800, fontSize: 17),
-                        ),
-                        TextSpan(text: ' on the 3rd box winning.'),
-                      ],
-                    ),
+                height: 120.h,
+                padding: EdgeInsets.all(10.sm),
+                title:
+                    'In any two given event the number 18 Laps 51 on the 3rd box winning.',
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                fgColor: AppColors.blackColor,
+                fontsize: 15.sp,
+                fontweight: FontWeight.w600,
+                align: TextAlign.left,
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.black,
+                    width: 3.w,
                   ),
                 ),
               ),
-
-              // CustomContainer(
-              //   width: Utils.width(context) * 0.6,
-              //   height: Utils.height(context) * 0.13,
-              //   padding: const EdgeInsets.all(10.0),
-              //   title:
-              //       'In any two given event the number 18 Laps 51 on the 3rd box winning.',
-              //   bgColor: AppColors.whiteColor.withOpacity(0.1),
-              //   fgColor: AppColors.blackColor,
-              //   fontsize: 15.0,
-              //   fontweight: FontWeight.w600,
-              //   align: TextAlign.left,
-              //   border: const Border(
-              //     bottom: BorderSide(
-              //       color: Colors.black,
-              //       width: 3.0,
-              //     ),
-              //   ),
-              // ),
             ],
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.05,
-            // padding: const EdgeInsets.all(15.0),
+            height: 40.h,
             title: 'REFERENCE EVENTS',
-            bgColor: AppColors.greyColor.withOpacity(0.3),
+            bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
                 color: Colors.black,
-                width: 3.0,
+                width: 3.w,
               ),
             ),
           ),
-          Row(
-            children: const [
-              Expanded(
-                child: CustomRowWidget(
-                  c1text: 'PM METRO',
-                  c2text: '43 - 44',
-                ),
-              ),
-              Expanded(
-                child: CustomRowWidget(
-                  c1text: 'PM GOLD',
-                  c2text: '33 - 34',
-                ),
-              ),
-              Expanded(
-                child: CustomRowWidget(
-                  c1text: 'NL FORTUNE',
-                  c2text: '994 - 995',
-                ),
-              ),
-            ],
+          const CustomRowWidget(
+            c1text: 'PM METRO',
+            c2text: '433 - 434',
+          ),
+          const CustomRowWidget(
+            c1text: 'PM DIAMOND',
+            c2text: '623 - 625',
+          ),
+          const CustomRowWidget(
+            c1text: 'PM PEOPLE',
+            c2text: '1423 - 1425',
+          ),
+          const CustomRowWidget(
+            c1text: 'NL FORTUNE',
+            c2text: '995 - 996',
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.05,
+            height: 40.h,
             title: 'KEY FORECAST',
-            bgColor: AppColors.greyColor.withOpacity(0.3),
+            bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
-            border: const Border(
+            border: Border(
               bottom: BorderSide(
                 color: Colors.black,
-                width: 2.0,
-              ),
-              right: BorderSide(
-                color: Colors.black,
-                width: 2.0,
-              ),
-            ),
-          ),
-          Container(
-            height: 3,
-            margin: const EdgeInsets.only(top: 1.5),
-            color: AppColors.blackColor,
-          ),
-          // CustomContainer(
-          //   padding: const EdgeInsets.only(left: 15.0, right: 10.0, top: 10.0),
-          //   title:
-          //       '1. Counting 3 weeks up from the plan, the 2\u1d3a\u1d30 winning numbers of the event '
-          //       'will counter and drop as a banker.',
-          //   bgColor: AppColors.whiteColor.withOpacity(0.1),
-          //   fgColor: AppColors.blackColor,
-          //   fontsize: 14.0,
-          //   fontweight: FontWeight.w500,
-          //   align: TextAlign.justify,
-          // ),
-          Container(
-            padding: const EdgeInsets.only(left: 15.0, right: 10.0, top: 10.0),
-            child: const Text(
-              '1. Counting 3 weeks up from the plan, the 2\u1d3a\u1d30 winning numbers of the event '
-              'will counter and drop as a banker.',
-              textAlign: TextAlign.justify,
-              style: TextStyle(
-                fontSize: 15.0,
-                fontFeatures: [
-                  FontFeature.enable('sups'),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 15.0, right: 10.0, top: 10.0),
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppColors.whiteColor,
-            ),
-            child: Center(
-              child: RichText(
-                textAlign: TextAlign.justify,
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.black,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'CASE1 : ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
-                    ),
-                    TextSpan(text: '5 COUNTER '),
-                    TextSpan(
-                      text: '50',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 15.0, right: 10.0, top: 3.0),
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppColors.whiteColor,
-            ),
-            child: Center(
-              child: RichText(
-                textAlign: TextAlign.justify,
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.black,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'CASE2 : ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
-                    ),
-                    TextSpan(text: '3 COUNTER '),
-                    TextSpan(
-                      text: '48',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(
-                left: 15.0, right: 10.0, top: 3.0, bottom: 15.0),
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppColors.whiteColor,
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.black,
-                  width: 3.0,
-                ),
-              ),
-            ),
-            child: Center(
-              child: RichText(
-                textAlign: TextAlign.justify,
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.black,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'CASE3 : ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
-                    ),
-                    TextSpan(text: '9 COUNTER '),
-                    TextSpan(
-                      text: '54',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w800, fontSize: 12),
-                    ),
-                  ],
-                ),
+                width: 3.w,
               ),
             ),
           ),
           CustomContainer(
             width: Utils.width(context) * 1,
-            height: Utils.height(context) * 0.04,
-            // padding: const EdgeInsets.all(15.0),
-            title: 'PROJECTED NUMBERS',
-            border: const Border(
+            height: 100.h,
+            padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 10.w),
+            title:
+                'Counting 3 weeks up from the plan, the five(5) winning numbers of the event will counter and drop as a banker,8 weeks down',
+            bgColor: AppColors.whiteColor.withOpacity(0.1),
+            fgColor: AppColors.blackColor,
+            fontsize: 14.sp,
+            fontweight: FontWeight.w600,
+            align: TextAlign.left,
+            border: Border(
               bottom: BorderSide(
-                width: 1.0,
-                color: AppColors.blackColor,
+                color: Colors.black,
+                width: 3.w,
               ),
             ),
-            bgColor: AppColors.greyColor.withOpacity(0.3),
+          ),
+          CustomContainer(
+            width: Utils.width(context) * 1,
+            height: 40.h,
+            title: 'PROJECTED BANKERS',
+            bgColor: AppColors.greyColor.withOpacity(0.5),
             fgColor: AppColors.blackColor,
-            fontsize: 16.0,
+            fontsize: 15.sp,
             fontweight: FontWeight.w700,
             align: TextAlign.center,
           ),
           CustomChildContainer(
             width: Utils.width(context) * 0.7,
-            height: Utils.height(context) * 0.08,
-            margin: const EdgeInsets.only(bottom: 6.0),
-            bgColor: AppColors.whiteColor,
-            border: const Border(
+            height: 55.h,
+            margin: EdgeInsets.only(bottom: 4.h),
+            bgColor: AppColors.whiteColor.withOpacity(0.1),
+            border: Border(
               bottom: BorderSide(
-                width: 3.0,
+                width: 3.w,
                 color: AppColors.lightBlueColor,
               ),
               top: BorderSide(
-                width: 3.0,
+                width: 3.w,
                 color: AppColors.lightBlueColor,
               ),
             ),
@@ -569,17 +241,17 @@ class _ForecastDetailsState extends State<ForecastDetails> {
                   5,
                   (index) => CustomContainer(
                     width: Utils.width(context) * 0.2,
-                    height: Utils.height(context) * 0.08,
+                    height: 50.h,
+                    padding: EdgeInsets.all(5.sm),
                     shape: BoxShape.circle,
                     border: Border.all(
-                      width: 3.0,
+                      width: 3.w,
                       color: AppColors.lightBlueColor,
                     ),
-                    title: "${index + 1}",
-                    bgColor: AppColors.whiteColor,
+                    title: '1',
+                    bgColor: AppColors.whiteColor.withOpacity(0.1),
                     fgColor: AppColors.blackColor,
-                    fontsize: 20.0,
-                    fontweight: FontWeight.w700,
+                    fontsize: 15.sp,
                     align: TextAlign.center,
                   ),
                 ),
@@ -589,14 +261,13 @@ class _ForecastDetailsState extends State<ForecastDetails> {
           Center(
             child: CustomButton(
               btnwidth: Utils.width(context) * 0.05,
-              // btnheight: Utils.height(context) * 0.1,
-              bottomLeftRadius: 3.0,
-              topLeftRadius: 3.0,
-              bottomRightRadius: 3.0,
-              topRightRadius: 3.0,
+              bottomLeftRadius: 3.r,
+              topLeftRadius: 3.r,
+              bottomRightRadius: 3.r,
+              topRightRadius: 3.r,
               bgColor: AppColors.blackColor.withOpacity(0.8),
               title: 'STAKE',
-              fontsize: 16.0,
+              fontsize: 15.sp,
               fontweight: FontWeight.w700,
               onpress: () {},
             ),
@@ -606,240 +277,106 @@ class _ForecastDetailsState extends State<ForecastDetails> {
             children: [
               CustomContainer(
                 width: Utils.width(context) * 0.2,
-                height: Utils.height(context) * 0.08,
-                padding: const EdgeInsets.all(5.0),
-                // margin: const EdgeInsets.all(5.0),
+                height: 30.h,
+                padding: EdgeInsets.all(5.sm),
                 border: Border.all(
                   width: 0.0,
-                  color: AppColors.whiteColor,
+                  color: AppColors.whiteColor.withOpacity(0.1),
                 ),
                 title: 'BEST 3 :',
-                bgColor: AppColors.whiteColor,
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
                 fgColor: AppColors.blackColor,
-                fontsize: 16.0,
+                fontsize: 15.sp,
                 fontweight: FontWeight.w700,
                 align: TextAlign.center,
               ),
               SizedBox(
                 width: Utils.width(context) * 0.15,
               ),
-              CustomNumberContainer(
+              const CustomNumberContainer(
                 title: '1',
-                width: Utils.width(context) * 0.11,
-                height: Utils.height(context) * 0.040,
-                color: AppColors.whiteColor,
-                borderColor: AppColors.blueColor,
-                padding: EdgeInsets.zero,
-                margin: const EdgeInsets.symmetric(horizontal: 8.0),
               ),
-              CustomNumberContainer(
-                title: '2',
-                width: Utils.width(context) * 0.11,
-                height: Utils.height(context) * 0.040,
-                color: AppColors.whiteColor,
-                borderColor: AppColors.blueColor,
-                padding: EdgeInsets.zero,
-                margin: const EdgeInsets.symmetric(horizontal: 8.0),
+              const CustomNumberContainer(
+                title: '1',
               ),
-              CustomNumberContainer(
-                title: '3',
-                width: Utils.width(context) * 0.11,
-                height: Utils.height(context) * 0.040,
-                color: AppColors.whiteColor,
-                borderColor: AppColors.blueColor,
-                padding: EdgeInsets.zero,
-                margin: const EdgeInsets.symmetric(horizontal: 8.0),
+              const CustomNumberContainer(
+                title: '1',
               ),
             ],
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   children: [
-          //     CustomContainer(
-          //       width: Utils.width(context) * 0.2,
-          //       height: Utils.height(context) * 0.08,
-          //       padding: const EdgeInsets.all(5.0),
-          //       border: Border.all(
-          //         width: 0.0,
-          //         color: AppColors.whiteColor,
-          //       ),
-          //       title: 'BEST 5 :',
-          //       bgColor: AppColors.whiteColor,
-          //       fgColor: AppColors.blackColor,
-          //       fontsize: 16.0,
-          //       fontweight: FontWeight.w700,
-          //       align: TextAlign.center,
-          //     ),
-          //     // SizedBox(
-          //     //   width: Utils.width(context) * 0.1,
-          //     // ),
-          //     const CustomNumberContainer(
-          //       title: '1',
-          //     ),
-          //     const CustomNumberContainer(
-          //       title: '1',
-          //     ),
-          //     const CustomNumberContainer(
-          //       title: '1',
-          //     ),
-          //     const CustomNumberContainer(
-          //       title: '1',
-          //     ),
-          //     const CustomNumberContainer(
-          //       title: '1',
-          //     ),
-          //   ],
-          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomContainer(
+                width: Utils.width(context) * 0.2,
+                height: 30.h,
+                padding: EdgeInsets.all(5.sm),
+                border: Border.all(
+                  width: 0.0,
+                  color: AppColors.whiteColor.withOpacity(0.1),
+                ),
+                title: 'BEST 5 :',
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                fgColor: AppColors.blackColor,
+                fontsize: 15.sp,
+                fontweight: FontWeight.w700,
+                align: TextAlign.center,
+              ),
+              SizedBox(
+                width: Utils.width(context) * 0.025,
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+              const CustomNumberContainer(
+                title: '1',
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CustomButton(
                 btnwidth: Utils.width(context) * 0.3,
-                btnheight: Utils.height(context) * 0.05,
-                bottomLeftRadius: 5.0,
-                topLeftRadius: 5.0,
-                bottomRightRadius: 5.0,
-                topRightRadius: 5.0,
-                bdwidth: 2.0,
+                btnheight: 35.h,
+                bottomLeftRadius: 5.r,
+                topLeftRadius: 5.r,
+                bottomRightRadius: 5.r,
+                topRightRadius: 5.r,
+                bdwidth: 2.w,
                 bgColor: AppColors.blueColor,
-                title: 'SAVE',
-                fontsize: 16.0,
+                title: 'Save',
+                fontsize: 14.sp,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),
               CustomButton(
                 btnwidth: Utils.width(context) * 0.6,
-                btnheight: Utils.height(context) * 0.05,
-                bottomLeftRadius: 5.0,
-                topLeftRadius: 5.0,
-                bottomRightRadius: 5.0,
-                topRightRadius: 5.0,
-                bdwidth: 2.0,
+                btnheight: 35.h,
+                bottomLeftRadius: 5.r,
+                topLeftRadius: 5.r,
+                bottomRightRadius: 5.r,
+                topRightRadius: 5.r,
+                bdwidth: 2.w,
                 bgColor: const Color(0xFF2f5597),
-                title: 'VIEW PLAN ON CHARTS',
-                fontsize: 14.0,
+                title: 'VIEW REFENCE CHARTS',
+                fontsize: 14.sp,
                 fontweight: FontWeight.w700,
                 onpress: () {},
               ),
             ],
           ),
-          const SizedBox(height: 10),
         ],
       ),
-      bottomNavigationBar: const CustomBottomTabBar(),
-    );
-  }
-}
-
-class CustomNumberContainer extends StatelessWidget {
-  final String title;
-  final double width;
-  final double height;
-  final Color color;
-  final Color borderColor;
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
-
-  const CustomNumberContainer({
-    super.key,
-    required this.title,
-    required this.padding,
-    required this.margin,
-    required this.width,
-    required this.height,
-    required this.color,
-    required this.borderColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomContainer(
-      width: width,
-      height: height,
-      padding: padding,
-      margin: margin,
-      border: Border.all(
-        width: 2.0,
-        color: borderColor,
-      ),
-      title: title,
-      bgColor: color,
-      fgColor: AppColors.blackColor,
-      fontsize: 16.0,
-      fontweight: FontWeight.w700,
-      align: TextAlign.center,
-    );
-  }
-}
-
-class CustomRowWidget extends StatelessWidget {
-  final String c1text;
-  final String c2text;
-  const CustomRowWidget({
-    super.key,
-    required this.c1text,
-    required this.c2text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomContainer(
-          width: Utils.width(context) * 0.4,
-          // height: Utils.height(context) * 0.04,
-          padding: const EdgeInsets.all(10.0),
-          title: c1text,
-          bgColor: AppColors.whiteColor,
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            left: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-            right: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-            top: BorderSide(
-              color: Colors.black,
-              width: 1.0,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-        CustomContainer(
-          width: Utils.width(context) * 0.4,
-          // height: Utils.height(context) * 0.04,
-          padding: const EdgeInsets.all(10.0),
-          title: c2text,
-          bgColor: AppColors.whiteColor,
-          fgColor: AppColors.blackColor,
-          fontsize: 16.0,
-          fontweight: FontWeight.w700,
-          align: TextAlign.center,
-          border: const Border(
-            left: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-            right: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-            bottom: BorderSide(
-              color: Colors.black,
-              width: 3.0,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

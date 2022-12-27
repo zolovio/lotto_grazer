@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
-class CutomAppBar extends StatelessWidget {
-  const CutomAppBar({super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +13,11 @@ class CutomAppBar extends StatelessWidget {
       backgroundColor: AppColors.appbarColor,
       centerTitle: true,
       title: Padding(
-        padding: const EdgeInsets.only(top: 15.0),
+        padding: EdgeInsets.only(top: 15.sm),
         child: Image.asset(
           'assets/images/appbarlogo.png',
           fit: BoxFit.fill,
-          width: Utils.width(context) * 0.5,
+          width: 150.w,
         ),
       ),
     );
