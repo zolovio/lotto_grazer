@@ -10,16 +10,18 @@ class WCard extends StatelessWidget {
   final Color? bgColor;
   final double btnHeight;
   final double btnWidth;
+  final bool isInfo;
 
-  const WCard(
-      {Key? key,
-      required this.label,
-      this.borderColor,
-      this.textColor,
-      this.bgColor,
-      this.btnHeight = 50,
-      this.btnWidth = 100})
-      : super(key: key);
+  const WCard({
+    Key? key,
+    required this.label,
+    this.borderColor,
+    this.textColor,
+    this.bgColor,
+    this.btnHeight = 50,
+    this.btnWidth = 100,
+    this.isInfo = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +30,34 @@ class WCard extends StatelessWidget {
       child: Container(
         width: (btnWidth == 100) ? 50.w : btnWidth,
         height: (btnHeight == 50) ? 25.h : btnHeight,
+        padding: EdgeInsets.only(left: 2.w, right: 2.w),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: bgColor ?? AppColors.blackColor,
             borderRadius: BorderRadius.circular(6.r),
-            border: Border.all(
-                color: borderColor ?? AppColors.whiteColor, width: 2.w)),
-        child: CustomText(
-          title: label,
-          fontsize: 11.sp,
-          fontweight: FontWeight.w600,
-          fontcolor: textColor ?? AppColors.whiteColor,
-        ),
+            border: Border.all(color: borderColor ?? AppColors.whiteColor, width: 2.w)),
+        child: isInfo
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(
+                    title: label,
+                    fontsize: 11.sp,
+                    fontweight: FontWeight.w600,
+                    fontcolor: textColor ?? AppColors.whiteColor,
+                  ),
+                  Icon(
+                    Icons.info_outline,
+                    size: 22.sp,
+                  ),
+                ],
+              )
+            : CustomText(
+                title: label,
+                fontsize: 11.sp,
+                fontweight: FontWeight.w600,
+                fontcolor: textColor ?? AppColors.whiteColor,
+              ),
       ),
     );
   }

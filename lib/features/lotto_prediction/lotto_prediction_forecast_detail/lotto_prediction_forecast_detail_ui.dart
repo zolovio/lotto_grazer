@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/features/lotto_prediction/lotto_prediction_forecast_detail/lotto_prediction_forecast_detail_vm.dart';
-import 'package:lotto_grazer/features/lotto_prediction/lotto_prediction_forecast_detail/reference_charts/reference_charts.dart';
+// import 'package:lotto_grazer/features/lotto_prediction/lotto_prediction_forecast_detail/reference_charts/reference_charts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
@@ -15,18 +16,15 @@ import 'package:lotto_grazer/res/components/date_and_week_row.dart';
 import 'package:lotto_grazer/res/components/number_card.dart';
 import 'package:lotto_grazer/res/components/w_card.dart';
 import 'package:lotto_grazer/utils/utils.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LottoPredictionForecastDetail extends StatefulWidget {
   const LottoPredictionForecastDetail({super.key});
 
   @override
-  State<LottoPredictionForecastDetail> createState() =>
-      _LottoPredictionForecastDetailState();
+  State<LottoPredictionForecastDetail> createState() => _LottoPredictionForecastDetailState();
 }
 
-class _LottoPredictionForecastDetailState
-    extends State<LottoPredictionForecastDetail> {
+class _LottoPredictionForecastDetailState extends State<LottoPredictionForecastDetail> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -57,8 +55,7 @@ class _LottoPredictionForecastDetailState
                 countingWeek: "1",
                 date: "02/05/2022",
                 isFromLottoPrediction: true,
-                imageUrl:
-                    'https://cdn-icons-png.flaticon.com/512/5052/5052170.png',
+                imageUrl: 'https://cdn-icons-png.flaticon.com/512/5052/5052170.png',
               ),
               Row(
                 children: [
@@ -159,18 +156,15 @@ class _LottoPredictionForecastDetailState
                             fontWeight: FontWeight.w500,
                           ),
                           children: <TextSpan>[
-                            const TextSpan(
-                                text: 'In any two given event the number '),
+                            const TextSpan(text: 'In any two given event the number '),
                             TextSpan(
                               text: '18',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 16.sp),
+                              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp),
                             ),
                             const TextSpan(text: ' Laps '),
                             TextSpan(
                               text: '51',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 16.sp),
+                              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp),
                             ),
                             const TextSpan(text: ' on the 3rd box winning.'),
                           ],
@@ -260,8 +254,7 @@ class _LottoPredictionForecastDetailState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
-                        title:
-                            '1. Counting 3 weeks up from the plan, the 2nd box winning number of the event will counter and drop as a banker.',
+                        title: '1. Counting 3 weeks up from the plan, the 2nd box winning number of the event will counter and drop as a banker.',
                         fontcolor: AppColors.blackColor,
                         fontsize: 14.sp,
                         fontweight: FontWeight.w500,
@@ -278,16 +271,12 @@ class _LottoPredictionForecastDetailState
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'CASE1 : ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14.sp),
+                                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
                               ),
                               const TextSpan(text: '5 COUNTER '),
                               TextSpan(
                                 text: '50',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14.sp),
+                                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
                               ),
                             ],
                           ),
@@ -304,16 +293,12 @@ class _LottoPredictionForecastDetailState
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'CASE2 : ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14.sp),
+                                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
                               ),
                               const TextSpan(text: '3 COUNTER '),
                               TextSpan(
                                 text: '48',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14.sp),
+                                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
                               ),
                             ],
                           ),
@@ -330,24 +315,19 @@ class _LottoPredictionForecastDetailState
                             children: <TextSpan>[
                               TextSpan(
                                 text: 'CASE3 : ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14.sp),
+                                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
                               ),
                               const TextSpan(text: '9 COUNTER '),
                               TextSpan(
                                 text: '54',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14.sp),
+                                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
                               ),
                             ],
                           ),
                         ),
                       ),
                       CustomText(
-                        title:
-                            '2. Counting 5 weeks up from the plan the 5th box.',
+                        title: '2. Counting 5 weeks up from the plan the 5th box.',
                         fontcolor: AppColors.blackColor,
                         fontsize: 14.sp,
                         fontweight: FontWeight.w500,

@@ -6,9 +6,7 @@ import 'package:lotto_grazer/res/components/custom_bottom_tab_bar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_radio_button.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
-import 'package:lotto_grazer/utils/routes/routes_names.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 
 class LottoPredictionUi extends StatefulWidget {
@@ -224,7 +222,7 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(Utils.width(context) * 1, Utils.height(context) * 0.1),
-        child: const CutomAppBar(),
+        child: const CustomAppBar(),
       ),
       body: Column(
         children: [
@@ -266,11 +264,6 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
               children: [
                 Row(
                   children: [
-                    CustomRadioButton<String>(
-                      value: '0',
-                      groupValue: _groupValue,
-                      onChanged: _valueChangedHandler(),
-                    ),
                     CustomButton(
                       title: 'FORECAST GAMES',
                       onpress: () {
@@ -293,11 +286,6 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                 ),
                 Row(
                   children: [
-                    CustomRadioButton<String>(
-                      value: '1',
-                      groupValue: _groupValue,
-                      onChanged: _valueChangedHandler(),
-                    ),
                     CustomButton(
                       title: 'SAVED PLANS',
                       onpress: () {
@@ -447,7 +435,7 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                             title: 'VIEW   FORECAST',
                                             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                             onpress: () {
-                                              Navigator.of(context).pushNamed(RoutesName.forecastDetails);
+                                              // Navigator.of(context).pushNamed(RoutesName.forecastDetails);
                                             },
                                             bottomLeftRadius: 5.0,
                                             bottomRightRadius: 5.0,

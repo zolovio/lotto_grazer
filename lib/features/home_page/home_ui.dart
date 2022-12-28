@@ -41,7 +41,7 @@ class _HomePageUiState extends State<HomePageUi> {
     },
     {
       'name': 'TIMING\nKEYS',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.timingKeys,
     },
     {
       'name': '2 SURE\nTRACER',
@@ -77,8 +77,7 @@ class _HomePageUiState extends State<HomePageUi> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(features[index]['navigation']);
+                      Navigator.of(context).pushNamed(features[index]['navigation']);
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -102,9 +101,7 @@ class _HomePageUiState extends State<HomePageUi> {
                                         color: AppColors.blackColor,
                                         fontSize: 12.sp,
                                         wordSpacing: 0,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .headline4),
+                                        textStyle: Theme.of(context).textTheme.headline4),
                                     children: [
                                       TextSpan(
                                         text: "X",
@@ -113,9 +110,7 @@ class _HomePageUiState extends State<HomePageUi> {
                                             color: AppColors.redColor,
                                             fontSize: 14.sp,
                                             wordSpacing: 0,
-                                            textStyle: Theme.of(context)
-                                                .textTheme
-                                                .headline4),
+                                            textStyle: Theme.of(context).textTheme.headline4),
                                       ),
                                       const TextSpan(text: ' PLAY'),
                                     ]))
@@ -129,9 +124,7 @@ class _HomePageUiState extends State<HomePageUi> {
                                       color: AppColors.blackColor,
                                       fontSize: 12.sp,
                                       wordSpacing: 0,
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .headline4),
+                                      textStyle: Theme.of(context).textTheme.headline4),
                                 ),
                               ),
                       ],

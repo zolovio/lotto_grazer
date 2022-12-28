@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final lottoPredictionProvider =
-    ChangeNotifierProvider.autoDispose<LottoPredictionVm>((ref) {
+final lottoPredictionProvider = ChangeNotifierProvider.autoDispose<LottoPredictionVm>((ref) {
   return LottoPredictionVm();
 });
 
