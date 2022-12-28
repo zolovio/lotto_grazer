@@ -14,17 +14,19 @@ class LottoKeyBook extends StatefulWidget {
 class _LottoKeyBookState extends State<LottoKeyBook> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(Utils.width(context) * 1, 70.h),
-        child: const CustomAppBar(),
-      ),
-      body: SfPdfViewer.asset(
-        'assets/files/book.pdf',
-        canShowHyperlinkDialog: true,
-        canShowPaginationDialog: true,
-        canShowScrollHead: true,
-        canShowScrollStatus: true,
+    return SafeArea(
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size(Utils.width(context) * 1, 60.h),
+          child: const CustomAppBar(),
+        ),
+        body: SfPdfViewer.asset(
+          'assets/files/book.pdf',
+          canShowHyperlinkDialog: true,
+          canShowPaginationDialog: true,
+          canShowScrollHead: true,
+          canShowScrollStatus: true,
+        ),
       ),
     );
   }
