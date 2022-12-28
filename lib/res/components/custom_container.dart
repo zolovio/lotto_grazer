@@ -1,4 +1,6 @@
+import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 
@@ -23,6 +25,8 @@ class CustomContainer extends StatelessWidget {
   TextAlign align;
   EdgeInsetsGeometry padding;
   EdgeInsetsGeometry margin;
+  FlagsCode leadingIcon;
+  bool checkWidget;
   CustomContainer({
     super.key,
     required this.title,
@@ -42,6 +46,8 @@ class CustomContainer extends StatelessWidget {
     this.shape = BoxShape.rectangle,
     this.padding = const EdgeInsets.all(0.0),
     this.margin = const EdgeInsets.all(0.0),
+    this.checkWidget = false,
+    this.leadingIcon = FlagsCode.US,
   });
 
   @override
@@ -56,26 +62,64 @@ class CustomContainer extends StatelessWidget {
           topLeft: Radius.circular(topLeftRadius),
         ),
       )),
-      child: Container(
-        padding: padding,
-        margin: margin,
-        decoration: BoxDecoration(
-          shape: shape,
-          color: bgColor,
-          border: border,
-        ),
-        height: height,
-        width: width,
-        child: Center(
-          child: CustomText(
-              align: align,
-              title: title.toString(),
-              fontcolor: fgColor,
-              fontweight: fontweight,
-              fontsize: fontsize as double,
-              underline: underline),
-        ),
-      ),
+      child: checkWidget
+          ? Container(
+              margin: margin,
+              decoration: BoxDecoration(
+                shape: shape,
+                color: bgColor,
+                border: border,
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
+              height: height,
+              width: width,
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Flag.fromCode(
+                      leadingIcon,
+                      height: 20.h,
+                      width: 40.w,
+                      fit: BoxFit.fill,
+                    ),
+                    SizedBox(
+                      width: 30.w,
+                    ),
+                    Center(
+                      child: CustomText(
+                        align: align,
+                        title: title,
+                        fontcolor: fgColor,
+                        fontweight: fontweight,
+                        fontsize: fontsize as double,
+                        underline: underline,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          : Container(
+              padding: padding,
+              margin: margin,
+              decoration: BoxDecoration(
+                shape: shape,
+                color: bgColor,
+                border: border,
+              ),
+              height: height,
+              width: width,
+              child: Center(
+                child: CustomText(
+                    align: align,
+                    title: title.toString(),
+                    fontcolor: fgColor,
+                    fontweight: fontweight,
+                    fontsize: fontsize as double,
+                    underline: underline),
+              ),
+            ),
     );
   }
 }

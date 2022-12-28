@@ -5,29 +5,30 @@ import 'package:lotto_grazer/res/components/custom_text.dart';
 import 'package:lotto_grazer/res/components/number_card.dart';
 import 'package:lotto_grazer/res/components/w_card.dart';
 
-class GrencoKeyChartAnalysisCard extends StatefulWidget {
+class GrencoNumbersAnalysisCard extends StatefulWidget {
   final String firstNum;
   final String secondNum;
+  final String winNum;
   final String week;
   final String planName;
   final Function onDetailsTap;
 
-  const GrencoKeyChartAnalysisCard({
+  const GrencoNumbersAnalysisCard({
     Key? key,
     required this.firstNum,
     required this.secondNum,
+    required this.winNum,
     required this.week,
     required this.planName,
     required this.onDetailsTap,
   }) : super(key: key);
 
   @override
-  State<GrencoKeyChartAnalysisCard> createState() =>
-      _GrencoKeyChartAnalysisCardState();
+  State<GrencoNumbersAnalysisCard> createState() =>
+      _GrencoNumbersAnalysisCardState();
 }
 
-class _GrencoKeyChartAnalysisCardState
-    extends State<GrencoKeyChartAnalysisCard> {
+class _GrencoNumbersAnalysisCardState extends State<GrencoNumbersAnalysisCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,18 +48,23 @@ class _GrencoKeyChartAnalysisCardState
                     topLeft: Radius.circular(15.r),
                   ),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: Row(
                   children: [
-                    SizedBox(
-                      height: 5.h,
+                    WCard(label: widget.winNum),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        NumberCard(label: widget.firstNum),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        NumberCard(label: widget.secondNum),
+                      ],
                     ),
-                    NumberCard(label: widget.firstNum),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    NumberCard(label: widget.secondNum),
                   ],
                 )),
           ),
@@ -68,23 +74,23 @@ class _GrencoKeyChartAnalysisCardState
                   color: AppColors.whiteColor,
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 6.h,
-                    ),
-                    WCard(
-                      btnWidth: 60.w,
-                      label: widget.week,
-                      textColor: AppColors.blackColor,
-                      bgColor: AppColors.buttonColor,
-                      borderColor: AppColors.blackColor,
-                    ),
-                    SizedBox(height: 5.h),
+                    // SizedBox(
+                    //   height: 6.h,
+                    // ),
+                    // WCard(
+                    //   btnWidth: 60.w,
+                    //   label: widget.week,
+                    //   textColor: AppColors.blackColor,
+                    //   bgColor: AppColors.buttonColor,
+                    //   borderColor: AppColors.blackColor,
+                    // ),
+                    // SizedBox(height: 10.h),
                     CustomText(
                       title: widget.planName,
-                      fontsize: 10.sp,
+                      fontsize: 12.sp,
                       fontweight: FontWeight.w800,
                       fontcolor: AppColors.blackColor,
                     ),

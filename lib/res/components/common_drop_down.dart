@@ -8,11 +8,15 @@ class CommonDropDown extends StatelessWidget {
   final String initialValue;
   final List<String> list;
   final Function onSelect;
+  final double? setWidth;
+  final double? setFont;
   const CommonDropDown({
     Key? key,
     required this.initialValue,
     required this.list,
     required this.onSelect,
+    this.setWidth,
+    this.setFont,
     this.title,
   }) : super(key: key);
 
@@ -34,6 +38,8 @@ class CommonDropDown extends StatelessWidget {
         ],
         Container(
           height: 38.h,
+          width: setWidth,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: AppColors.greyColor.withOpacity(0.2),
             border: Border.all(width: 2.w, color: AppColors.blueColor),
@@ -44,10 +50,13 @@ class CommonDropDown extends StatelessWidget {
             icon: Icon(
               Icons.arrow_downward,
               color: AppColors.blackColor,
-              size: 25.sp,
+              size: (setFont == null) ? 25.sp : 20.sp,
             ),
             elevation: 0,
-            style: const TextStyle(color: AppColors.blackColor),
+            style: TextStyle(
+                fontSize: setFont ?? 10.sp,
+                color: AppColors.blackColor,
+                overflow: TextOverflow.ellipsis),
             underline: Container(),
             onChanged: (String? value) {
               onSelect(value);
@@ -56,8 +65,10 @@ class CommonDropDown extends StatelessWidget {
               return DropdownMenuItem<String>(
                   value: value,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: (setFont == null) ? 20.w : 10.w),
                     child: CustomText(
+                      fontsize: setFont ?? 10.sp,
                       title: value,
                       fontweight: FontWeight.w600,
                     ),

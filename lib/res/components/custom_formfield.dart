@@ -65,7 +65,7 @@ class CustomFormField extends StatelessWidget {
         ),
         hintText: title,
         hintStyle: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
             color: fgColor,
             fontSize: fontsize,
             wordSpacing: 0,

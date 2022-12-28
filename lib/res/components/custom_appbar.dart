@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget {
       backgroundColor: AppColors.appbarColor,
       centerTitle: true,
       title: Padding(
-        padding: EdgeInsets.only(top: 15.sm),
+        padding: EdgeInsets.only(top: 10.h),
         child: Image.asset(
           'assets/images/appbarlogo.png',
           fit: BoxFit.fill,
