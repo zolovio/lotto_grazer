@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lotto_grazer/res/colors.dart';
-import 'package:lotto_grazer/res/components/custom_container.dart';
 
 final overduenumbersVmProvider =
     ChangeNotifierProvider.autoDispose<OverduenumbersVm>((ref) {

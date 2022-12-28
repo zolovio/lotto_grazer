@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/utils/utils.dart';
 
 class CustomNumberContainer extends StatelessWidget {
   final String title;
@@ -14,9 +13,9 @@ class CustomNumberContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      width: 34.w,
-      height: 25.h,
-      margin: EdgeInsets.symmetric(horizontal: 6.w),
+      width: 37.w,
+      height: 24.5.h,
+      margin: EdgeInsets.symmetric(horizontal: 15.w),
       border: Border.all(
         width: 2.w,
         color: AppColors.lightBlueColor,

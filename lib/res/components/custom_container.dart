@@ -1,5 +1,6 @@
 import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 
@@ -26,11 +27,9 @@ class CustomContainer extends StatelessWidget {
   EdgeInsetsGeometry margin;
   FlagsCode leadingIcon;
   bool checkWidget;
-
   CustomContainer({
     super.key,
     required this.title,
-    this.leadingIcon = FlagsCode.US,
     this.bgColor = AppColors.whiteColor,
     this.fgColor = AppColors.blackColor,
     this.bottomLeftRadius = 0.0,
@@ -48,47 +47,56 @@ class CustomContainer extends StatelessWidget {
     this.padding = const EdgeInsets.all(0.0),
     this.margin = const EdgeInsets.all(0.0),
     this.checkWidget = false,
+    this.leadingIcon = FlagsCode.US,
   });
 
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: ShapeBorderClipper(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(bottomLeftRadius),
-            bottomRight: Radius.circular(bottomRightRadius),
-            topRight: Radius.circular(topRightRadius),
-            topLeft: Radius.circular(topLeftRadius),
-          ),
+          shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(bottomLeftRadius),
+          bottomRight: Radius.circular(bottomRightRadius),
+          topRight: Radius.circular(topRightRadius),
+          topLeft: Radius.circular(topLeftRadius),
         ),
-      ),
+      )),
       child: checkWidget
           ? Container(
-              padding: padding,
               margin: margin,
               decoration: BoxDecoration(
                 shape: shape,
                 color: bgColor,
                 border: border,
               ),
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
               height: height,
               width: width,
-              child: ListTile(
-                dense: true,
-                leading: Flag.fromCode(
-                  leadingIcon,
-                  height: 35,
-                  width: 40,
-                  fit: BoxFit.fill,
-                ),
-                title: CustomText(
-                  align: align,
-                  title: title.toString(),
-                  fontcolor: fgColor,
-                  fontweight: fontweight,
-                  fontsize: fontsize as double,
-                  underline: underline,
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Flag.fromCode(
+                      leadingIcon,
+                      height: 20.h,
+                      width: 40.w,
+                      fit: BoxFit.fill,
+                    ),
+                    SizedBox(
+                      width: 30.w,
+                    ),
+                    Center(
+                      child: CustomText(
+                        align: align,
+                        title: title,
+                        fontcolor: fgColor,
+                        fontweight: fontweight,
+                        fontsize: fontsize as double,
+                        underline: underline,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             )
@@ -104,13 +112,12 @@ class CustomContainer extends StatelessWidget {
               width: width,
               child: Center(
                 child: CustomText(
-                  align: align,
-                  title: title.toString(),
-                  fontcolor: fgColor,
-                  fontweight: fontweight,
-                  fontsize: fontsize as double,
-                  underline: underline,
-                ),
+                    align: align,
+                    title: title.toString(),
+                    fontcolor: fgColor,
+                    fontweight: fontweight,
+                    fontsize: fontsize as double,
+                    underline: underline),
               ),
             ),
     );

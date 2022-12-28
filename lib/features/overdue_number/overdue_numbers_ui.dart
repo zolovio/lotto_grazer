@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lotto_grazer/features/overdue%20number/overdue_numbers_vm.dart';
+import 'package:lotto_grazer/features/overdue_number/overdue_numbers_vm.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
 import 'package:lotto_grazer/res/components/custom_child_container.dart';
 import 'package:lotto_grazer/res/components/custom_container.dart';
-import 'package:lotto_grazer/res/components/custom_container.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
+import 'package:lotto_grazer/res/components/info_widget.dart';
 import 'package:lotto_grazer/utils/utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -23,7 +23,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
       decoration: BoxDecoration(
         color: AppColors.whiteColor.withOpacity(0.1),
         border: Border.all(
-          width: 1.w,
+          width: 2.w,
           color: AppColors.blackColor,
         ),
       ),
@@ -79,7 +79,7 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
         child: CustomContainer(
           shape: BoxShape.circle,
           border: Border.all(
-            width: 2.5.w,
+            width: 2.w,
             color: AppColors.blueColor,
           ),
           title: titleCol2.toString(),
@@ -108,107 +108,101 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
   List<TableRow> tablerows = [];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(Utils.width(context) * 1, 70.h),
-        child: const CustomAppBar(),
-      ),
-      body: ListView(
-        children: [
-          CustomContainer(
-            width: Utils.width(context) * 1,
-            height: 50.h,
-            title: 'OVERDUE NUMBERS',
-            bgColor: AppColors.blackColor,
-            fgColor: AppColors.whiteColor,
-            fontsize: 17.sp,
-            fontweight: FontWeight.w700,
-            border: Border.all(
-              width: 0.0,
-              color: AppColors.whiteColor.withOpacity(0.1),
+    return SafeArea(
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size(Utils.width(context) * 1, 60.h),
+          child: const CustomAppBar(),
+        ),
+        body: ListView(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                CustomContainer(
+                  width: Utils.width(context) * 1,
+                  height: 40.h,
+                  title: 'OVERDUE NUMBERS',
+                  bgColor: AppColors.blackColor,
+                  fgColor: AppColors.whiteColor,
+                  fontsize: 18.sp,
+                  fontweight: FontWeight.w700,
+                  border: Border.all(
+                    width: 0.0,
+                    color: AppColors.whiteColor.withOpacity(0.1),
+                  ),
+                ),
+                const InfoWidget(
+                  infoTitle: "Overdue Numbers",
+                  infoText:
+                      'is a showcase of the ten(10) numbers which have not been drawn in the winning for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
+                )
+              ],
             ),
-          ),
-          CustomContainer(
-            width: Utils.width(context) * 1,
-            height: 90.h,
-            padding: EdgeInsets.all(10.sm),
-            title:
-                'Overdue Numbers is a showcase of the ten(10) numbers which have not been drawn for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
-            bgColor: AppColors.whiteColor.withOpacity(0.1),
-            fgColor: AppColors.blackColor,
-            fontsize: 15.sp,
-            fontweight: FontWeight.w600,
-            align: TextAlign.left,
-            border: Border.all(
-              width: 0.0,
-              color: AppColors.whiteColor.withOpacity(0.1),
-            ),
-          ),
-          const CustomcatContainer(title: 'GH NATIONAL'),
-          CustomChildContainer(
-            width: Utils.width(context) * 0.07,
-            bgColor: AppColors.whiteColor.withOpacity(0.1),
-            border: Border(
-              bottom: BorderSide(
-                width: 3.w,
-                color: AppColors.blackColor,
+            const CustomcatContainer(title: 'GH NATIONAL'),
+            CustomChildContainer(
+              width: Utils.width(context) * 0.07,
+              bgColor: AppColors.whiteColor.withOpacity(0.1),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomText(
+                          title: 'DRAW: 343',
+                          fontcolor: AppColors.blackColor,
+                          fontweight: FontWeight.w700,
+                          fontsize: 18.sp,
+                          underline: false),
+                      CustomText(
+                          title: '13/06/2022',
+                          fontcolor: AppColors.blackColor,
+                          fontweight: FontWeight.w700,
+                          fontsize: 18.sp,
+                          underline: false),
+                    ]),
               ),
             ),
-            child: ListTile(
-              dense: true,
-              title: CustomText(
-                  title: 'DRAW: 343',
-                  fontcolor: AppColors.blackColor,
-                  fontweight: FontWeight.w700,
-                  fontsize: 15.0,
-                  underline: false),
-              trailing: CustomText(
-                  title: '13/06/2022',
-                  fontcolor: AppColors.blackColor,
-                  fontweight: FontWeight.w700,
-                  fontsize: 15.0,
-                  underline: false),
+            Consumer(builder: (context, ref, _) {
+              final vm = ref.watch(overduenumbersVmProvider);
+              tablerows.clear();
+              tablerows.add(tableheader);
+              for (var i = 0; i < vm.numbers.length; i++) {
+                tablerows.add(rowgenerator(
+                    titleCol1: '${i + 1}',
+                    titleCol2: vm.numbers[i].toString(),
+                    titleCol3: vm.drawDelayFrequency[i].toString()));
+              }
+              return Table(
+                columnWidths: const {
+                  0: FlexColumnWidth(1),
+                  1: FlexColumnWidth(4),
+                  2: FlexColumnWidth(4),
+                },
+                border: TableBorder.all(
+                  color: AppColors.blackColor,
+                  width: 2.w,
+                ),
+                children: tablerows,
+              );
+            }),
+            const CustomcatContainer(title: 'NL BONANZA'),
+            const CustomViewContainer(
+              draw: 973,
+              date: '13/06/2022',
             ),
-          ),
-          Consumer(builder: (context, ref, _) {
-            final vm = ref.watch(overduenumbersVmProvider);
-            tablerows.clear();
-            tablerows.add(tableheader);
-            for (var i = 0; i < vm.numbers.length; i++) {
-              tablerows.add(rowgenerator(
-                  titleCol1: '${i + 1}',
-                  titleCol2: vm.numbers[i].toString(),
-                  titleCol3: vm.drawDelayFrequency[i].toString()));
-            }
-            return Table(
-              columnWidths: const {
-                0: FlexColumnWidth(1),
-                1: FlexColumnWidth(4),
-                2: FlexColumnWidth(4),
-              },
-              border: TableBorder.all(
-                color: AppColors.blackColor,
-                width: 2.w,
-              ),
-              children: tablerows,
-            );
-          }),
-          const CustomcatContainer(title: 'NL BONANZA'),
-          const CustomViewContainer(
-            draw: 973,
-            date: '13/06/2022',
-          ),
-          const CustomcatContainer(title: 'AL PRIME'),
-          const CustomViewContainer(
-            draw: 346,
-            date: '13/06/2022',
-          ),
-          const CustomcatContainer(title: 'GC WAZOBIA'),
-          const CustomViewContainer(
-            draw: 748,
-            date: '13/06/2022',
-          ),
-        ],
+            const CustomcatContainer(title: 'AL PRIME'),
+            const CustomViewContainer(
+              draw: 346,
+              date: '13/06/2022',
+            ),
+            const CustomcatContainer(title: 'GC WAZOBIA'),
+            const CustomViewContainer(
+              draw: 748,
+              date: '13/06/2022',
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -230,17 +224,13 @@ class CustomcatContainer extends StatelessWidget {
       title: title.toString(),
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       fgColor: AppColors.blackColor,
-      fontsize: 17.sp,
+      fontsize: 20.sp,
       fontweight: FontWeight.w700,
       align: TextAlign.center,
       border: Border(
         bottom: BorderSide(
           color: Colors.black,
           width: 3.w,
-        ),
-        top: BorderSide(
-          color: Colors.black,
-          width: 2.w,
         ),
       ),
     );
@@ -260,7 +250,7 @@ class CustomViewContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomChildContainer(
       width: Utils.width(context) * 1.0,
-      height: 85.h,
+      height: 95.h,
       bgColor: AppColors.whiteColor.withOpacity(0.1),
       border: Border(
         bottom: BorderSide(
@@ -272,20 +262,27 @@ class CustomViewContainer extends StatelessWidget {
         children: [
           Column(
             children: [
-              ListTile(
-                dense: true,
-                title: CustomText(
-                    title: 'DRAW: $draw',
-                    fontcolor: AppColors.blackColor,
-                    fontweight: FontWeight.w700,
-                    fontsize: 14.sp,
-                    underline: false),
-                trailing: CustomText(
-                    title: date.toString(),
-                    fontcolor: AppColors.blackColor,
-                    fontweight: FontWeight.w700,
-                    fontsize: 14.sp,
-                    underline: false),
+              SizedBox(
+                height: 50.h,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomText(
+                            title: 'DRAW: $draw',
+                            fontcolor: AppColors.blackColor,
+                            fontweight: FontWeight.w700,
+                            fontsize: 14.sp,
+                            underline: false),
+                        CustomText(
+                            title: date.toString(),
+                            fontcolor: AppColors.blackColor,
+                            fontweight: FontWeight.w700,
+                            fontsize: 14.sp,
+                            underline: false),
+                      ]),
+                ),
               ),
               CustomContainer(
                 width: Utils.width(context) * 1.0,
@@ -306,11 +303,11 @@ class CustomViewContainer extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: 25.h,
+            top: 30.h,
             left: Utils.width(context) * 0.35,
             child: CustomButton(
-              btnwidth: Utils.width(context) * 0.2,
-              btnheight: 32.h,
+              btnwidth: Utils.width(context) * 0.25,
+              btnheight: 35.h,
               bottomLeftRadius: 5.r,
               topLeftRadius: 5.r,
               bottomRightRadius: 5.r,
