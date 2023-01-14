@@ -37,19 +37,19 @@ class _HomePageUiState extends State<HomePageUi> {
     },
     {
       'name': 'LOTTO TOOLS',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.lottoTools,
     },
     {
       'name': 'TIMING\nKEYS',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.timingKeys,
     },
     {
       'name': '2 SURE\nTRACER',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.sureTracer,
     },
     {
       'name': 'POWER X PLAY',
-      'navigation': RoutesName.lottoKeyBook,
+      'navigation': RoutesName.powerXplay,
     },
   ];
 

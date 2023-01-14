@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lotto_grazer/features/2_sure_tracer/sure_tracer.dart';
 import 'package:lotto_grazer/features/home_page/home_ui.dart';
 import 'package:lotto_grazer/features/lotto_prediction/lotto_prediction_ui.dart';
+import 'package:lotto_grazer/features/power_x_play/power_x_play.dart';
+import 'package:lotto_grazer/features/timing_keys/timing_keys_screen.dart';
 import 'package:lotto_grazer/res/colors.dart';
 
 class Dashboard extends StatefulWidget {
@@ -17,10 +20,10 @@ class _DashboardState extends State<Dashboard> {
   List<Widget> children() => [
         const HomePageUi(),
         const LottoPredictionUi(),
-        const HomePageUi(),
-        const HomePageUi(),
-        const HomePageUi(),
-        const HomePageUi(),
+        const TimingKeysScreen(),
+        const SureTracerScreen(),
+        const PowerXplayScreen(),
+        const HomePageUi(), //setting page will be added here
       ];
 
   List<BottomNavModel> navBarsItems() {
@@ -34,8 +37,8 @@ class _DashboardState extends State<Dashboard> {
         title: "LOTTO FORECAST",
       ),
       BottomNavModel(
-        inactiveTitle: "TIMINGS KEYS",
-        title: "TIMINGS KEYS",
+        inactiveTitle: "TIMING KEYS",
+        title: "TIMING KEYS",
       ),
       BottomNavModel(
         inactiveTitle: "2 SURE TRACER",
