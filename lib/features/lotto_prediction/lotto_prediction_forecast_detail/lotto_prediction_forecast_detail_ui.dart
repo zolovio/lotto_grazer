@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lotto_grazer/features/lotto_prediction/lotto_prediction_forecast_detail/lotto_prediction_forecast_detail_vm.dart';
-import 'package:lotto_grazer/features/lotto_prediction/lotto_prediction_forecast_detail/reference_charts/reference_charts.dart';
 import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_appbar.dart';
 import 'package:lotto_grazer/res/components/custom_button.dart';
