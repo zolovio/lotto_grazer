@@ -287,6 +287,8 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                                           AppColors.redColor,
                                                       align: TextAlign.center,
                                                       fontsize: 11.sp,
+                                                      fontweight:
+                                                          FontWeight.w600,
                                                       //Here can be used time from api
                                                       // title:vm.forecastGamesList[index]['remainingTime'],
                                                       title:
@@ -823,16 +825,6 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                                     borderColor:
                                                         Colors.transparent,
                                                   ),
-                                                  SizedBox(
-                                                    width: 4.w,
-                                                  ),
-                                                  WCard(
-                                                    label: vm
-                                                        .savedPlansList[index]
-                                                        .winningNum2,
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                  ),
                                                 ],
                                               ),
                                               Row(
@@ -846,14 +838,6 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                                           .savedPlansList[index]
                                                           .num1,
                                                       title: "V-CODE"),
-                                                  SizedBox(
-                                                    width: 4.w,
-                                                  ),
-                                                  NumberCardWithTitle(
-                                                      num: vm
-                                                          .savedPlansList[index]
-                                                          .num2,
-                                                      title: "CONSTANT"),
                                                 ],
                                               )
                                             ],
@@ -868,7 +852,7 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                               ),
                                               if (vm.savedPlansList[index]
                                                       .planType ==
-                                                  'VERTICAL') ...[
+                                                  'HORIZONTAL') ...[
                                                 CustomChildContainer(
                                                   padding: EdgeInsets.all(8.sm),
                                                   bgColor: Colors.transparent,
@@ -906,7 +890,7 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                               ],
                                               if (vm.savedPlansList[index]
                                                       .planType ==
-                                                  'HORIZONTAL') ...[
+                                                  'VERTICAL') ...[
                                                 CustomChildContainer(
                                                   padding: EdgeInsets.all(8.sm),
                                                   bgColor: Colors.transparent,
@@ -928,23 +912,6 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                                     ),
                                                   ),
                                                 ),
-                                                // CustomChildContainer(
-                                                //   padding: EdgeInsets.all(8.sm),
-                                                //   bgColor: Colors.transparent,
-                                                //   child: Text(
-                                                //     vm.savedPlansList[index]
-                                                //         .signCode2,
-                                                //     textAlign: TextAlign.center,
-                                                //     style: TextStyle(
-                                                //         color:
-                                                //             AppColors.blackColor,
-                                                //         fontSize: 18.sp,
-                                                //         fontWeight:
-                                                //             FontWeight.w700,
-                                                //         wordSpacing: 10.w,
-                                                //         letterSpacing: 5.w),
-                                                //   ),
-                                                // ),
                                               ],
                                               CustomContainer(
                                                 margin: EdgeInsets.only(
@@ -994,44 +961,12 @@ class _LottoPredictionUiState extends State<LottoPredictionUi> {
                                         children: [
                                           Center(
                                               child: GestureDetector(
-                                                  // onTap: () => vm.viewDetailsTap(
-                                                  //       context,
-                                                  //       lotteryGameName: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .lotteryGameName,
-                                                  //       date: vm.savedPlansList[index]
-                                                  //           .date,
-                                                  //       pType: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .planType,
-                                                  //       pName: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .planName,
-                                                  //       winNum1: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .winningNum1,
-                                                  //       winNum2: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .winningNum2,
-                                                  //       isRightDiagonal: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .isRightDiagonal,
-                                                  //       isUpwardPivoted: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .isUpwardPivoted,
-                                                  //       n1: vm.savedPlansList[index]
-                                                  //           .num1,
-                                                  //       n2: vm.savedPlansList[index]
-                                                  //           .num2,
-                                                  //       n3: vm.savedPlansList[index]
-                                                  //           .num3,
-                                                  //       signCode1: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .signCode1,
-                                                  //       signCode2: vm
-                                                  //           .savedPlansList[index]
-                                                  //           .signCode2,
-                                                  //     ),
+                                                  onTap: () =>
+                                                      vm.viewDetailsTap(context,
+                                                          plansData:
+                                                              vm.savedPlansList[
+                                                                  index],
+                                                          countingWeek: '2'),
                                                   child: WCard(
                                                       btnWidth: 80.w,
                                                       btnHeight: 40.h,

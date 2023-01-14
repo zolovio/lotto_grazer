@@ -1,7 +1,7 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lotto_grazer/features/lotto_prediction/saved_plans_forecast_detail/saved_plans_forecast_detail_ui.dart';
 
 final lottoPredictionProvider =
     ChangeNotifierProvider.autoDispose<LottoPredictionVm>((ref) {
@@ -123,6 +123,19 @@ class LottoPredictionVm extends ChangeNotifier {
       'remainingTime': '12:04:59'
     },
   ];
+  void viewDetailsTap(
+    BuildContext context, {
+    plansData,
+    countingWeek,
+  }) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => SavedPlansForecastDetail(
+              plansData: plansData,
+              countingWeek: countingWeek,
+            )));
+    print("view detail");
+  }
+
   //Saved Plans
   List<SavedPlansData> savedPlansList = [
     SavedPlansData(
@@ -142,8 +155,8 @@ class LottoPredictionVm extends ChangeNotifier {
       planType: "DIAGONAL",
       planName: "LAPPING NUMBER",
       isRightDiagonal: true,
-      winningNum1: 'w2',
-      winningNum2: 'w3',
+      winningNum1: 'w1',
+      winningNum2: 'w2',
       num1: '40',
       num2: '59',
     ),
@@ -153,7 +166,7 @@ class LottoPredictionVm extends ChangeNotifier {
       date: "02/06/2022",
       planType: "DIAGONAL",
       planName: "LAPPING NUMBER",
-      winningNum1: 'w15',
+      winningNum1: 'w1',
       winningNum2: 'w2',
       isRightDiagonal: false,
       num1: '40',
@@ -166,7 +179,7 @@ class LottoPredictionVm extends ChangeNotifier {
       planType: "HORIZONTAL",
       planName: "LAPPING NUMBER",
       winningNum1: 'w1',
-      winningNum2: 'w3',
+      winningNum2: 'w2',
       num1: '40',
       num2: '59',
     ),
@@ -174,7 +187,7 @@ class LottoPredictionVm extends ChangeNotifier {
       draw: "966",
       lotteryGameName: "NL FORTUNE",
       date: "02/06/2022",
-      planType: "",
+      planType: "UP",
       planName: "PIVOTED NUMBER",
       winningNum1: 'w',
       num1: '40',
@@ -186,7 +199,7 @@ class LottoPredictionVm extends ChangeNotifier {
       draw: "966",
       lotteryGameName: "NL FORTUNE",
       date: "02/06/2022",
-      planType: "",
+      planType: "DOWN",
       planName: "PIVOTED NUMBER",
       winningNum1: 'w',
       num1: '40',
@@ -220,8 +233,8 @@ class LottoPredictionVm extends ChangeNotifier {
       date: "02/06/2022",
       planType: "",
       planName: "EVENT SUMMATION",
-      winningNum1: 'w15',
-      winningNum2: 'w2',
+      winningNum1: 'w',
+      winningNum2: 'w3',
       num1: '160',
       num2: '31',
     ),
@@ -231,8 +244,8 @@ class LottoPredictionVm extends ChangeNotifier {
       date: "02/06/2022",
       planType: "",
       planName: "POLAR ADDITION",
-      winningNum1: 'w',
-      winningNum2: 'w2',
+      winningNum1: 'w15',
+      winningNum2: 'w3',
       num1: '141',
       num2: '34',
     ),
@@ -243,28 +256,26 @@ class LottoPredictionVm extends ChangeNotifier {
       planType: "",
       planName: "SEQUENTIAL NUMBER",
       winningNum1: 'w',
-      winningNum2: 'W3',
       num1: '14325',
-      num2: '35',
+    ),
+    SavedPlansData(
+      draw: "966",
+      lotteryGameName: "NL FORTUNE",
+      date: "02/06/2022",
+      planType: "VERTICAL",
+      planName: "PROGRESSIVE NUMBER",
+      winningNum1: 'w',
+      signCode1: '-- -- * + --',
     ),
     SavedPlansData(
         draw: "966",
         lotteryGameName: "NL FORTUNE",
         date: "02/06/2022",
-        planType: "VERTICAL",
+        planType: "HORIZONTAL",
         planName: "PROGRESSIVE NUMBER",
         winningNum1: 'w',
-        signCode1: '-- + -- + +',
-        signCode2: '-- + -- + +'),
-    SavedPlansData(
-      draw: "966",
-      lotteryGameName: "NL FORTUNE",
-      date: "02/06/2022",
-      planType: "HORIZONTAL",
-      planName: "PROGRESSIVE NUMBER",
-      winningNum1: 'w',
-      signCode1: '-- + -- +',
-    ),
+        signCode1: '-- -- -- +',
+        signCode2: '+ + -- +'),
     SavedPlansData(
       draw: "966",
       lotteryGameName: "NL FORTUNE",
