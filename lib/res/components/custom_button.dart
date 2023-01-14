@@ -4,24 +4,24 @@ import 'package:lotto_grazer/res/colors.dart';
 import 'package:lotto_grazer/res/components/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
-  String title;
-  bool loading;
-  bool underline;
+  final String title;
+  final bool loading;
+  final bool underline;
   final VoidCallback onpress;
-  Color bgColor;
-  Color fgColor;
-  Color bdColor;
-  double bottomLeftRadius;
-  double topLeftRadius;
-  double bottomRightRadius;
-  double topRightRadius;
-  double? btnwidth;
-  double? btnheight;
-  double fontsize;
-  FontWeight fontweight;
-  double bdwidth;
-  double? elevation;
-  CustomButton({
+  final Color bgColor;
+  final Color fgColor;
+  final Color bdColor;
+  final double bottomLeftRadius;
+  final double topLeftRadius;
+  final double bottomRightRadius;
+  final double topRightRadius;
+  final double? btnwidth;
+  final double? btnheight;
+  final double fontsize;
+  final FontWeight fontweight;
+  final double bdwidth;
+  final double? elevation;
+  const CustomButton({
     super.key,
     required this.title,
     required this.onpress,

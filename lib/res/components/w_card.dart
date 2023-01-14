@@ -11,15 +11,15 @@ class WCard extends StatelessWidget {
   final double btnHeight;
   final double btnWidth;
 
-  const WCard(
-      {Key? key,
-      required this.label,
-      this.borderColor,
-      this.textColor,
-      this.bgColor,
-      this.btnHeight = 50,
-      this.btnWidth = 100})
-      : super(key: key);
+  const WCard({
+    Key? key,
+    required this.label,
+    this.borderColor,
+    this.textColor,
+    this.bgColor,
+    this.btnHeight = 50,
+    this.btnWidth = 100,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

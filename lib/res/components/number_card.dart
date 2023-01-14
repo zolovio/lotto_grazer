@@ -31,8 +31,12 @@ class NumberCard extends StatelessWidget {
 class NumberCardWithTitle extends StatelessWidget {
   final String num;
   final String title;
-
-  const NumberCardWithTitle({Key? key, required this.num, required this.title})
+  final bool isFromTimingKeys;
+  const NumberCardWithTitle(
+      {Key? key,
+      required this.num,
+      required this.title,
+      this.isFromTimingKeys = false})
       : super(key: key);
 
   @override
@@ -43,7 +47,7 @@ class NumberCardWithTitle extends StatelessWidget {
           width: (title == "SPACING") ? 100.w : 85.w,
           height: 35.h,
           title: num,
-          bgColor: AppColors.whiteColor.withOpacity(0.1),
+          bgColor: AppColors.whiteColor,
           fgColor: AppColors.blackColor,
           fontsize: 14.sp,
           fontweight: FontWeight.w800,
@@ -57,17 +61,68 @@ class NumberCardWithTitle extends StatelessWidget {
           width: (title == "SPACING") ? 100.w : 85.w,
           height: 30.h,
           title: title,
-          bgColor: AppColors.blueColor,
+          bgColor:
+              isFromTimingKeys ? AppColors.blackColor : AppColors.blueColor,
           fgColor: AppColors.whiteColor,
           fontsize: 10.sp,
           fontweight: FontWeight.w800,
           align: TextAlign.center,
           border: Border.all(
-            color: AppColors.lightBlueColor,
+            color: isFromTimingKeys
+                ? AppColors.whiteColor
+                : AppColors.lightBlueColor,
             width: 2.w,
           ),
         ),
       ],
+    );
+  }
+}
+
+class GradientNumberCard extends StatefulWidget {
+  final String label;
+  final double width;
+  final bool isTransparent;
+  const GradientNumberCard(
+      {Key? key, required this.label, this.isTransparent = true,required this.width})
+      : super(key: key);
+
+  @override
+  State<GradientNumberCard> createState() => _GradientNumberCardState();
+}
+
+class _GradientNumberCardState extends State<GradientNumberCard> {
+  @override
+  Widget build(BuildContext context) {
+    final kInnerDecoration = BoxDecoration(
+      color: widget.isTransparent ? AppColors.whiteColor : AppColors.greyColor,
+      border: Border.all(color: Colors.transparent),
+      // borderRadius: BorderRadius.circular(6.r),
+    );
+
+    final kGradientBoxDecoration = BoxDecoration(
+      color: widget.isTransparent ? AppColors.whiteColor : AppColors.greyColor,
+      gradient: const LinearGradient(colors: [
+        AppColors.redColor,
+        Color.fromARGB(255, 117, 13, 13),
+      ]),
+      border: Border.all(color: Colors.transparent),
+      // borderRadius: BorderRadius.circular(6.r),
+    );
+    return Container(
+      height: 26.h,
+      width: widget.width,
+      decoration: kGradientBoxDecoration,
+      child: Container(
+        alignment: Alignment.center,
+        decoration: kInnerDecoration,
+        child: CustomText(
+          title: widget.label,
+          fontsize: 11.sp,
+          fontweight: FontWeight.w800,
+          fontcolor: AppColors.blackColor,
+        ),
+      ),
     );
   }
 }

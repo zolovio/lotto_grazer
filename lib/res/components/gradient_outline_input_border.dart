@@ -128,8 +128,9 @@ class GradientOutlineInputBorder extends InputBorder {
       ..addArc(tlCorner, math.pi, tlCornerArcSweep)
       ..moveTo(scaledRRect.left + scaledRRect.tlRadiusX, scaledRRect.top);
 
-    if (start > scaledRRect.tlRadiusX)
+    if (start > scaledRRect.tlRadiusX) {
       path.lineTo(scaledRRect.left + start, scaledRRect.top);
+    }
 
     const double trCornerArcStart = (3 * math.pi) / 2.0;
     const double trCornerArcSweep = cornerArcSweep;

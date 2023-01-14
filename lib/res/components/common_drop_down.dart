@@ -9,6 +9,7 @@ class CommonDropDown extends StatelessWidget {
   final List<String> list;
   final Function onSelect;
   final double? setWidth;
+  final double? setHeight;
   final double? setFont;
   const CommonDropDown({
     Key? key,
@@ -16,19 +17,21 @@ class CommonDropDown extends StatelessWidget {
     required this.list,
     required this.onSelect,
     this.setWidth,
+    this.setHeight,
     this.setFont,
     this.title,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null) ...[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 4.h),
+            padding: (title == 'Select Your Banker')
+                ? EdgeInsets.symmetric(vertical: 1.h)
+                : EdgeInsets.symmetric(vertical: 4.h),
             child: CustomText(
               title: title!,
               fontsize: 8.sp,
@@ -37,7 +40,7 @@ class CommonDropDown extends StatelessWidget {
           )
         ],
         Container(
-          height: 38.h,
+          height: setHeight ?? 38.h,
           width: setWidth,
           alignment: Alignment.center,
           decoration: BoxDecoration(
@@ -47,6 +50,7 @@ class CommonDropDown extends StatelessWidget {
           ),
           child: DropdownButton<String>(
             value: initialValue,
+            dropdownColor: const Color.fromARGB(255, 238, 237, 237),
             icon: Icon(
               Icons.arrow_downward,
               color: AppColors.blackColor,
