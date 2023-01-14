@@ -40,6 +40,7 @@ dependencies:
   get: any
   flutter_screenutil: any
   syncfusion_flutter_pdfviewer: any
+  syncfusion_flutter_gauges: any
   flutter_riverpod: any
   flag: ^6.0.0
   cached_network_image: ^3.2.3
