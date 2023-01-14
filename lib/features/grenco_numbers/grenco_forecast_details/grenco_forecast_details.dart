@@ -312,7 +312,7 @@ class _GrencoForecastDetailsState extends State<GrencoForecastDetails> {
                     title: 'VIEW PLAN ON CHARTS',
                     fontsize: 14.sp,
                     fontweight: FontWeight.w600,
-                    onpress: () {},
+                    onpress: () => vm.viewReferenceEvents(context),
                   ),
                 ],
               ),
