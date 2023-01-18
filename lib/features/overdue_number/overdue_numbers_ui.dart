@@ -114,66 +114,67 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
           preferredSize: Size(Utils.width(context) * 1, 60.h),
           child: const CustomAppBar(),
         ),
-        body: ListView(
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                CustomContainer(
-                  width: Utils.width(context) * 1,
-                  height: 40.h,
-                  title: 'OVERDUE NUMBERS',
-                  bgColor: AppColors.blackColor,
-                  fgColor: AppColors.whiteColor,
-                  fontsize: 18.sp,
-                  fontweight: FontWeight.w700,
-                  border: Border.all(
-                    width: 0.0,
-                    color: AppColors.whiteColor.withOpacity(0.1),
+        body: Consumer(builder: (context, ref, _) {
+          final vm = ref.watch(overduenumbersVmProvider);
+          tablerows.clear();
+          tablerows.add(tableheader);
+          for (var i = 0; i < vm.numbers.length; i++) {
+            tablerows.add(rowgenerator(
+                titleCol1: '${i + 1}',
+                titleCol2: vm.numbers[i].toString(),
+                titleCol3: vm.drawDelayFrequency[i].toString()));
+          }
+          return ListView(
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  CustomContainer(
+                    width: Utils.width(context) * 1,
+                    height: 40.h,
+                    title: 'OVERDUE NUMBERS',
+                    bgColor: AppColors.blackColor,
+                    fgColor: AppColors.whiteColor,
+                    fontsize: 18.sp,
+                    fontweight: FontWeight.w700,
+                    border: Border.all(
+                      width: 0.0,
+                      color: AppColors.whiteColor.withOpacity(0.1),
+                    ),
                   ),
-                ),
-                const InfoWidget(
-                  infoTitle: "Overdue Numbers",
-                  infoText:
-                      'is a showcase of the ten(10) numbers which have not been drawn in the winning for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
-                )
-              ],
-            ),
-            const CustomcatContainer(title: 'GH NATIONAL'),
-            CustomChildContainer(
-              width: Utils.width(context) * 0.07,
-              bgColor: AppColors.whiteColor.withOpacity(0.1),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CustomText(
-                          title: 'DRAW: 343',
-                          fontcolor: AppColors.blackColor,
-                          fontweight: FontWeight.w700,
-                          fontsize: 18.sp,
-                          underline: false),
-                      CustomText(
-                          title: '13/06/2022',
-                          fontcolor: AppColors.blackColor,
-                          fontweight: FontWeight.w700,
-                          fontsize: 18.sp,
-                          underline: false),
-                    ]),
+                  const InfoWidget(
+                    infoTitle: "Overdue Numbers",
+                    infoText:
+                        'is a showcase of the ten(10) numbers which have not been drawn in the winning for the longest amount of time. The table below shows how many draw it has been since each number last appeared.',
+                  )
+                ],
               ),
-            ),
-            Consumer(builder: (context, ref, _) {
-              final vm = ref.watch(overduenumbersVmProvider);
-              tablerows.clear();
-              tablerows.add(tableheader);
-              for (var i = 0; i < vm.numbers.length; i++) {
-                tablerows.add(rowgenerator(
-                    titleCol1: '${i + 1}',
-                    titleCol2: vm.numbers[i].toString(),
-                    titleCol3: vm.drawDelayFrequency[i].toString()));
-              }
-              return Table(
+              const CustomcatContainer(title: 'GH NATIONAL'),
+              CustomChildContainer(
+                width: Utils.width(context) * 0.07,
+                bgColor: AppColors.whiteColor.withOpacity(0.1),
+                child: Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomText(
+                            title: 'DRAW: 343',
+                            fontcolor: AppColors.blackColor,
+                            fontweight: FontWeight.w700,
+                            fontsize: 18.sp,
+                            underline: false),
+                        CustomText(
+                            title: '13/06/2022',
+                            fontcolor: AppColors.blackColor,
+                            fontweight: FontWeight.w700,
+                            fontsize: 18.sp,
+                            underline: false),
+                      ]),
+                ),
+              ),
+              Table(
                 columnWidths: const {
                   0: FlexColumnWidth(1),
                   1: FlexColumnWidth(4),
@@ -184,25 +185,25 @@ class _OverdueNumbersUiState extends State<OverdueNumbersUi> {
                   width: 2.w,
                 ),
                 children: tablerows,
-              );
-            }),
-            const CustomcatContainer(title: 'NL BONANZA'),
-            const CustomViewContainer(
-              draw: 973,
-              date: '13/06/2022',
-            ),
-            const CustomcatContainer(title: 'AL PRIME'),
-            const CustomViewContainer(
-              draw: 346,
-              date: '13/06/2022',
-            ),
-            const CustomcatContainer(title: 'GC WAZOBIA'),
-            const CustomViewContainer(
-              draw: 748,
-              date: '13/06/2022',
-            ),
-          ],
-        ),
+              ),
+              const CustomcatContainer(title: 'NL BONANZA'),
+              const CustomViewContainer(
+                draw: 973,
+                date: '13/06/2022',
+              ),
+              const CustomcatContainer(title: 'AL PRIME'),
+              const CustomViewContainer(
+                draw: 346,
+                date: '13/06/2022',
+              ),
+              const CustomcatContainer(title: 'GC WAZOBIA'),
+              const CustomViewContainer(
+                draw: 748,
+                date: '13/06/2022',
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

@@ -26,7 +26,7 @@ class Routes {
             builder: (BuildContext context) => const LanguageUi());
       case RoutesName.login:
         return MaterialPageRoute(
-            builder: (BuildContext context) => const LoginUi());
+            builder: (BuildContext context) => const AuthUi());
       case RoutesName.dashboard:
         return MaterialPageRoute(
             builder: (BuildContext context) => const Dashboard());
